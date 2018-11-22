@@ -69,6 +69,13 @@ var app = new Vue({
                 "99,90 TL",
                 "https://www.hepsiburada.com/jbl-t450-kulakustu-kulaklik-ct-oe-pm-HB000004FXQO"
             ],
+			[
+                "./img/ekran-karti/msi1050ti.jpg",
+                '[TR]MSI 1050 TI 4GB AERO',
+                "940,64 TL",
+                "https://www.amazon.com.tr/dp/B073WGWCDC"
+            ],
+			
 			
         ]
     }
