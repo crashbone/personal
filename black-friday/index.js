@@ -39,6 +39,12 @@ var app = new Vue({
                 "$38.99 + $16.12",
                 "https://www.amazon.com/DualShock-Wireless-Controller-PlayStation-Black-4/dp/B01LWVX2RG"
             ],
+			[
+                "./img/ekran-karti/asus1070ti.jpg",
+                "[HB]Asus Turbo 1070 TI 8GB",
+                "2.319,15 TL",
+                "https://www.hepsiburada.com/asus-turbo-nvidia-geforce-gtx-1070ti-8gb-256bit-gddr5-dx12-pci-e-3-0-ekran-karti-turbo-gtx1070ti-8g-p-HBV000009813B?"
+            ],
 			
         ]
     }
