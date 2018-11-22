@@ -26,7 +26,13 @@ var app = new Vue({
                 "Samsung 860 EVO 500GB",
                 "$72.99 + $20.33",
                 "https://www.amazon.com/Samsung-500GB-Internal-MZ-76E500B-AM/dp/B0781Z7Y3S"
-            ]
+            ],
+			[
+                "./3/1.jpg",
+                "Samsung 860 EVO 1TB",
+                "$127.98 + $31.14",
+                "https://www.amazon.com/Samsung-Inch-Internal-MZ-76E1T0B-AM/dp/B078DPCY3T"
+            ],
         ]
     }
 })
