@@ -45,6 +45,12 @@ var app = new Vue({
                 "2.319,15 TL",
                 "https://www.hepsiburada.com/asus-turbo-nvidia-geforce-gtx-1070ti-8gb-256bit-gddr5-dx12-pci-e-3-0-ekran-karti-turbo-gtx1070ti-8g-p-HBV000009813B?"
             ],
+            [
+                "./img/monitor/vx2458.jpg",
+                '[HB]ViewSonic VX2458-C 24" 144Hz 1ms Freesync 1080p',
+                "1.099,00 TL",
+                "https://www.hepsiburada.com/viewsonic-vx2458-c-mhd-24-144hz-1ms-hdmi-display-dvi-freesync-full-hd-curved-monitor-p-HBV00000F4VYS"
+            ],
 			
         ]
     }
