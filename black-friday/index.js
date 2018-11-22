@@ -63,6 +63,13 @@ var app = new Vue({
                 "199,00 TL",
                 "https://www.hepsiburada.com/razer-deathadder-expert-mouse-p-BD800351"
             ],
+			[
+                "./img/kulaklik/jbl-t450.jpg",
+                '[HB]JBL T450 Kulaküstü Kulaklık CT OE',
+                "99,90 TL",
+                "https://www.hepsiburada.com/jbl-t450-kulakustu-kulaklik-ct-oe-pm-HB000004FXQO"
+            ],
+			
         ]
     }
 })
