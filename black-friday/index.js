@@ -51,7 +51,18 @@ var app = new Vue({
                 "1.099,00 TL",
                 "https://www.hepsiburada.com/viewsonic-vx2458-c-mhd-24-144hz-1ms-hdmi-display-dvi-freesync-full-hd-curved-monitor-p-HBV00000F4VYS"
             ],
-			
+            [
+                "./img/fare/deathadder1800.jpg",
+                '[GB]Razer Deathadder RZ01-0085 1800DPI',
+                "131.11 TL",
+                "https://tr.gearbest.com/mouse/pp_1422191.html"
+            ],
+			[
+                "./img/fare/deathadder6400.jpg",
+                '[HB]Razer Deathadder 6400DPI',
+                "199,00 TL",
+                "https://www.hepsiburada.com/razer-deathadder-expert-mouse-p-BD800351"
+            ],
         ]
     }
 })
