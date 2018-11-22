@@ -20,6 +20,12 @@ var app = new Vue({
                 "[TR]Pioneer Se-Mj503-T-K Kulaklık, Siyah",
                 "57,20 TL",
                 "https://www.amazon.com.tr/Pioneer-SE-MJ503T-K-Se-Mj503-T-K-Kulaklık-Siyah/dp/B015RLE9HQ"
+            ],
+			[
+                "./3/1.jpg",
+                "Samsung 860 EVO 500GB",
+                "$72.99 + $20.33",
+                "https://www.amazon.com/Samsung-500GB-Internal-MZ-76E500B-AM/dp/B0781Z7Y3S"
             ]
         ]
     }
