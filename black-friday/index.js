@@ -36,7 +36,7 @@ var app = new Vue({
             [
                 "./img/monitor/vx2458.jpg",
                 '[HB]ViewSonic VX2458-C 24" 144Hz 1ms Freesync 1080p',
-                "1.099,00 TL",
+                "999,00 TL",
                 "https://www.hepsiburada.com/viewsonic-vx2458-c-mhd-24-144hz-1ms-hdmi-display-dvi-freesync-full-hd-curved-monitor-p-HBV00000F4VYS"
             ],
             [
