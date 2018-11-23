@@ -9,6 +9,12 @@ var app = new Vue({
             //     (2)"PRICE"
             //     (3)"http://link"
             // ]
+			[
+                "./img/oyun/hitman.png",
+                '[Steam]Hitman™',
+                "30,98 TL",
+                "https://store.steampowered.com/app/236870/HITMAN"
+            ],
             [
                 "./img/ekran-karti/msi-vega56.jpg",
                 '[HB]MSI AMD Vega56 Air Boost 8GB',

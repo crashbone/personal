@@ -18,6 +18,7 @@
     margin-top: 2vh;
 }
 .item > .pic{
+	padding: 1vh;
     border: 1px solid #cccccc;
 }
 
