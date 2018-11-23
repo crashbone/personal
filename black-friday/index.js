@@ -10,6 +10,12 @@ var app = new Vue({
             //     (3)"http://link"
             // ]
             [
+                "./img/fare/g600.jpg",
+                '[COM]Logitech G600 MMO Mouse',
+                "$37.14 + $14.69",
+                "https://www.amazon.com/Logitech-Backlit-Programmable-Buttons-910-002864/dp/B0086UK7IQ"
+            ],
+			[
                 "./img/ekran-karti/msi1050ti.jpg",
                 '[TR]MSI 1050 TI 4GB AERO',
                 "940,64 TL",
