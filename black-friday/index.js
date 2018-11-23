@@ -10,6 +10,12 @@ var app = new Vue({
             //     (3)"http://link"
             // ]
             [
+                "./img/ekran-karti/msi-vega56.jpg",
+                '[COM]MSI AMD Vega56 Air Boost 8GB',
+                "1.999,62 TL",
+                "https://www.hepsiburada.com/msi-vga-radeon-rx-vega-56-air-boost-8gb-oc-ekran-karti-p-HBV00000A0VAM"
+            ],
+            [
                 "./img/fare/g600.jpg",
                 '[COM]Logitech G600 MMO Mouse',
                 "$37.14 + $14.69",
