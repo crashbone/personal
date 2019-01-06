@@ -10,6 +10,7 @@
 <body>
     <div id="main_container">
         <div v-if="!submitted">
+            <p>"Tab"(\t), "::", "//", "--", "__" are valid seperators</p>
             <textarea class="notsubmitted" v-model="textarea"></textarea>
             <button v-on:click="submit">Submit</button>
         </div>
@@ -24,7 +25,7 @@
             </div>
         </div>
         <div>
-                <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
+            <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
             <textarea v-if="submitted" class="submitted" v-model="textarea"></textarea>
         </div>
     </div>
@@ -36,12 +37,43 @@
     var app = new Vue({
         el: '#main_container',
         data: {
-            artikels: ["der ", "die ", "das "],
+            artikels: ["der", "die", "das"],
             hide: false,
             submitted: false,
-            textarea: "der Apfel\ndie Kartoffel\ndas Auto\nganz\nlecker",
+            textarea: "der::Apfel__Apple\ndie--Kartoffel//Potato\ndas__Auto\nganz\nlecker",
             words: [],
             longall: false,
+            splitLibrary: {
+                flatten: function (arr) {
+                    var self = this;
+                    return arr.reduce(function (acc, val) {
+                        return acc.concat(val.constructor === Array ? self.flatten(val) : val);
+                    }, []);
+                },
+                traverseListFunc: function (list, expression, index, func) {
+                    var self = this;
+                    if (list[index]) {
+                        if ((list.constructor !== String) && (list[index].constructor === String))
+                            (list[index] != func(list[index], expression)) ? list[index] = func(list[index], expression) : null;
+                        (list[index].constructor === Array) ? self.traverseListFunc(list[index], expression, 0, func) : null;
+                        (list.constructor === Array) ? self.traverseListFunc(list, expression, index + 1, func) : null;
+                    }
+                },
+                mapFuncToString: function (string, expressions, func) {
+                    var self = this;
+                    var list = [string];
+                    for (var i = 0, len = expressions.length; i < len; i++) {
+                        self.traverseListFunc(list, expressions[i], 0, func);
+                    }
+                    return self.flatten(list);
+                },
+                splitString: function (string, splitters) {
+                    return this.mapFuncToString(string, splitters, function (item, expression) {
+                        return item.split(expression);
+                    })
+                },
+
+            }
         },
         methods: {
             paragraphClass(word) {
@@ -57,21 +89,26 @@
                 var words = this.textarea.split("\n")
                 this.shuffle(words)
                 words.forEach(word => {
-                    word = word.replace(/\t/g, ' ')
-                    if (this.artikels.includes(word.substring(0, 4))) {
+                    var wordArray = this.splitLibrary.splitString(word, ["\t", "::", "//", "--", "__"])
+                    console.log(wordArray)
+                    if (this.artikels.includes(wordArray[0])) { //first tab is artikel
                         var wordO = {
                             hasArtikel: true,
-                            artikel: word.substring(0, 3).toLowerCase(),
-                            word: word.substring(4),
-                            context: word.substring(4),
+                            artikel: wordArray[0].toLowerCase(),
+                            word: wordArray[1],
+                            meaning: "",
+                            context: wordArray[1],
                             long: false
                         }
+                        if (wordArray[2]) wordO.meaning = wordArray[2]
                     }
-                    else {
+                    else { //direct word
                         var wordO = {
                             hasArtikel: false,
+                            meaning: "",
                             context: word
                         }
+                        if (wordArray[1]) wordO.meaning = wordArray[1]
                     }
                     this.words.push(wordO)
                 });
@@ -79,7 +116,7 @@
             },
             long(i) {
                 if (this.words[i].hasArtikel) {
-                    this.words[i].context = this.words[i].artikel + " " + this.words[i].word
+                    this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
                     this.words[i].long = true
                 }
             },
@@ -145,7 +182,7 @@
     textarea.submitted {
         display: block;
         margin-top: 5vh;
-        width: 15vw;
+        width: 25vw;
         height: 20vh;
     }
 
