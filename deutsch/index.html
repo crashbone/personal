@@ -11,7 +11,7 @@
     <div id="main_container">
         <div v-if="!submitted">
             <textarea class="notsubmitted" v-model="textarea"></textarea>
-            <button v-on:click="submit">Submit</button>
+            <button v-on:dblclick="submit">Submit</button>
         </div>
         <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
         <div class="container-fluid">
