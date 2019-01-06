@@ -11,7 +11,8 @@
     <div id="main_container">
         <div v-if="!submitted">
             <p>"Tab"(\t), "::", "//", "--", "__" are valid seperators</p>
-            <textarea class="notsubmitted" v-model="textarea"></textarea>
+            <p>Double click text for toggle</p>
+            <textarea class="notsubmitted" v-model="textarea" autofocus></textarea>
             <button v-on:click="submit">Submit</button>
         </div>
         <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
@@ -40,9 +41,9 @@
             artikels: ["der", "die", "das"],
             hide: false,
             submitted: false,
-            textarea: "der::Apfel__Apple\ndie--Kartoffel//Potato\ndas__Auto\nganz\nlecker",
+            textarea: "der::Name::name\nder::Apfel::apple\nder::Computer::computer\ndie::Frage::question\ndie::Kartoffel::potato\ndas::Auto::car\ndas::Buch::book\nschlafen::sleep\nkosten::cost",
             words: [],
-            longall: false,
+            modeall: 0,
             splitLibrary: {
                 flatten: function (arr) {
                     var self = this;
@@ -79,9 +80,9 @@
             paragraphClass(word) {
                 console.log("test")
                 return {
-                    der: word.artikel == "der" && word.long == true,
-                    die: word.artikel == "die" && word.long == true,
-                    das: word.artikel == "das" && word.long == true,
+                    der: word.artikel == "der" && word.mode == 1,
+                    die: word.artikel == "die" && word.mode == 1,
+                    das: word.artikel == "das" && word.mode == 1,
                 }
             },
             submit() {
@@ -98,7 +99,7 @@
                             word: wordArray[1],
                             meaning: "",
                             context: wordArray[1],
-                            long: false
+                            mode: 0
                         }
                         if (wordArray[2]) wordO.meaning = wordArray[2]
                     }
@@ -106,7 +107,9 @@
                         var wordO = {
                             hasArtikel: false,
                             meaning: "",
-                            context: word
+                            word: wordArray[0],
+                            context: wordArray[0],
+                            mode: 0
                         }
                         if (wordArray[1]) wordO.meaning = wordArray[1]
                     }
@@ -114,40 +117,70 @@
                 });
 
             },
+
+            meaning(i){
+                if (this.words[i].meaning){
+                    this.words[i].context = this.words[i].meaning
+                    this.words[i].mode = 2
+                }
+                else{
+                    this.short(i)
+                }
+            },
             long(i) {
                 if (this.words[i].hasArtikel) {
                     this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
-                    this.words[i].long = true
+                    this.words[i].mode = 1
+                }
+                else{
+                    this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
+                    this.words[i].mode = 1
                 }
             },
             short(i) {
                 if (this.words[i].hasArtikel) {
                     this.words[i].context = this.words[i].word
-                    this.words[i].long = false
+                    this.words[i].mode = 0;
+                }
+                else{
+                    this.words[i].context = this.words[i].word
+                    this.words[i].mode = 0;
                 }
             },
             toggleAll() {
-                if (this.longall) {
-                    for (var i = 0; i < this.words.length; i++) {
-                        this.short(i)
-                    }
-                    this.longall = false;
-                }
-                else {
+                if (this.modeall == 0) {
                     for (var i = 0; i < this.words.length; i++) {
                         this.long(i)
                     }
-                    this.longall = true;
+                    this.modeall = 1;
+                }
+                else if(this.modeall == 1) {
+                    for (var i = 0; i < this.words.length; i++) {
+                        this.meaning(i)
+                    }
+                    this.modeall = 2;
+                }
+                else if(this.modeall == 2) {
+                    for (var i = 0; i < this.words.length; i++) {
+                        this.short(i)
+                    }
+                    this.modeall = 0;
                 }
             },
             toggle(i) {
-                if (this.words[i].hasArtikel) {
-                    if (this.words[i].long) {
-                        this.short(i)
-                    }
-                    else {
+                if(this.words[i].mode == 0){
+                    if (this.words[i].hasArtikel){
                         this.long(i)
                     }
+                    else{
+                        this.meaning(i)
+                    }
+                }
+                else if(this.words[i].mode == 1){
+                    this.meaning(i)
+                }
+                else if(this.words[i].mode == 2){
+                    this.short(i)
                 }
             },
             clicked(i) {
