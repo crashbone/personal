@@ -11,14 +11,14 @@
     <div id="main_container">
         <div v-if="!submitted">
             <textarea class="notsubmitted" v-model="textarea"></textarea>
-            <button v-on:dblclick="submit">Submit</button>
+            <button v-on:click="submit">Submit</button>
         </div>
         <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
                     <div class="row">
-                        <p class="col-3 word" v-on:click="clicked(index)" v-for="(word,index) in words" v-bind:class="paragraphClass(word)">{{word.context}}</p>
+                        <p class="col-3 word" v-on:dblclick="clicked(index)" v-for="(word,index) in words" v-bind:class="paragraphClass(word)">{{word.context}}</p>
                     </div>
                 </div>
             </div>
