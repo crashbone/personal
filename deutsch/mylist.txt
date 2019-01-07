@@ -1,0 +1,229 @@
+der	Name	name
+der	Apfel	apple
+der	Computer	computer
+der	Mann	man
+der	Kaffee	coffee
+der	Freund	friend
+der	Arzt	doctor
+der	Stift	pen
+der	Schmetterling	butterfly
+der	Elefant	elephant
+der	Fluss	river
+der	Teppich	carpet
+der	Honig	honey
+der	Fehler	mistake
+der	Woche	week
+der	Küche	kitchen
+der	Satz	salt
+der	Lied	song
+der	Friseur	barber
+der	Kamm	tarak-comb
+der	Urwald	forest
+der	Beruf	job
+der	Zug	train
+die	Uhr	clock
+die	Frau	woman
+die	Bücherei	library
+die	Datei	file
+die	Wissenschaft	science
+die	Freundschaft	friendship
+die	Gesundheit	health
+die	Schwierigkeit	difficulty
+die	Universität	university
+die	Elektrizität	electricity
+die	Situation	situation
+die	Kultur	culture
+die	Natur	nature
+die	Stadt	city
+die	Zahl	number
+die	Lampe	lamp
+die	Haarbürste	tarak
+die	Erdbeere	strawberry-çilek
+die	Frage	question
+die	Kartoffel	potato
+die	Ausnahme	exception
+die	Flasche	bottle
+die	Schere	makas-scissors
+die	Farbe	color
+die	Bahn	train
+die	U-Bahn	metro
+die	Straßebahn	tramvay
+die	Wäsche	laundry
+das	Mädchen	girl
+das	Fräulein	teenage-girl
+das	Hühnchen	chicken
+das	Experiment	Experiment
+das	Thema	theme
+das	Drama	drama
+das	Schwimmen	swim
+das	Leben	life
+das	Timing	Timing
+das	Training	Training
+das	Wissen	knowledge
+das	Gebirge	mountains
+das	Jahr	year
+das	Wasser	water
+das	Lamm	kuzu-lamb
+das	Dorf	village
+das	Ei	egg
+das	Auto	car
+das	Beispiel	for-example
+das	Buch	book
+das	Messer	knife
+das	Flugzeug	plane
+kennenzulernen	tanýþmak
+schreiben	write
+schlafen	sleep
+kommen 	come
+wohnen	stay/live
+kosten	cost
+geben	give
+arbeiten	work
+anschauen	look at
+stehen	stand
+kaufen	buy
+freuten	please(verb)
+füllen	fill
+benutzen	use
+lernen	learn
+hoffen	hope
+sehen	see
+sagen	say
+einfügen	paste-insert
+wissen	know
+leben	live
+schneiden	cut
+reisen	travel
+fahren(auto-bus-fahhrad)	travel-with-smth
+verstehen	understand
+ziehen	pull
+umziehen	move
+schmecken	taste
+probieren	trying-to-taste
+vergessen	forget
+unterrichten	teach
+lehren	teach
+brauchen	need
+besuchen	visit
+Ein bisschen	a-little-bit
+vielen	many
+ziemlich	oldukça-pretty
+Jetzt	now
+Ja, jo, jap, no	yes
+Nein, Nee, Nö	no
+teuer	expensive
+wichtig	important
+hilfreich	helpful
+draußen	outside
+neues	new
+genau	exactly
+dran	turn-sýra
+man	one(someone)
+ledig	single(not-married)
+verheiratet	married
+verlobt	engaged
+geschieden	divorced
+verschieden	düz different
+unterschiedlich	baskýn different
+anders	genel different
+hängt von	depends on
+hoch, höchste	high, highest
+richtige	rightone
+aber	but
+Ganz	completely
+lecker	delicious
+prost	þerefe!
+nass	wet
+vielleicht	belki-perhaps
+dafür	for this
+jedem	every/each
+als erstes/zuerst	first
+danach	then/after that
+nach	by/to
+noch	still
+einmal	once
+immer	always
+Seit	since
+über	over/about
+damit	in order to
+weil	because
+davor	before
+wieder	again
+manchen	bazý
+nur, lediglich, bloß, gerade, einzig	only,just
+werden	will
+rot	red
+grün	green
+blau	blue
+weiß	white
+schwarz	black
+braun	brown
+grau	grey
+rosa	pink
+lila (violett)	purple
+langsam	slowly
+nächste	next
+mal	(next) time
+etwas	something/slightly
+nett	nice
+klein	small
+groß	big
+kalt	cold
+warm	hot
+der	Urlaub	Vacation
+die	Kirche	kilise-church
+zeigen	show
+schenken	give(gift)
+beißen	bite
+erinnern	remember
+lesen	read
+denken	think
+zufrieden	satisfy
+riechen	smell
+glauben	believe
+beibringen	teach
+ändern	change
+löschen	delete
+ausschneiden	cut(pc)
+einfügen	insert
+öffnen	open
+schließen	close
+speichern	save
+drucken	print
+anfangen	start
+pflücken	pick up
+wachsen	grow
+blühen	bloom/blossom
+wenig	little
+verrückt	crazy
+bald	soon
+schwierig	difficult
+zurück	back
+schlecht	bad
+jemanden	someone
+urlaub	vacation
+lustig	funny
+leise	sessiz
+fertig	hazýr
+zurzeit	for now
+deswegen	therefore
+dort	there
+falls	if
+irgendwelche	any
+mehr	more
+auch	also
+sowieso	anyway
+passendes	suitable
+glücklich	happy
+dick	fat/thick
+fett	fat
+dünn	thin
+schlank	thin(good looking)
+hübsch	oldukça-pretty
+hässlich	ugly
+alt	old
+billig	cheap
+lang	long
+kurz	short
+schnell	fast
+stolz	proud
