@@ -1,14 +1,9 @@
-﻿der	Gefallen	Favour
+﻿der	Urlaub	Vacation
+der	Gefallen	Favour
 der	Himmel	Sky
-der	Fahrstuhl	Elevator
 die	Kirche	kilise-church
-die	Neuigkeit	news-haber
-die	Wüste	desert
-die	Stunde	hour
-die	Aussicht	view-manzara
-die	Welt	world
+die	Bedeutung	meaning
 das	Gehalt	salary-maaş
-das	Schloss	castle
 zeigen	show
 schenken	give(gift)
 beißen	bite
@@ -16,49 +11,44 @@ erinnern	remember
 zufrieden	satisfy
 riechen	smell
 glauben	believe
+beibringen	teach
+löschen	delete
+ausschneiden	cut(pc)
+einfügen	insert
+öffnen	open
 schließen	close
 speichern	save
 drucken	print
 pflücken	pick up
+wachsen	grow
 blühen	bloom/blossom
 hochladen	upload
 runterladen	download
 bekommen	get
 nehmen	take
 treffen	meet
-gefällt	like
-genießen	enjoy
-Guckt euch mal	have a look
 wenig	little
 verrückt	crazy
 bald	soon
+zurück	back
+jemanden	someone
+lustig	funny
+leise	sessiz
 fertig	hazır
 zurzeit	for now
 deswegen	therefore
 irgendwelche	any
 sowieso	anyway
 passendes	suitable
+glücklich	happy
+dick	fat/thick
+fett	fat
+schlank	thin(good looking)
 hübsch	oldukça-pretty
 hässlich	ugly
 kurz	short
 stolz	proud
 nütlizch	useful
-schmale	dar-narrow
-gleich	hemen, soon/equal
-ungefähr	about-approximately
-pro	per
-insgesamt	alltogether
-seite	side
-vielleicht	belki-perhaps
-danach	then/after that
-echt	real
-spaß	fun
-r Stock/e Etage	floor/level
-verteilt	yayılmış
-unbedingt	absolutely
-vorsichtig	careful
-heiß	hot
-als	than
-weiter	further
-weiterhin	futhermore
-wirklich	really
+bis	until/till
+gegen	against
+ohne	without

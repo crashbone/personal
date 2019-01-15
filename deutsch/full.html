@@ -13,8 +13,10 @@
             <p>"Tab"(\t), "::", "//", "--", "__" are valid seperators</p>
             <p>Double click text for toggle</p>
             <textarea class="notsubmitted" v-model="textarea" autofocus></textarea>
-            <button v-on:click="submit">Submit</button>
-            <iframe src='https://gfycat.com/ifr/NastyFavorableArmednylonshrimp' style="display: block;" frameborder='0' scrolling='no' allowfullscreen width='640' height='360'></iframe>
+            <button v-on:click="submit">Submit</button><br>
+            <button v-if="!howtogif" v-on:click="howtogif=!howtogif">HOW TO (GIF)</button>
+            <iframe v-if="howtogif" src='https://gfycat.com/ifr/NastyFavorableArmednylonshrimp' style="display: block;"
+                frameborder='0' scrolling='no' allowfullscreen width='640' height='360'></iframe>
         </div>
         <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
         <div class="container-fluid">
@@ -45,6 +47,7 @@
             textarea: "der::Name::name\nder::Apfel::apple\nder::Computer::computer\ndie::Frage::question\ndie::Kartoffel::potato\ndas::Auto::car\ndas::Buch::book\nschlafen::sleep\nkosten::cost",
             words: [],
             modeall: 0,
+            howtogif: false,
             splitLibrary: {
                 flatten: function (arr) {
                     var self = this;
@@ -119,12 +122,12 @@
 
             },
 
-            meaning(i){
-                if (this.words[i].meaning){
+            meaning(i) {
+                if (this.words[i].meaning) {
                     this.words[i].context = this.words[i].meaning
                     this.words[i].mode = 2
                 }
-                else{
+                else {
                     this.short(i)
                 }
             },
@@ -133,7 +136,7 @@
                     this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
                     this.words[i].mode = 1
                 }
-                else{
+                else {
                     this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
                     this.words[i].mode = 1
                 }
@@ -143,7 +146,7 @@
                     this.words[i].context = this.words[i].word
                     this.words[i].mode = 0;
                 }
-                else{
+                else {
                     this.words[i].context = this.words[i].word
                     this.words[i].mode = 0;
                 }
@@ -155,13 +158,13 @@
                     }
                     this.modeall = 1;
                 }
-                else if(this.modeall == 1) {
+                else if (this.modeall == 1) {
                     for (var i = 0; i < this.words.length; i++) {
                         this.meaning(i)
                     }
                     this.modeall = 2;
                 }
-                else if(this.modeall == 2) {
+                else if (this.modeall == 2) {
                     for (var i = 0; i < this.words.length; i++) {
                         this.short(i)
                     }
@@ -169,18 +172,13 @@
                 }
             },
             toggle(i) {
-                if(this.words[i].mode == 0){
-                    if (this.words[i].hasArtikel){
-                        this.long(i)
-                    }
-                    else{
-                        this.meaning(i)
-                    }
+                if (this.words[i].mode == 0) {
+                    this.long(i)
                 }
-                else if(this.words[i].mode == 1){
+                else if (this.words[i].mode == 1) {
                     this.meaning(i)
                 }
-                else if(this.words[i].mode == 2){
+                else if (this.words[i].mode == 2) {
                     this.short(i)
                 }
             },

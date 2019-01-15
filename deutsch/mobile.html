@@ -11,7 +11,7 @@
     <div id="main_container">
         <div v-if="!submitted">
             <p>"Tab"(\t), "::", "//", "--", "__" are valid seperators</p>
-            <p>Double click text for toggle</p>
+            <p>One tap text for toggle</p>
             <textarea class="notsubmitted" v-model="textarea" autofocus></textarea>
             <button v-on:click="submit">Submit</button>
         </div>
@@ -168,18 +168,13 @@
                 }
             },
             toggle(i) {
-                if(this.words[i].mode == 0){
-                    if (this.words[i].hasArtikel){
-                        this.long(i)
-                    }
-                    else{
-                        this.meaning(i)
-                    }
+                if (this.words[i].mode == 0) {
+                    this.long(i)
                 }
-                else if(this.words[i].mode == 1){
+                else if (this.words[i].mode == 1) {
                     this.meaning(i)
                 }
-                else if(this.words[i].mode == 2){
+                else if (this.words[i].mode == 2) {
                     this.short(i)
                 }
             },
