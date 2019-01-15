@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="./bs.css">
+    <title>Deutsch</title>
+</head>
+
+<body>
+    <div id="main_container">
+        <div v-if="!submitted">
+            <p>"Tab"(\t), "::", "//", "--", "__" are valid seperators</p>
+            <p>Double click text for toggle</p>
+            <textarea class="notsubmitted" v-model="textarea" autofocus></textarea>
+            <button v-on:click="submit">Submit</button><br>
+			<button v-if="!howtogif" v-on:click="howtogif=!howtogif">HOW TO (GIF)</button>
+            <iframe v-if="howtogif" src='https://gfycat.com/ifr/NastyFavorableArmednylonshrimp' style="display: block;" frameborder='0' scrolling='no' allowfullscreen width='640' height='360'></iframe>
+        </div>
+        <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="row">
+                        <p class="col-3 word" v-on:dblclick="clicked(index)" v-for="(word,index) in words" v-bind:class="paragraphClass(word)">{{word.context}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
+            <textarea v-if="submitted" class="submitted" v-model="textarea"></textarea>
+        </div>
+    </div>
+</body>
+
+</html>
+<script src="./vue.js"></script>
+<script>
+    var app = new Vue({
+        el: '#main_container',
+        data: {
+            artikels: ["der", "die", "das"],
+            hide: false,
+            submitted: false,
+            textarea: "der::Name::name\nder::Apfel::apple\nder::Computer::computer\ndie::Frage::question\ndie::Kartoffel::potato\ndas::Auto::car\ndas::Buch::book\nschlafen::sleep\nkosten::cost",
+            words: [],
+            modeall: 0,
+			howtogif: false,
+            splitLibrary: {
+                flatten: function (arr) {
+                    var self = this;
+                    return arr.reduce(function (acc, val) {
+                        return acc.concat(val.constructor === Array ? self.flatten(val) : val);
+                    }, []);
+                },
+                traverseListFunc: function (list, expression, index, func) {
+                    var self = this;
+                    if (list[index]) {
+                        if ((list.constructor !== String) && (list[index].constructor === String))
+                            (list[index] != func(list[index], expression)) ? list[index] = func(list[index], expression) : null;
+                        (list[index].constructor === Array) ? self.traverseListFunc(list[index], expression, 0, func) : null;
+                        (list.constructor === Array) ? self.traverseListFunc(list, expression, index + 1, func) : null;
+                    }
+                },
+                mapFuncToString: function (string, expressions, func) {
+                    var self = this;
+                    var list = [string];
+                    for (var i = 0, len = expressions.length; i < len; i++) {
+                        self.traverseListFunc(list, expressions[i], 0, func);
+                    }
+                    return self.flatten(list);
+                },
+                splitString: function (string, splitters) {
+                    return this.mapFuncToString(string, splitters, function (item, expression) {
+                        return item.split(expression);
+                    })
+                },
+
+            }
+        },
+        methods: {
+            paragraphClass(word) {
+                console.log("test")
+                return {
+                    der: word.artikel == "der" && word.mode == 1,
+                    die: word.artikel == "die" && word.mode == 1,
+                    das: word.artikel == "das" && word.mode == 1,
+                }
+            },
+            submit() {
+                this.submitted = true;
+                var words = this.textarea.split("\n")
+                this.shuffle(words)
+                words.forEach(word => {
+                    var wordArray = this.splitLibrary.splitString(word, ["\t", "::", "//", "--", "__"])
+                    console.log(wordArray)
+                    if (this.artikels.includes(wordArray[0])) { //first tab is artikel
+                        var wordO = {
+                            hasArtikel: true,
+                            artikel: wordArray[0].toLowerCase(),
+                            word: wordArray[1],
+                            meaning: "",
+                            context: wordArray[1],
+                            mode: 0
+                        }
+                        if (wordArray[2]) wordO.meaning = wordArray[2]
+                    }
+                    else { //direct word
+                        var wordO = {
+                            hasArtikel: false,
+                            meaning: "",
+                            word: wordArray[0],
+                            context: wordArray[0],
+                            mode: 0
+                        }
+                        if (wordArray[1]) wordO.meaning = wordArray[1]
+                    }
+                    this.words.push(wordO)
+                });
+
+            },
+
+            meaning(i){
+                if (this.words[i].meaning){
+                    this.words[i].context = this.words[i].meaning
+                    this.words[i].mode = 2
+                }
+                else{
+                    this.short(i)
+                }
+            },
+            long(i) {
+                if (this.words[i].hasArtikel) {
+                    this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
+                    this.words[i].mode = 1
+                }
+                else{
+                    this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
+                    this.words[i].mode = 1
+                }
+            },
+            short(i) {
+                if (this.words[i].hasArtikel) {
+                    this.words[i].context = this.words[i].word
+                    this.words[i].mode = 0;
+                }
+                else{
+                    this.words[i].context = this.words[i].word
+                    this.words[i].mode = 0;
+                }
+            },
+            toggleAll() {
+                if (this.modeall == 0) {
+                    for (var i = 0; i < this.words.length; i++) {
+                        this.long(i)
+                    }
+                    this.modeall = 1;
+                }
+                else if(this.modeall == 1) {
+                    for (var i = 0; i < this.words.length; i++) {
+                        this.meaning(i)
+                    }
+                    this.modeall = 2;
+                }
+                else if(this.modeall == 2) {
+                    for (var i = 0; i < this.words.length; i++) {
+                        this.short(i)
+                    }
+                    this.modeall = 0;
+                }
+            },
+            toggle(i) {
+                if(this.words[i].mode == 0){
+                    if (this.words[i].hasArtikel){
+                        this.long(i)
+                    }
+                    else{
+                        this.meaning(i)
+                    }
+                }
+                else if(this.words[i].mode == 1){
+                    this.meaning(i)
+                }
+                else if(this.words[i].mode == 2){
+                    this.short(i)
+                }
+            },
+            clicked(i) {
+                this.toggle(i)
+            },
+            shuffle(a) {
+                for (let i = a.length - 1; i > 0; i--) {
+                    const j = Math.floor(Math.random() * (i + 1));
+                    [a[i], a[j]] = [a[j], a[i]];
+                }
+                return a;
+            }
+        }
+    })
+
+</script>
+<style>
+    /* body * {
+        border: 1px solid grey;
+    } */
+
+    #main_container {
+        display: block;
+    }
+
+    textarea.notsubmitted {
+        display: block;
+        width: 200px;
+        height: 300px;
+    }
+
+    textarea.submitted {
+        display: block;
+        margin-top: 5vh;
+        width: 25vw;
+        height: 20vh;
+    }
+
+    /* div.submitted{
+        border: 5px solid black;
+        display: flex;
+        justify-content: center;
+    } */
+
+    .word {
+        text-align: center;
+    }
+
+    p.der {
+        font-weight: bold;
+        color: blue;
+    }
+
+    p.die {
+        font-weight: bold;
+        color: rgb(255, 0, 255);
+    }
+
+    p.das {
+        font-weight: bold;
+    }
+
+    .toggleall {
+        display: block;
+        font-size: 1.5em;
+        padding: 1.5vh 5vw;
+        margin-bottom: 2vh;
+    }
+</style>
