@@ -9,59 +9,36 @@ die	Aussicht	view-manzara
 die	Welt	world
 das	Gehalt	salary-maaş
 das	Schloss	castle
-zeigen	show
-schenken	give(gift)
+das	Handy	phone
 beißen	bite
 erinnern	remember
 zufrieden	satisfy
-riechen	smell
-glauben	believe
-schließen	close
 speichern	save
-drucken	print
-pflücken	pick up
-blühen	bloom/blossom
-hochladen	upload
-runterladen	download
-bekommen	get
-nehmen	take
-treffen	meet
-gefällt	like
 genießen	enjoy
 Guckt euch mal	have a look
-wenig	little
-verrückt	crazy
-bald	soon
+folgen	follow
 fertig	hazır
-zurzeit	for now
-deswegen	therefore
 irgendwelche	any
 sowieso	anyway
 passendes	suitable
 hübsch	oldukça-pretty
-hässlich	ugly
-kurz	short
 stolz	proud
-nütlizch	useful
 schmale	dar-narrow
-gleich	hemen, soon/equal
 ungefähr	about-approximately
-pro	per
 insgesamt	alltogether
-seite	side
 vielleicht	belki-perhaps
-danach	then/after that
-echt	real
 spaß	fun
 r Stock/e Etage	floor/level
 verteilt	yayılmış
 unbedingt	absolutely
 vorsichtig	careful
-heiß	hot
-als	than
 weiter	further
 weiterhin	futhermore
 wirklich	really
 Sehr geehrter Ali	sayın Ali
 würde gern	would like
 Lust	istekli
+Mit freundlichen Grüßen	iyi dileklerimle
+Wie versprochen	as promised
+übrigens	by the way
+einstellungen	settings
