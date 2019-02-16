@@ -14,6 +14,8 @@
 		<!-- <input-component></input-component> -->
 		<textarea v-show="showInput" v-model="input" class="full"></textarea>
 		<button v-show="showInput" class="new_line" v-on:click="setup">OK</button>
+		<button v-show="!howto" v-on:click="howto=!howto">How TO</button>
+		<img v-show="howto && !submitted" src="./howto.jpg">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-12">
@@ -40,6 +42,7 @@
 	vues.index = new Vue({
 		el: '#main_container',
 		data: {
+			howto: false,
 			splitters: {
 				chunk: ["\n\t\t\t\n"],
 				line: ["\n"],
