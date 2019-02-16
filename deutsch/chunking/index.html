@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>Blank HTML</title>
+	<link rel="stylesheet" href="./main.css">
+	<link rel="stylesheet" href="../bs.css">
+</head>
+
+<body>
+	<div id="main_container">
+		<button v-on:click="toggleInput" v-show="submitted" class="new_line">Toggle Input</button>
+		<!-- <input-component></input-component> -->
+		<textarea v-show="showInput" v-model="input" class="full"></textarea>
+		<button v-show="showInput" class="new_line" v-on:click="setup">OK</button>
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-12">
+					<div class="chunk margin full" v-for="(chunk,index) in processedChunks">
+						<div v-on:click="line.toggle = !line.toggle" class="row margin full border" v-for="(line, index) in chunk.lines">
+							<div v-show="line.toggle" class="col-3">{{line.fullsentence}}</div>
+							<div v-show="!line.toggle" class="col-3">{{hideString(line.fullsentence, line.chunk)}}</div>
+							<div class="col-3">{{line.translation}}</div>
+							<div class="col-6">{{line.extra}}</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+</body>
+<script src="../vue.js"></script>
+<script src="./components/input.js"></script>
+<script src="../util.js"></script>
+
+<script>
+	var vues = {}
+	vues.index = new Vue({
+		el: '#main_container',
+		data: {
+			splitters: {
+				chunk: ["\n\t\t\t\n"],
+				line: ["\n"],
+				group: ["\t"],
+				multichunk: ["/"],
+			},
+			input: "seit einer Woche\tIch bin jetzt schon seit einer Woche in Montreal.\tI have been already in Montreal for one week.\tDativ (einer)\nseit einer Woche\tseit einer Woche bin ich in Deutschland.\tI have been in Germany for one week.\tDativ (einer)\n\t\t\t\noben auf dem Berg\tWir sind oben auf dem Berg.\tWe are on top of the mountain.\tDativ (der Berg -> dem Berg)\noben auf dem Berg\tIch bin oben auf dem Berg.\tI am on top of the mountain\tDativ (der Berg -> dem Berg)\n\t\t\t\nmein erstes Mal / in der Wüste\tDas ist mein erstes Mal in der Wüste.\tIt's my first time in the desert.\terstes (Das Mal) - Dativ (die Wüste -> der Wüste)\nmein erstes Mal / in der Wüste\tDas ist mein erstes Mal in Deutschland.\tThis is my first time in Germany\terstes (Das Mal) - Dativ (die Wüste -> der Wüste)\n\t\t\t\nschmeckt dir\tSchmeckt dir Spargel?\tDo you like the taste of the asparagus?\tDativ (dir)\nschmeckt dir\tSchmeckt dir Bier?\tDo you like the taste of the beer?\tDativ (dir)\nschmeckt dir\tSchmeckt dir der Salat?\tDo you like the taste of the salat?\tDativ (dir)\n",
+			processedChunks: [],
+			showInput: true,
+			submitted: false
+		},
+		methods: {
+			hideString(string, hidersP) {
+				var hiders = util.splitLibrary.splitString(hidersP, this.splitters.multichunk)
+				var i = 0;
+				console.log(string)
+				console.log(hiders)
+				for (; i < hiders.length; i++) {
+					if (hiders[i][0] == " ") hiders[i] = hiders[i].substring(1, hiders[i].length)
+					if (hiders[i][hiders[i].length] == " ") hiders[i] = hiders[i].substring(0, hiders[i].length - 1)
+					var regEx = new RegExp(hiders[i], "ig");
+					string = string.replace(regEx, "_".repeat(hiders[i].length + " "));
+					console.log(string)
+				}
+				return string
+
+
+			},
+			setup() {
+				this.processedChunks = []
+				if (this.input[this.input.length - 1] == "\n") this.input = this.input.substring(0, this.input.length - 1)
+				var tempChunks = util.shuffle(util.splitLibrary.splitString(this.input, this.splitters.chunk))
+
+				tempChunks.forEach(tempChunk => {
+					var tempLines = util.splitLibrary.splitString(tempChunk, this.splitters.line)
+					var processedLines = []
+					tempLines.forEach(tempLine => {
+						var processedLine = util.splitLibrary.splitString(tempLine, this.splitters.group)
+						processedLines.push({
+							chunk: processedLine[0],
+							fullsentence: processedLine[1],
+							translation: processedLine[2],
+							extra: processedLine[3],
+							toggle: false
+						})
+
+					})
+					this.processedChunks.push({ lines: processedLines })
+				});
+
+				this.hideInput()
+				this.submitted = true;
+				// console.log(this.processedChunks)
+			},
+
+
+			hideInput() {
+				this.showInput = false
+			},
+			showInputf() {
+				this.showInput = true
+			},
+			toggleInput() {
+				if (this.showInput) this.hideInput(); else this.showInputf()
+			}
+		}
+	})
+</script>
+
+
+</html>

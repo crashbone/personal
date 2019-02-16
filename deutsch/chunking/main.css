@@ -1,0 +1,36 @@
+
+
+textarea.full{
+    width: 40vh;
+    height: 60vh;
+}
+
+button.new_line{
+    display: block;
+}
+
+.chunk .row.margin.full:not(:first-child){
+    margin-top: 0.5vh;
+}
+
+.chunk.margin.full:not(:first-child){
+    margin-top: 3.5vh;
+}
+
+.border{
+    border: 1px solid lightblue;
+}
+
+
+
+
+
+
+
+
+
+.input_component{
+    width: 10vh;
+    height: 10vh;
+}
+
