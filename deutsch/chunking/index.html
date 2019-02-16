@@ -14,7 +14,7 @@
 		<!-- <input-component></input-component> -->
 		<textarea v-show="showInput" v-model="input" class="full"></textarea>
 		<button v-show="showInput" class="new_line" v-on:click="setup">OK</button>
-		<button v-show="!howto" v-on:click="howto=!howto">How TO</button>
+		<button v-show="!howto && !submitted" v-on:click="howto=!howto">How TO</button>
 		<img v-show="howto && !submitted" src="./howto.jpg">
 		<div class="container-fluid">
 			<div class="row">
