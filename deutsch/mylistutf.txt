@@ -1,44 +1,8 @@
-﻿der	Gefallen	Favour
-der	Himmel	Sky
-der	Fahrstuhl	Elevator
-die	Kirche	kilise-church
-die	Neuigkeit	news-haber
-die	Wüste	desert
-die	Stunde	hour
-die	Aussicht	view-manzara
-die	Welt	world
-das	Gehalt	salary-maaş
-das	Schloss	castle
-das	Handy	phone
-beißen	bite
-erinnern	remember
-zufrieden	satisfy
-speichern	save
-genießen	enjoy
-Guckt euch mal	have a look
-folgen	follow
-fertig	hazır
-irgendwelche	any
-sowieso	anyway
-passendes	suitable
-hübsch	oldukça-pretty
-stolz	proud
-schmale	dar-narrow
-ungefähr	about-approximately
-insgesamt	alltogether
-vielleicht	belki-perhaps
-spaß	fun
-r Stock/e Etage	floor/level
-verteilt	yayılmış
-unbedingt	absolutely
-vorsichtig	careful
-weiter	further
-weiterhin	futhermore
-wirklich	really
-Sehr geehrter Ali	sayın Ali
-würde gern	would like
-Lust	istekli
-Mit freundlichen Grüßen	iyi dileklerimle
-Wie versprochen	as promised
-übrigens	by the way
-einstellungen	settings
+﻿ausstellungsraum	showroom
+erfahren	experience(verb)
+aktuellsten	latest
+bleiben	stay
+zurückzusetzen	reset
+wechseln	switch
+die	Belohnung	Reward
+die	Erfahrung	experience(noun)
