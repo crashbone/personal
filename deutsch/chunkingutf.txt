@@ -1,1 +1,19 @@
-asd
+﻿seit einer Woche	Ich bin jetzt schon seit einer Woche in Montreal.	I have been already in Montreal for one week.	Dativ (einer)
+seit einer Woche	seit einer Woche bin ich in Deutschland.	I have been in Germany for one week.	Dativ (einer)
+			
+oben auf dem Berg	Wir sind oben auf dem Berg.	We are on top of the mountain.	Dativ (der Berg -> dem Berg)
+oben auf dem Berg	Ich bin oben auf dem Berg.	I am on top of the mountain	Dativ (der Berg -> dem Berg)
+			
+mein erstes Mal / in der Wüste	Das ist mein erstes Mal in der Wüste.	It's my first time in the desert.	erstes (Das Mal) - Dativ (die Wüste -> der Wüste)
+mein erstes Mal / in der Wüste	Das ist mein erstes Mal in Deutschland.	This is my first time in Germany	erstes (Das Mal) - Dativ (die Wüste -> der Wüste)
+			
+schmeckt dir	Schmeckt dir Spargel?	Do you like the taste of the asparagus?	Dativ (dir)
+schmeckt dir	Schmeckt dir Bier?	Do you like the taste of the beer?	Dativ (dir)
+schmeckt dir	Schmeckt dir der Salat?	Do you like the taste of the salat?	Dativ (dir)
+			
+interessiere mich für	Ich interessiere mich für Mode	I am interested in fashion	Reflexive
+interessiere mich für	Ich interessiere mich für Sport	I am interested in sport	Reflexive
+			
+ist es nicht so gut dass ich so viele Computer spielen	Vielleicht ist es nicht so gut dass ich so viele Computer spielen	Maybe it's not so good that I play computer a lot.	_
+			
+möche ich ein bisschen Computer spielen	Und jetzt möche ich ein bisschen Computer spielen	And now I want to play a little bit computer.	_
