@@ -39,6 +39,9 @@
 <script>
     var app = new Vue({
         el: '#main_container',
+		created(){
+			this.textarea = this.readFileFromServer('/personal/deutsch/mylistutf.txt')
+		},
         data: {
             artikels: ["der", "die", "das"],
             hide: false,
@@ -80,7 +83,10 @@
             },
             shuffle(a) {
                 both.shuffle(a)
-            }
+            },
+			readFileFromServer(url){
+				return both.readFileFromServer(url)
+			}
         }
     })
 
