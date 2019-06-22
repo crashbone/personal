@@ -14,6 +14,7 @@ die	Erfahrung	experience(noun)
 die	Belohnung	Reward
 das	Gehalt	salary-maaş
 das	Kloster	Monastery
+das	Bild	Image
 speichern	save
 genießen	enjoy
 Guckt euch mal	have a look
@@ -36,6 +37,7 @@ bleiben	stay
 erfahren(verb)	experience
 versuchen	try
 suchen	search
+sauber	clean
 ungefähr	about-approximately
 vielleicht	belki-perhaps
 würde gern	would like
