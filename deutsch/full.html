@@ -31,7 +31,7 @@
         <div>
             <button v-if="submitted" class="toggleall" v-on:click="toggleAll">Toggle All</button>
             <textarea v-if="submitted" class="submitted" v-model="textarea"></textarea>
-            <button v-on:click="asdfg">TEST</button>
+            <button v-on:mouseOver="textarea = readFileFromServer('./test.txt')" v-on:click="asdfg">TEST</button>
         </div>
     </div>
 </body>
@@ -43,11 +43,14 @@
 <script>
     var app = new Vue({
         el: '#main_container',
+		created(){
+			this.textarea = this.readFileFromServer('/personal/deutsch/mylistutf.txt')
+		},
         data: {
             artikels: ["der", "die", "das"],
             hide: false,
             submitted: false,
-            textarea: "der::Name::name\nder::Apfel::apple\nder::Computer::computer\ndie::Frage::question\ndie::Kartoffel::potato\ndas::Auto::car\ndas::Buch::book\nschlafen::sleep\nkosten::cost",
+            textarea: "",
             words: [],
             modeall: 0,
             howtogif: false,
@@ -84,7 +87,10 @@
             },
             shuffle(a) {
                 both.shuffle(a)
-            }
+            },
+			readFileFromServer(url){
+				return both.readFileFromServer(url)
+			}
         }
     })
 
