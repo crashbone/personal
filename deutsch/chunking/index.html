@@ -49,10 +49,13 @@
 				group: ["\t"],
 				multichunk: ["/"],
 			},
-			input: "seit einer Woche\tIch bin jetzt schon seit einer Woche in Montreal.\tI have been already in Montreal for one week.\tDativ (einer)\nseit einer Woche\tseit einer Woche bin ich in Deutschland.\tI have been in Germany for one week.\tDativ (einer)\n\t\t\t\noben auf dem Berg\tWir sind oben auf dem Berg.\tWe are on top of the mountain.\tDativ (der Berg -> dem Berg)\noben auf dem Berg\tIch bin oben auf dem Berg.\tI am on top of the mountain\tDativ (der Berg -> dem Berg)\n\t\t\t\nmein erstes Mal / in der Wüste\tDas ist mein erstes Mal in der Wüste.\tIt's my first time in the desert.\terstes (Das Mal) - Dativ (die Wüste -> der Wüste)\nmein erstes Mal / in der Wüste\tDas ist mein erstes Mal in Deutschland.\tThis is my first time in Germany\terstes (Das Mal) - Dativ (die Wüste -> der Wüste)\n\t\t\t\nschmeckt dir\tSchmeckt dir Spargel?\tDo you like the taste of the asparagus?\tDativ (dir)\nschmeckt dir\tSchmeckt dir Bier?\tDo you like the taste of the beer?\tDativ (dir)\nschmeckt dir\tSchmeckt dir der Salat?\tDo you like the taste of the salat?\tDativ (dir)\n",
+			input: "",
 			processedChunks: [],
 			showInput: true,
 			submitted: false
+		},
+		created(){
+			this.textarea = this.readFileFromServer('/personal/deutsch/chunkingutf.txt')
 		},
 		methods: {
 			hideString(string, hidersP) {
@@ -107,6 +110,9 @@
 			},
 			toggleInput() {
 				if (this.showInput) this.hideInput(); else this.showInputf()
+			},
+			readFileFromServer(url){
+				return both.readFileFromServer(url)
 			}
 		}
 	})
