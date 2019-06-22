@@ -112,7 +112,10 @@
 				if (this.showInput) this.hideInput(); else this.showInputf()
 			},
 			readFileFromServer(url){
-				return both.readFileFromServer(url)
+				var xmlHttp = new XMLHttpRequest()
+				xmlHttp.open( "GET", url, false ) // false for synchronous request
+				xmlHttp.send( null )
+				return xmlHttp.responseText
 			}
 		}
 	})
