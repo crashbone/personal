@@ -22,17 +22,21 @@
             <label for="version-mobile">Mobile</label><br>
          </div>
 
+         <div v-show="submitted" class="utility-buttons">
+            <!-- BUTTON FOR TOGGLING VISIBILITY OF INPUT TEXT AREA -->
+            <a class="button" v-on:click="toggleInputDiv">{{toggleInputButtonText}}</a>
+
+            <a class="button" v-on:click="randomize">Randomize Again</a>
+
+            <a class="button" v-on:click="toggleAll">Toggle All</a>
+         </div>
+
       </div>
       <div class="wrapper"></div>
 
       <h3 v-if="debugEnabled">Debug mode is enabled!</h3>
 
-      <!-- BUTTON FOR TOGGLING VISIBILITY OF INPUT TEXT AREA -->
-      <button v-show="submitted" v-on:click="toggleInputDiv">{{toggleInputButtonText}}</button>
 
-      <button v-show="submitted" v-on:click="randomize">Randomize Again</button>
-
-      <button v-show="submitted" v-on:click="toggleAll">Toggle All</button>
 
 
       <!-- INPUTS -->
