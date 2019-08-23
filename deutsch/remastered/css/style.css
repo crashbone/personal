@@ -38,9 +38,16 @@ textarea{
    justify-content: center;
    width: 85%;
    height: 3.5rem;
-   border: 1px solid black;
+
    border-radius: 5px;
    font-size: 1rem;
+}
+
+.word.desktop{
+   border: 1px solid #e5e5e5;
+}
+.word.mobile{
+   border: 2px solid #e5e5e5;
 }
 
 .word.marked{
