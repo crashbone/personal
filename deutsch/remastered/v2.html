@@ -113,10 +113,10 @@
 
          submit() {
             this.resetWords()
-            this.toggleSubmitted()
             this.toggleInputDiv()
             this.setupWords()
             this.randomize()
+            this.submitted = true;
             // console.log(this.words)
          },
 
@@ -139,9 +139,6 @@
 
          resetWords() {
             this.words = []
-         },
-         toggleSubmitted() {
-            this.submitted = !this.submitted;
          },
          toggleInputDiv() {
             this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
@@ -185,14 +182,16 @@
          },
          wordContainerClass(word) {
             return {
-               "col-3": this.version == "desktop",
-               "col-4": this.version == "mobile",
+               "col-3 desktop": this.version == "desktop",
+               "col-4 mobile": this.version == "mobile",
             }
          },
 
          // Add der, die, das to word's classlist
          wordClass(word) {
             return {
+               "desktop": this.version == "desktop",
+               "mobile": this.version == "mobile",
                der: word.artikel == "der" && word.mode == 1,
                die: word.artikel == "die" && word.mode == 1,
                das: word.artikel == "das" && word.mode == 1,
