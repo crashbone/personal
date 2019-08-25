@@ -81,7 +81,7 @@ a.button{
    font-weight: lighter;
    padding: 0px 1rem !important;
    cursor: pointer;
-   
+
    -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
      -khtml-user-select: none; /* Konqueror HTML */
@@ -158,4 +158,12 @@ textarea{
 
 .marker.active{
    background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 30%, white 60%);
+}
+.word-limit-description{
+   font-size: 0.8rem;
+   font-weight: bold;
+   display:block;
+   height: 1rem;
+   color: orange;
+   /* border: 1px solid black; */
 }
