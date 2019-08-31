@@ -1,55 +1,76 @@
-﻿der	Tipp	Tip/Hint
-der	Raum	Space/Room
-der	Teil	Part (of team)
-der	Menschen	People
-die	Kirche	kilise-church
-die	Neuigkeit	news-haber
-die	Regel	Rule
-die	Erwachsener	adult
-die	Erfahrung	experience(noun)
-die	Belohnung	Reward
-die	Menschen	people
-die	Ahnung	idea
-das	Gehalt	salary-maaş
-das	Kloster	Monastery
+﻿der	Zufall	tesadüf
+der	Wahlkampf	seçim mücadelesi
+der	Zucker	sugar
+der	Gegenstand	object/thing
+die	Folge	episode
+die	Verwechslung	confusion
+die	Ausrede	excuse/lie
+die	Pfandflasche	returnable bottles
 das	Bild	Image
-speichern	save
-Guckt euch mal	have a look
-folgen	follow
-versprochen(mir/mich)	promise/misspeak
-anfangen	start
-sich verlaufen	being lost
-merken	notice
-zurückzusetzen	reset
-wechseln	switch
-warten	wait
-umziehen	move
-öffnen	open
-bleiben	stay
-erfahren(verb)	experience
-versuchen	try
-suchen	search
-sauber	clean
-wählen/auswählen	select
-schaffen	create
-feiern	celebrate
-bewegen	1.move 2.affect
-führen	lead
-kümmern	(birine) bakmak
-ungefähr	about-approximately
-Wie versprochen	as promised
-übrigens	by the way
-sinnvoll	meaningful
-eigentlich	actually
-insgesamt	alltogether
-unbedingt	absolutely
-aktuellsten	latest
-ausstellungsraum	showroom
-wieder	again
-ohne	without
-sowieso	anyway
-eher	morelikely
-deshalb	thats why
-beliebt	popular
-gar	at all
-bestimmt	definitely
+das	Ausland	Foreign countries
+das	Gemüse	vegetable
+das	Obst	fruit
+vertreten	represent
+abstürzen	crash
+scheinen/wirken	seems to be
+reden	talk
+schimpfen	kötülemek
+beleidigen	aşağılamak
+fluchen	küfretmek
+sorgen(akk)	worry
+zweifeln	worry
+ausdrücken	ifade etmek
+verletzen	hurt
+umschreiben	değiştirmek
+bezeichnen	göstermek/indicate
+erkennen	belli etmek
+vorlesen	sesli okumak
+beschreiben	describe
+wünschen	wish
+entweder x oder y	either
+reichen	being enough
+besprechen	discuss
+rausfinden	find out
+bevorzugen	prefer
+brennen	burn
+auffallen	notice
+aufgefallen	notice
+angeblich	sözde
+beschweren	complain
+tief	deep/hard
+ehrlich	honest
+höflich	kibar
+durchaus	absolutely
+deutlich	direct/clear
+fast	almost
+insofern	bu durumda
+schief	wrong
+sofort	hemen
+genauso	just like that
+drin	in it
+bedacht	dikkatli
+kommt drauf an	depends on
+je nach	depends on
+kleidung	clothing
+sicherlich	definitely
+benennen	mention/name(v)
+niemand	nobody
+abgeschlossen(scließen)	concluded
+während	while
+ungeduldig	sabırsız
+komisch	tuhaf
+geschmäcker sind verschieden	Tastes are different
+mindestens	at least
+großartig	great
+sozusagen	tabiri caizse
+grob	kabaca
+vergangenheit	past
+obwohl	although
+furchtbar	awful
+schrecklich	terrible
+fertig	hazır
+sonst	otherwise
+wiederholt	repeatedly
+mehrfach	multiple times
+bequem	comfortable
+fachmann	expert
