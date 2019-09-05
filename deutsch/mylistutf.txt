@@ -2,14 +2,25 @@
 der	Wahlkampf	seçim mücadelesi
 der	Zucker	sugar
 der	Gegenstand	object/thing
+der	Haken	hook
 die	Folge	episode
 die	Verwechslung	confusion
 die	Ausrede	excuse/lie
 die	Pfandflasche	returnable bottles
+die	Scheibe	bus-stop (windowed place)
+die	Haltestelle	bus-stop (stopping place)
+die	Bewegung	movement
+die	Eigenschaft	characteristic/property
+die	Einfahrt	entrance
+die	Übersetzung	translation
+die	Säule	sokak direği
 das	Bild	Image
 das	Ausland	Foreign countries
 das	Gemüse	vegetable
 das	Obst	fruit
+das	Ding	thing
+das	kissen	yastık
+das	Meer	deniz
 vertreten	represent
 abstürzen	crash
 scheinen/wirken	seems to be
@@ -19,7 +30,7 @@ beleidigen	aşağılamak
 fluchen	küfretmek
 sorgen(akk)	worry
 zweifeln	worry
-ausdrücken	ifade etmek
+ausdrücken	express/ifade etmek
 verletzen	hurt
 umschreiben	değiştirmek
 bezeichnen	göstermek/indicate
@@ -37,6 +48,7 @@ auffallen	notice
 aufgefallen	notice
 angeblich	sözde
 beschweren	complain
+kriegen	get/have
 tief	deep/hard
 ehrlich	honest
 höflich	kibar
@@ -46,7 +58,7 @@ fast	almost
 insofern	bu durumda
 schief	wrong
 sofort	hemen
-genauso	just like that
+genauso	same to
 drin	in it
 bedacht	dikkatli
 kommt drauf an	depends on
@@ -74,3 +86,5 @@ wiederholt	repeatedly
 mehrfach	multiple times
 bequem	comfortable
 fachmann	expert
+fertigkeit	skill
+eben	just/simply
