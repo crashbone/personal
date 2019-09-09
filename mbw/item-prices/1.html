@@ -27,10 +27,16 @@
          </div>
       </div>
       <div class="main-frame">
-         <div class="item-container">
-            <div class="item" v-for="item in items" v-on:mouseover="item.hover=true" v-on:mouseleave="item.hover=false">
-               <img v-bind:src="imgFullPath(item.imgPath)" class="item-img">
-               <div v-show="item.hover" class="item-tooltip-container">
+         <div class="button-container">
+            <span class="button" v-on:click="sortRequest('flat')">Sort by flat difference</span>
+            <span class="button" v-on:click="sortRequest('percentage')">Sort by percentage difference</span>
+         </div>
+         <div class="main-item-container">
+            <div class="item-container" v-for="item in items" :key="sortCounter">
+               <div class="item" v-on:mouseover="item.hover=true" v-on:mouseleave="item.hover=false">
+                  <img class="item-img" v-bind:src="imgFullPath(item.imgPath)" >
+               </div>
+               <div class="item-tooltip-container" v-show="item.hover">
                   <div class="item-tooltip">
                      <div class="item-tooltip-text-container">
                         <p class="item-tooltip-text">{{getString(item.names)}}</p>
@@ -42,6 +48,7 @@
                   </div>
                </div>
             </div>
+
          </div>
       </div>
    </div>

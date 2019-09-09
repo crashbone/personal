@@ -1,75 +1,21 @@
 var app = new Vue({
    el: '#main_container',
+   beforeCreate() {
+
+   },
    created() {
       this.init()
    },
    data: {
-      items:[
-         {
-            names:{
-               tr: "Aletler",
-               en: "Tools"
-            },
-            lowest: 330,
-            highest: 545,
-            imgPath: "tools.png",
-            hover: false,
-         },
-         {
-            names:{
-               tr: "Keten",
-               en: "Linen"
-            },
-            lowest: 190,
-            highest: 340,
-            imgPath: "linen.png",
-            hover: false,
-         },
-         {
-            names:{
-               tr: "İşlenmiş deri",
-               en: "Leatherwork"
-            },
-            lowest: 200,
-            highest: 300,
-            imgPath: "leatherwork.png",
-            hover: false,
-         },
-         {
-            names:{
-               tr: "Deri",
-               en: "Hides"
-            },
-            lowest: 85,
-            highest: 158,
-            imgPath: "hides.png",
-            hover: false,
-         },
-         {
-            names:{
-               tr: "Pamuk Kumaş",
-               en: "Wool Cloth"
-            },
-            lowest: 132,
-            highest: 450,
-            imgPath: "wool-cloth.png",
-            hover: false,
-         },
-         {
-            names:{
-               tr: "Çömlek",
-               en: "Pottery"
-            },
-            lowest: 70,
-            highest: 200,
-            imgPath: "pottery.png",
-            hover: false,
-         }
-      ],
+      sortCounter: 0,
+      flatSorted: false,
+      percentageSorted: false,
+      items:[],
+
       flatMin: 125,
       flatMax: 200,
-      percentageMin: 20,
-      percentageMax: 70,
+      percentageMin: 75,
+      percentageMax: 200,
 
       language: "tr",
       dict: {
@@ -98,11 +44,101 @@ var app = new Vue({
 
    methods: {
       init(){
+         //ITEM-INIT
+         this.itemInit()
          //ITEM-LOOP
          this.items.forEach(function(item){
             item.flatDif = item.highest - item.lowest
             item.percentageDif = Math.round(Number(item.flatDif / item.lowest)*100)
          })
+         this.sortRequest('flat')
+         this.sortRequest('flat')
+      },
+      itemInit(){
+         var items = [
+            {
+               names:{
+                  tr: "Aletler",
+                  en: "Tools"
+               },
+               lowest: 330,
+               highest: 545,
+               imgPath: "tools.png",
+            },
+            {
+               names:{
+                  tr: "Keten",
+                  en: "Linen"
+               },
+               lowest: 190,
+               highest: 340,
+               imgPath: "linen.png",
+            },
+            {
+               names:{
+                  tr: "İşlenmiş deri",
+                  en: "Leatherwork"
+               },
+               lowest: 200,
+               highest: 300,
+               imgPath: "leatherwork.png",
+            },
+            {
+               names:{
+                  tr: "Deri",
+                  en: "Hides"
+               },
+               lowest: 85,
+               highest: 158,
+               imgPath: "hides.png",
+            },
+            {
+               names:{
+                  tr: "Pamuk Kumaş",
+                  en: "Wool Cloth"
+               },
+               lowest: 132,
+               highest: 450,
+               imgPath: "wool-cloth.png",
+            },
+            {
+               names:{
+                  tr: "Çömlek",
+                  en: "Pottery"
+               },
+               lowest: 70,
+               highest: 200,
+               imgPath: "pottery.png",
+            },
+            {
+               names:{
+                  tr: "Keten Bohçası",
+                  en: "Flax Bundle"
+               },
+               lowest: 33,
+               highest: 300,
+               imgPath: "flax-bundle.png",
+            },
+            {
+               names:{
+                  tr: "Tuz",
+                  en: "Salt"
+               },
+               lowest: 50,
+               highest: 280,
+               imgPath: "salt.png",
+            },
+            {
+               names:{
+                  tr: "Yağ",
+                  en: "Oil"
+               },
+               lowest: 300,
+               highest: 550,
+               imgPath: "oil.png",
+            }
+         ]
+         this.addItems(items)
       },
       imgFullPath(path){
          return "./img/" + path;
@@ -123,11 +159,57 @@ var app = new Vue({
       },
       getString(list){
          return list[this.language]
-      }
+      },
+      addItem(item){
+         item.hover = false
+         this.items.push(item)
+      },
+      addItems(items){
+         items.forEach(this.addItem)
+      },
+      sortRequest(requestType){
+         if(requestType == "flat"){
+            if(this.flatSorted){
+               this.reverse()
+            }
+            else{
+               this.sortBy("flatDif")
+               this.flatSorted = true
+               this.percentageSorted = false
+            }
 
+         }
+         else if(requestType == "percentage"){
+            if(this.percentageSorted){
+               this.reverse()
+            }
+            else{
+               this.sortBy("percentageDif")
+               this.flatSorted = false
+               this.percentageSorted = true
+            }
+
+         }
+         this.sortCounter++
+      },
+      sortBy(sortBy){
+         console.log(this.items)
+         for(var i=0; i<this.items.length; i++){
+            for(var j=0; j<this.items.length-1; j++){
+               console.log(i + " " + j)
+               if(this.items[j][sortBy] > this.items[j+1][sortBy]){
+                  var temp = this.items[j]
+                  this.items[j] = this.items[j+1]
+                  this.items[j+1] = temp
+               }
+            }
+         }
+      },
+      reverse(){
+         this.items = this.items.reverse()
+      }
 
    },
    watch: {
-
    }
 })
