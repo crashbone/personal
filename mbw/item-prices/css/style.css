@@ -11,7 +11,7 @@ body {
    background-image: url("../img/bg-1.png");
    background-repeat: no-repeat;
    background-size: cover;
-   letter-spacing: 1.5px;
+   letter-spacing: 1.15px;
 }
 .main-frame {
    position: relative;
@@ -36,11 +36,12 @@ body {
    left: 130px;
 
    width: calc(100% - 260px);
-   font-size: 20px;
+   font-size: 16px;
 }
 .button{
+   border: 1px dashed black;
    cursor: pointer;
-   padding: 5px 10px;
+   padding: 8px 10px;
 }
 .button:hover{
    color: #65FA5A;
