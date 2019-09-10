@@ -12,24 +12,24 @@
       <div class="options-container">
          <div class="options-section-1">
 
-            <span>{{getString(dict.language)}} <span v-show="language!='en'"> (Language)</span></span><br>
+            <span>{{translate("Language")}} <span v-show="language!='en'"> (Language)</span></span><br>
             <select v-model="language">
                <option value="en">English</option>
                <option value="tr">Türkçe</option>
             </select><br><br>
 
-            <span>{{getString(dict.flatDifLabel)}}</span><br>
+            <span>{{translate("Pair of values to highlight for flat difference")}}</span><br>
             <input type="range" min="0" max="2000" v-model="flatMin">{{flatMin}}<br>
             <input type="range" min="0" max="2000" v-model="flatMax">{{flatMax}}<br><br>
-            <span>{{getString(dict.percentageDifLabel)}}</span><br>
+            <span>{{translate("For percentage difference")}}</span><br>
             <input type="range" min="0" max="500" v-model="percentageMin">{{percentageMin}}<br>
             <input type="range" min="0" max="500" v-model="percentageMax">{{percentageMax}}<br>
          </div>
       </div>
       <div class="main-frame">
          <div class="button-container">
-            <span class="button" v-on:click="sortRequest('flat')">Sort by flat difference</span>
-            <span class="button" v-on:click="sortRequest('percentage')">Sort by percentage difference</span>
+            <span class="button" v-on:click="sortRequest('flat')">{{translate("Sort by flat difference")}}</span>
+            <span class="button" v-on:click="sortRequest('percentage')">{{translate("Sort by percentage difference")}}</span>
          </div>
          <div class="main-item-container">
             <div class="item-container" v-for="item in items" :key="sortCounter">
@@ -39,11 +39,11 @@
                <div class="item-tooltip-container" v-show="item.hover">
                   <div class="item-tooltip">
                      <div class="item-tooltip-text-container">
-                        <p class="item-tooltip-text">{{getString(item.names)}}</p>
+                        <p class="item-tooltip-text">{{translate(item.name)}}</p>
                         <p class="item-tooltip-text">Min: {{item.lowest}}</p>
                         <p class="item-tooltip-text">Max: {{item.highest}}</p>
-                        <p class="item-tooltip-text">{{getString(dict.flatDif)}}: <span v-bind:class="flatDifTextClass(item.flatDif)">{{item.flatDif}}</span></p>
-                        <p class="item-tooltip-text">{{getString(dict.percentageDif)}}: <span v-bind:class="percentageDifTextClass(item.percentageDif)">{{item.percentageDif}}%</span></p>
+                        <p class="item-tooltip-text">{{translate("Profit")}}: <span v-bind:class="flatDifTextClass(item.flatDif)">{{item.flatDif}}</span></p>
+                        <p class="item-tooltip-text">{{translate("Percentage Profit")}}: <span v-bind:class="percentageDifTextClass(item.percentageDif)">{{item.percentageDif}}%</span></p>
                      </div>
                   </div>
                </div>

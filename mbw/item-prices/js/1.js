@@ -19,6 +19,69 @@ var app = new Vue({
 
       language: "tr",
       dict: {
+
+         "Tools":{
+            tr: "Aletler",
+         },
+         "Linen":{
+            tr: "Keten",
+         },
+         "Leatherwork":{
+            tr: "İşlenmiş deri",
+         },
+
+         "Hides":{
+            tr: "Deri",
+         },
+
+         "Wool Cloth":{
+            tr: "Pamuk Kumaş",
+         },
+
+         "Pottery":{
+            tr: "Çömlek",
+         },
+
+         "Flax Bundle":{
+            tr: "Keten Bohçası",
+         },
+
+         "Salt":{
+            tr: "Tuz",
+         },
+
+         "Oil":{
+            tr: "Yağ",
+         },
+
+
+         "Profit":{
+            tr: "Kazanç"
+         },
+         "Percentage Profit":{
+            tr: "Yüzdesel Kazanç"
+         },
+         "Pair of values to highlight for flat difference":{
+            tr: "Kazancın vurgulanacağı değer aralığı"
+         },
+         "For percentage difference":{
+            tr: "Yüzdesel olan için de ayarlayın"
+         },
+         "Language":{
+            tr: "Dil"
+         },
+         "Sort by percentage difference":{
+            tr: "Yüzdesel kazanca göre sırala"
+         },
+         "Sort by flat difference":{
+            tr: "Kazanca göre sırala"
+         },
+
+
+
+
+
+
          flatDif: {
             tr: "Kazanç",
             en: "Profit"
@@ -38,6 +101,14 @@ var app = new Vue({
          language: {
             tr: "Dil",
             en: "Language"
+         },
+         flatSortLabel:{
+            tr: "Kazanca göre sırala",
+            en: "Sort by flat difference"
+         },
+         percentageSortLabel:{
+            tr: "Yüzdesel kazanca göre sırala",
+            en: "Sort by percentage difference"
          }
       }
    },
@@ -57,82 +128,55 @@ var app = new Vue({
       itemInit(){
          var items = [
             {
-               names:{
-                  tr: "Aletler",
-                  en: "Tools"
-               },
+               name: "Tools",
                lowest: 330,
                highest: 545,
                imgPath: "tools.png",
             },
             {
-               names:{
-                  tr: "Keten",
-                  en: "Linen"
-               },
+               name: "Linen",
                lowest: 190,
                highest: 340,
                imgPath: "linen.png",
             },
             {
-               names:{
-                  tr: "İşlenmiş deri",
-                  en: "Leatherwork"
-               },
+               name: "Leatherwork",
                lowest: 200,
                highest: 300,
                imgPath: "leatherwork.png",
             },
             {
-               names:{
-                  tr: "Deri",
-                  en: "Hides"
-               },
+               name: "Hides",
                lowest: 85,
                highest: 158,
                imgPath: "hides.png",
             },
             {
-               names:{
-                  tr: "Pamuk Kumaş",
-                  en: "Wool Cloth"
-               },
+               name: "Wool Cloth",
                lowest: 132,
                highest: 450,
                imgPath: "wool-cloth.png",
             },
             {
-               names:{
-                  tr: "Çömlek",
-                  en: "Pottery"
-               },
+               name: "Pottery",
                lowest: 70,
                highest: 200,
                imgPath: "pottery.png",
             },
             {
-               names:{
-                  tr: "Keten Bohçası",
-                  en: "Flax Bundle"
-               },
+               name: "Flax Bundle",
                lowest: 33,
                highest: 300,
                imgPath: "flax-bundle.png",
             },
             {
-               names:{
-                  tr: "Tuz",
-                  en: "Salt"
-               },
+               name: "Salt",
                lowest: 50,
                highest: 280,
                imgPath: "salt.png",
             },
             {
-               names:{
-                  tr: "Yağ",
-                  en: "Oil"
-               },
+               name: "Oil",
                lowest: 300,
                highest: 550,
                imgPath: "oil.png",
@@ -159,6 +203,15 @@ var app = new Vue({
       },
       getString(list){
          return list[this.language]
+      },
+      translate(str){
+         if(this.language=="en") return str
+         else if(typeof this.dict[str] == 'undefined' || typeof this.dict[str][this.language] == 'undefined'){
+            return str
+         }
+         else{
+            return this.dict[str][this.language]
+         }
       },
       addItem(item){
          item.hover = false
@@ -193,10 +246,8 @@ var app = new Vue({
          this.sortCounter++
       },
       sortBy(sortBy){
-         console.log(this.items)
          for(var i=0; i<this.items.length; i++){
             for(var j=0; j<this.items.length-1; j++){
-               console.log(i + " " + j)
                if(this.items[j][sortBy] > this.items[j+1][sortBy]){
                   var temp = this.items[j]
                   this.items[j] = this.items[j+1]
