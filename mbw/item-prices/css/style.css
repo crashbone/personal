@@ -98,11 +98,16 @@ body {
    height: 100vh;
    width: calc(50vw - 405px);
 }
-.options-section-1 {
+.options-section {
    color: white;
    text-shadow: black 1px 1px 1px;
    padding: 10px 5px;
    font-size: 20px;
+}
+
+.options-section a{
+   /* text-decoration: inherit; */
+   /* color: inherit; */
 }
 select {
    background-color: rgba(255, 255, 255, 0.75);
