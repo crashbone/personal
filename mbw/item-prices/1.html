@@ -45,8 +45,10 @@
                   <div class="item-tooltip">
                      <div class="item-tooltip-text-container">
                         <p class="item-tooltip-text">{{translate(item.name)}}</p>
-                        <p class="item-tooltip-text">Min: {{item.lowest}}</p>
-                        <p class="item-tooltip-text">Max: {{item.highest}}</p>
+                        <p class="item-tooltip-text">{{translate("Min buy")}}: {{item.lowest}}</p>
+                        <p v-if="item.lowestTerritories.length > 0" class="item-tooltip-text description">{{translate("Buy from")}}: <span v-for="territory in item.lowestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
+                        <p class="item-tooltip-text">{{translate("Max sell")}}: {{item.highest}}</p>
+                        <p v-if="item.highestTerritories.length > 0" class="item-tooltip-text description">{{translate("Sell to")}}: <span v-for="territory in item.highestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
                         <p class="item-tooltip-text">{{translate("Profit")}}: <span v-bind:class="flatDifTextClass(item.flatDif)">{{item.flatDif}}</span></p>
                         <p class="item-tooltip-text">{{translate("Percentage Profit")}}: <span v-bind:class="percentageDifTextClass(item.percentageDif)">{{item.percentageDif}}%</span></p>
                      </div>

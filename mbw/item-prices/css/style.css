@@ -77,11 +77,33 @@ body {
 .item-tooltip-text-container {
    height: 100%;
    color: #ddd;
-   font-size: 20px;
+   font-size: 18px;
    display: flex;
    flex-direction: column;
    justify-content: space-evenly;
    align-items: center
+}
+.item-tooltip-text.description{
+   font-size: 14px;
+   color: grey;
+}
+.item-tooltip-text-territory.rhodok{
+   color: lime;
+}
+.item-tooltip-text-territory.nord{
+   color: rgb(0,255,255);
+}
+.item-tooltip-text-territory.khergit{
+   color: #D39FFE;
+}
+.item-tooltip-text-territory.sarranid{
+   color: #DADA35;
+}
+.item-tooltip-text-territory.swadia{
+   color: #F97D48;
+}
+.item-tooltip-text-territory.vaegir{
+   color: #D1C09D;
 }
 .item-tooltip-text-low {
    color: gray;
