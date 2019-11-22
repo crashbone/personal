@@ -8,11 +8,11 @@ var app = new Vue({
    },
    data: {
       yuvarlakMasadakiInsanlar: [],
-      insanSayisi: 1000,
+      insanSayisi: 100,
       yaricap: 400,
       containerStyle: {},
       masaStyle: {},
-      // hiz: 1000,
+      hiz: 100,
       konsol: "",
 
       gizlemeLimiti: 100,
@@ -68,7 +68,7 @@ var app = new Vue({
       kisiClass(index){
          return {
             "devre-disi": this.yuvarlakMasadakiInsanlar[index].devreDisi,
-            "gizle": (((index % 10) != 0) && !this.yasayanKisiSayisiAz)
+            "gizle": (((index % this.gizlemeCarpani) != 0) && !this.yasayanKisiSayisiAz)
          }
       },
       toRadian(degree){
@@ -84,10 +84,6 @@ var app = new Vue({
             return
          }
          else{
-            var localHiz
-            if(i < 5) localHiz = this.hiz/100
-            else if(i < 15) localHiz = this.hiz/50
-
             var oldurulecekIndex = this.sonrakiYasayanIndex(i)
             this.konsolaYaz((i+1) + ", " + (oldurulecekIndex+1) + " numarali kisiyi oldurecek!")
             this.oldur(oldurulecekIndex)
@@ -96,8 +92,17 @@ var app = new Vue({
             var sirasiGelenIndex = this.sonrakiYasayanIndex(i)
             this.konsolaYaz("Sira " + (sirasiGelenIndex+1) + " numaralı kiside!")
 
-            this.baslat(sirasiGelenIndex)
-            // setTimeout(()=>{this.baslat(sirasiGelenIndex)}, 10)
+            if(this.yasayanKisiSayisiAz){
+               var localHiz = this.hiz
+               if((this.insanSayisi - this.yasayanKisiSayisi) < 5) localHiz = 7.5*1000/this.hiz
+               else if((this.insanSayisi - this.yasayanKisiSayisi) < 5) localHiz = 5*1000/this.hiz
+               setTimeout(()=>{this.baslat(sirasiGelenIndex)}, localHiz)
+            }
+            else{
+               this.baslat(sirasiGelenIndex)
+            }
+
+            //
          }
       },
       reset(){
