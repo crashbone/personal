@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Yuvarlak Masa</title>
+</head>
+
+<body>
+   <div id="app_container">
+      <div class="main-container" v-bind:style="containerStyle" style="position: relative;">
+         <div class="masa" v-bind:style="masaStyle"></div>
+         <div class="kisi" v-for="(kisi, index) in yuvarlakMasadakiInsanlar" v-bind:class="kisiClass(index)" style="position: absolute;" v-bind:style="kisi.style">
+            {{index+1}}
+         </div>
+         <div class="buton-container">
+            <button class="baslat" v-on:click="baslatButonu">Başlat!</button><br>
+            <button class="reset" v-on:click="reset">Sıfırla!</button>
+         </div>
+      </div>
+      <div class="konsol">
+         <pre>{{konsol}}</pre>
+      </div>
+      <div class="ayar">
+         İnsan sayısı: {{insanSayisi}}<br>
+         <input v-model.number="insanSayisi" type="range" min="10" max="1000">
+         <input v-model.number="insanSayisi" type="number">
+         Gizleme Limiti: {{gizlemeLimiti}}<br>
+         <input v-model.number="gizlemeLimiti" type="range" min="20" max="200">
+         <input v-model.number="gizlemeLimiti" type="number">
+         <button v-on:click="init">Kaydet</button>
+      </div>
+   </div>
+   <div class="footer">
+      <a href="https://forum.donanimhaber.com/yazilim-bilen-deha-araniyor-python--140897460">DH Konusu için hazırlanmıştır</a>
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
+</html>

@@ -1,0 +1,96 @@
+* {
+   margin: 0px;
+   padding: 0px;
+   /* border: 1px dashed black; */
+}
+body {
+   width: 100%;
+   height: 100vh;
+   background-image: url("../img/bg.png");
+   /* background-repeat: no-repeat; */
+   /* background-size: cover; */
+   letter-spacing: 1.15px;
+   font-family: Tahoma;
+   font-size: 16px;
+   letter-spacing: 0px;
+}
+
+#app_container{
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.main-container{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.masa {
+   position: absolute;
+   border-radius: 50%;
+   background-color: white;
+}
+
+.kisi {
+   color: white;
+   transition-property: opacity;
+   transition-duration: .25s
+   font-weight: bold;
+}
+
+.kisi.devre-disi {
+   background-color: red;
+   opacity: 0
+}
+
+.kisi.gizle{
+   opacity: 0
+}
+
+.buton-container{
+   z-index: 1
+}
+.konsol{
+   position: absolute;
+   left: 0;
+   top: 0;
+   width: 25vw;
+   height: 300px;
+   border: 1px solid white;
+   overflow-y:scroll;
+   background-color: black;
+   color: white;
+}
+
+.ayar{
+   padding-top: 10px;
+   position: absolute;
+   right: 0;
+   top: 0;
+   width: 200px;
+   height: 130px;
+   background-color: #eee
+}
+button {
+   padding: 5px 10px;
+}
+input[type="number"]{
+   width: 50px;
+}
+input[type="range"]{
+   width: 100px;
+}
+.footer{
+   text-align: center;
+   position: fixed;
+   width: 100%;
+   bottom: 20px;
+}
+.footer a{
+   color: white;
+   font-weight: bold;
+}
