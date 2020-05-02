@@ -1,15 +1,49 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>Personal Main Page</title>
-	</head>
-	<body>
-	        <a href="/personal/black-friday/index.html">Black-friday</a><br>
-		<a href="/personal/deutsch/index.html">Deutsch</a><br>
-		<a href="/personal/budget-helper/index.html">Budget Helper</a><br>
-		<a href="/personal/mbw/index.html">Mount & Blade Warband</a><br>
-		<a href="/personal/basic-ones/index.html">Basic Projects</a>
-		<a href="/personal/boss-drop/index.html">Boss Drop</a>
-	</body>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Boss Drop</title>
+</head>
+
+<body>
+   <div id="main_container">
+      <div class="satir">
+         <p>Bossu bir kez kestiğin zaman drop düşme ihtimali</p>
+         <input placeholder="Bossu bir kez kestiğin zaman drop düşme ihtimali" type="text" v-model="tekKesisteDropDusmeIhtimali">
+      </div>
+      <div class="satir">
+         <p>Bossu bir kez kestiğin zaman drop düşmeme ihtimali</p>
+         <input disabled type="text" v-model.number="tekKesisteDropDusmemeIhtimali">
+      </div>
+      <div class="satir">
+         <p>Bossu totalde kaç kez keseceksin?</p>
+         <input placeholder="Bossu totalde kaç kez keseceksin?" type="text" v-model.number="bossKesmeSayisi">
+      </div>
+      <!-- <button @click="hesaplaTotal">hesapla!</button> -->
+      <div class="satir">
+         <p>Totalde en aşağı 1 kez drop düşme ihtimali:</p>
+         <input disabled type="text" v-model.number="totaldeEnAz1KereDropDusmeIhtimali">
+      </div>
+      <h2>Totalde en aşağı 1 kez drop düşme ihtimali formülü:</h2>
+      <p class="formul">1 - Tek Kesişte Drop Düşmeme İhtimali<span>Boss Kesme Sayisi</span></p>
+
+
+      <div class="satir">
+         <p>Tam olarak kaç tane düşsün?</p>
+         <input placeholder="Tam olarak kaç tane düşsün?" type="text" v-model="tamOlarakXTaneDussun">
+      </div>
+      <div class="satir">
+         <p>Totalde sadece {{tamOlarakXTaneDussun}} kez drop düşme ihtimali:</p>
+         <input disabled type="text" v-model.number="sadeceXKezDusmeIhtimali">
+      </div>
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
 </html>
