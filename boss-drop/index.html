@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Boss Drop</title>
+</head>
+
+<body>
+   <div id="main_container">
+      <div class="satir">
+         <p>Bossu bir kez kestiğin zaman drop düşme ihtimali</p>
+         <input placeholder="Bossu bir kez kestiğin zaman drop düşme ihtimali" type="text" v-model="tekKesisteDropDusmeIhtimali">
+      </div>
+      <div class="satir">
+         <p>Bossu bir kez kestiğin zaman drop düşmeme ihtimali</p>
+         <input disabled type="text" v-model.number="tekKesisteDropDusmemeIhtimali">
+      </div>
+      <div class="satir">
+         <p>Bossu totalde kaç kez keseceksin?</p>
+         <input placeholder="Bossu totalde kaç kez keseceksin?" type="text" v-model.number="bossKesmeSayisi">
+      </div>
+      <!-- <button @click="hesaplaTotal">hesapla!</button> -->
+      <div class="satir">
+         <p>Totalde drop düşme ihtimali:</p>
+         <input disabled type="text" v-model.number="totaldeDropDusmeIhtimali">
+      </div>
+      <h2>Formül:</h2>
+      <p class="formul">1 - Tek Kesişte Drop Düşmeme İhtimali<span>Boss Kesme Sayisi</span></p>
+
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
+</html>
