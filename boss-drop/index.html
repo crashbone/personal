@@ -23,12 +23,21 @@
       </div>
       <!-- <button @click="hesaplaTotal">hesapla!</button> -->
       <div class="satir">
-         <p>Totalde drop düşme ihtimali:</p>
-         <input disabled type="text" v-model.number="totaldeDropDusmeIhtimali">
+         <p>Totalde en aşağı 1 kez drop düşme ihtimali:</p>
+         <input disabled type="text" v-model.number="totaldeEnAz1KereDropDusmeIhtimali">
       </div>
-      <h2>Formül:</h2>
+      <h2>Totalde en aşağı 1 kez drop düşme ihtimali formülü:</h2>
       <p class="formul">1 - Tek Kesişte Drop Düşmeme İhtimali<span>Boss Kesme Sayisi</span></p>
 
+
+      <div class="satir">
+         <p>Tam olarak kaç tane düşsün?</p>
+         <input placeholder="Tam olarak kaç tane düşsün?" type="text" v-model="tamOlarakXTaneDussun">
+      </div>
+      <div class="satir">
+         <p>Totalde sadece {{tamOlarakXTaneDussun}} kez drop düşme ihtimali:</p>
+         <input disabled type="text" v-model.number="sadeceXKezDusmeIhtimali">
+      </div>
    </div>
 </body>
 
