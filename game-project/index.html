@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>Oyun</title>
+</head>
+
+<body>
+   <div id="main_container" @click="togglePassiveMode">
+      <p>Money: {{totalMoney}}</p>
+      <p v-if="passiveMode">Current Passive Earning: {{oneTimeEarnings}}</p>
+      <p v-else>Current Second Job Earning: {{oneTimeEarnings}}</p>
+      <div id="current-one-time" class="current-one-time">
+      </div>
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
+</html>
