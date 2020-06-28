@@ -23,7 +23,8 @@ var app = new Vue({
       wordLimit: "25",
       textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek",
       words: [],
-      modeall: 0
+      modeall: 0,
+      showMarked: false,
 
    },
 
@@ -207,6 +208,20 @@ var app = new Vue({
       },
       toggleMarker(i) {
          this.words[i].marker = !this.words[i].marker
+      },
+      showMarkedClick(){
+         this.showMarked = !this.showMarked;
+         if(!this.showMarked) return
+
+         let input = document.querySelector("#marked")
+         var string = ""
+         this.words.forEach(function(word, index){
+            if(word.marker){
+               string+= (string == "" ? "" : "\n") + ((word.artikel) ? (word.artikel + "\t") : "") + word.word + "\t" + word.meaning
+            }
+         })
+         input.value = string;
+
       }
    },
    watch: {
