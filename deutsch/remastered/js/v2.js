@@ -25,7 +25,12 @@ var app = new Vue({
       words: [],
       modeall: 0,
       showMarked: false,
-
+      desktopStyle: {
+         fontSize: "16px",
+      },
+      mobileStyle: {
+         fontSize: "23px",
+      },
    },
 
    methods: {
@@ -36,9 +41,9 @@ var app = new Vue({
       versionChanged() {
          console.log("hi!")
          if (this.version == "desktop") {
-            document.documentElement.style.fontSize = "16px"
+            document.documentElement.style.fontSize = this.desktopStyle.fontSize;
          } else if (this.version == "mobile") {
-            document.documentElement.style.fontSize = "28px"
+            document.documentElement.style.fontSize = this.mobileStyle.fontSize;
          }
 
       },
