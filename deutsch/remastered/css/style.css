@@ -28,7 +28,6 @@ button{
    z-index: 1;
 
    min-width: 80%;
-   height: 2rem;
 
    /* padding-left: 1.5rem; */
    background-color: white;
@@ -85,6 +84,8 @@ a.button{
    font-weight: lighter;
    padding: 0px 1rem !important;
    cursor: pointer;
+   border: 1px solid gray;
+   border-radius: 10px;
 
    -webkit-touch-callout: none; /* iOS Safari */
     -webkit-user-select: none; /* Safari */
