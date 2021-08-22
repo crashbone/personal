@@ -46,6 +46,8 @@
          <!-- INPUT TEXTAREA -->
          <textarea class="input" v-model="textarea" autofocus></textarea><br>
 
+
+
          <!-- WORD LIMIT SLIDER -->
          <span>Limit the maximum word quantity. Slide to 0 in order to remove limit.</span><br>
          <input type="range" min="0" max="100" v-model="wordLimit">{{wordLimit}}<br>
@@ -53,9 +55,32 @@
 
          <!-- BUTTONS -->
          <button v-on:click="submit">Submit</button><br>
-         <button v-on:click="toggleHowToGif">HOW TO (GIF)</button>
-         <iframe v-if="showHowTo" src='https://gfycat.com/ifr/NastyFavorableArmednylonshrimp' style="display: block;" frameborder='0' scrolling='no' allowfullscreen width='640' height='360'></iframe>
       </div>
+
+      <!-- LINKS / DRIVE FILES / SAVES -->
+      <div class="container-fluid saves">
+         <div class="row">
+            <template v-for="(link, index) in links">
+               <div class="save_entry_outer_container button save_entry col-4">
+                  <template v-if="!link.editMode">
+                     <div class="save_entry_inner_container flex_row justify_space_around">
+                        <a :href="link.url" target="_blank" class="save_entry button text_cut no_padding">{{index + 1}}: {{link.url}}</a>
+                        <a @click="onLinkEdit(index)" class="save_entry button flex_no_shrink no_padding">edit</a>
+                     </div>
+                  </template>
+                  <template v-else>
+                     <div class="save_entry_inner_container flex_row justify_space_around">
+                        <input type="text" class="save_entry" v-model="link.url">
+                        <a @click="onLinkEdit(index)" class="save_entry button flex_no_shrink">OK</a>
+                        <a @click="onLinkRemove(index)" class="save_entry button flex_no_shrink">X</a>
+                     </div>
+                  </template>
+               </div>
+            </template>
+            <a @click="onNewLink()" class="button new_entry col-2">Add link (browser cache)</a>
+         </div>
+      </div>
+
 
       <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
 

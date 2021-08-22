@@ -1,7 +1,22 @@
+// https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
+Array.prototype.remove = function(value) {
+   const index = array.indexOf(value);
+   if (index > -1) {
+      array.splice(index, 1);
+   }
+};
+
+// Array Remove - By John Resig (MIT Licensed)
+Array.prototype.removeIndex = function(from, to) {
+  var rest = this.slice((to || from) + 1 || this.length);
+  this.length = from < 0 ? this.length + from : from;
+  return this.push.apply(this, rest);
+};
+
 var app = new Vue({
    el: '#main_container',
    created() {
-      this.initTextArea()
+      this.init()
    },
    data: {
       ARTIKELS: ["der", "die", "das"],
@@ -18,32 +33,35 @@ var app = new Vue({
 
       submitted: false,
       hideInputDiv: false,
-      showHowTo: false,
       toggleInputButtonText: "",
       wordLimit: "25",
       textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek",
       words: [],
       modeall: 0,
       showMarked: false,
-      desktopStyle: {
-         fontSize: "16px",
-      },
-      mobileStyle: {
-         fontSize: "23px",
-      },
+
+      links: [],
+
    },
 
    methods: {
+      init() {
+         this.initTextArea();
+         this.initLinks();
+      },
       initTextArea() {
          this.textarea = (this.debugEnabled) ? "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek" : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+      },
+      initLinks() {
+         this.links = this.getDBVersion("links", this.getLocalStorage().links, false);
       },
 
       versionChanged() {
          console.log("hi!")
          if (this.version == "desktop") {
-            document.documentElement.style.fontSize = this.desktopStyle.fontSize;
+            document.documentElement.style.fontSize = "16px"
          } else if (this.version == "mobile") {
-            document.documentElement.style.fontSize = this.mobileStyle.fontSize;
+            document.documentElement.style.fontSize = "28px"
          }
 
       },
@@ -81,9 +99,6 @@ var app = new Vue({
       toggleInputDiv() {
          this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
          this.hideInputDiv = !this.hideInputDiv
-      },
-      toggleHowToGif() {
-         this.showHowTo = !this.showHowTo
       },
       setupWords() {
          //whole textarea input splitted into array using "\n"
@@ -227,6 +242,55 @@ var app = new Vue({
          })
          input.value = string;
 
+      },
+      getDBVersion(id, obj, to=true) {
+         if(id === "links") {
+            if (to) {
+               const dbLinks = [];
+               obj.forEach(link => {
+                  const dbLink = {
+                     url: link.url,
+                  }
+                  dbLinks.push(dbLink);
+               })
+               return dbLinks;
+            } else {
+               const newLinks = [];
+               obj.forEach(dblink => {
+                  const newLink = {
+                     url: dblink.url,
+                     editMode: false,
+                  }
+                  newLinks.push(newLink);
+               })
+               return newLinks;
+            }
+         }
+      },
+      onNewLink() {
+         this.links.push({editMode: false, url: ""});
+         this.storeLocal("links", this.getDBVersion("links", this.links))
+      },
+      onLinkEdit(index) {
+         this.links[index].editMode = !this.links[index].editMode
+         this.storeLocal("links", this.getDBVersion("links", this.links))
+      },
+      onLinkRemove(index) {
+         this.links.removeIndex(index);
+         this.storeLocal("links", this.getDBVersion("links", this.links))
+      },
+      storeLocal(key, obj) {
+         const deutschv2 = this.getLocalStorage();
+         deutschv2[key] = obj;
+         window.localStorage.setItem("deutschv2",  JSON.stringify(deutschv2))
+      },
+      getLocalStorage() {
+         try {
+            return JSON.parse(window.localStorage.getItem('deutschv2')) ?? {};
+         } catch (e) {
+            console.log("json parse failed")
+            return {};
+         }
       }
    },
    watch: {
