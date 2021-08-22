@@ -60,6 +60,8 @@ var app = new Vue({
 
       links: [],
       windowWidth: window.innerWidth,
+
+      splitter: ["\t"], // ["\t", "::", "//", "--", "__"],
    },
    computed: {
       wordCol() {
@@ -126,7 +128,10 @@ var app = new Vue({
 
 
          allWordsArray.forEach(line => {
-            var lineArray = util.splitLibrary.splitString(line, ["\t", "::", "//", "--", "__"])
+            var lineArray = util.splitLibrary.splitString(line, this.splitter)
+            if (lineArray.length === 1 && line.length < 3) {
+               return;
+            }
 
             //If first section of the line is artikel
             if (this.ARTIKELS.includes(lineArray[0])) { //first tab is artikel
