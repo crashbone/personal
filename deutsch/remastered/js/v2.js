@@ -61,7 +61,7 @@ var app = new Vue({
       links: [],
       windowWidth: window.innerWidth,
 
-      splitter: ["\t"], // ["\t", "::", "//", "--", "__"],
+      splitter: ["\t", "    "], // ["\t", "::", "//", "--", "__"],
    },
    computed: {
       wordCol() {
