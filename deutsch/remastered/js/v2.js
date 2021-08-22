@@ -25,7 +25,7 @@ var app = new Vue({
       // ============================================
       // =============== DEBUG_MODE =================
       // ============================================
-      debugEnabled: false,
+      debugEnabled: true,
 
       /* DEFAULT VERSION
       "desktop" or "mobile" */
@@ -53,7 +53,9 @@ var app = new Vue({
          this.textarea = (this.debugEnabled) ? "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek" : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
       },
       initLinks() {
-         this.links = this.getDBVersion("links", this.getLocalStorage().links, false);
+         const dbLinks = this.getLocalStorage().links;
+         if (dbLinks)
+            this.links = this.getDBVersion("links", dbLinks, false);
       },
 
       versionChanged() {
@@ -89,10 +91,6 @@ var app = new Vue({
 
 
       },
-      toggleHowToGif() {
-         this.showHowTo = !this.showHowTo
-      },
-
       resetWords() {
          this.words = []
       },
