@@ -25,7 +25,7 @@ var app = new Vue({
       // ============================================
       // =============== DEBUG_MODE =================
       // ============================================
-      debugEnabled: true,
+      debugEnabled: window.location.href.includes("file:"),
 
       /* DEFAULT VERSION
       "desktop" or "mobile" */
