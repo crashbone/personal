@@ -18,7 +18,8 @@ String.prototype.copy = function(message=false) {
    if (!clipboard) {
       clipboard = document.createElement('textarea');
       clipboard.id = "clipboard";
-      clipboard.style.display = "none";
+      clipboard.style.position = "absolute";
+      clipboard.style.opacity = "-1";
       document.body.appendChild(clipboard);
    }
    clipboard.innerHTML = this;
