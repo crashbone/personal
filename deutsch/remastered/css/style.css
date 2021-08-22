@@ -175,8 +175,8 @@ textarea{
 }
 
 #marked{
-   position: absolute;
-   top: calc(-100px + 8.3rem);
+   position: fixed;
+   top: calc(-200px + 16.6rem);
    right: 0;
    z-index: 1;
 }
@@ -223,4 +223,16 @@ textarea{
 
 .flex_no_shrink {
    flex-shrink: 0;
+}
+
+.notification {
+   font-weight: bold;
+   background-color: #AAF;
+   position: fixed;
+   top: calc(-200px + 16.6rem);
+   border: 2px solid #000;
+   border-radius: 10px;
+   padding: 10px;
+   left: 50%;
+   transform: translate(-50%);
 }

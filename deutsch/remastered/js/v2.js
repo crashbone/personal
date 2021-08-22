@@ -13,6 +13,21 @@ Array.prototype.removeIndex = function(from, to) {
   return this.push.apply(this, rest);
 };
 
+String.prototype.copy = function(message=false) {
+   let clipboard = document.getElementById("clipboard");
+   if (!clipboard) {
+      clipboard = document.createElement('textarea');
+      clipboard.id = "clipboard";
+      clipboard.style.display = "none";
+      document.body.appendChild(clipboard);
+   }
+   clipboard.innerHTML = this;
+   clipboard.select();
+   const copy = document.execCommand('copy');
+   alert("copied")
+   return copy
+}
+
 var app = new Vue({
    el: '#main_container',
    created() {
@@ -21,6 +36,7 @@ var app = new Vue({
    data: {
       ARTIKELS: ["der", "die", "das"],
       randomizeCounter: 0,
+      notification: "",
 
       // ============================================
       // =============== DEBUG_MODE =================
@@ -34,7 +50,7 @@ var app = new Vue({
       submitted: false,
       hideInputDiv: false,
       toggleInputButtonText: "",
-      wordLimit: "25",
+      wordLimit: "0",
       textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek",
       words: [],
       modeall: 0,
@@ -48,6 +64,7 @@ var app = new Vue({
       init() {
          this.initTextArea();
          this.initLinks();
+         window.alert = this.showNotification;
       },
       initTextArea() {
          this.textarea = (this.debugEnabled) ? "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek" : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
@@ -239,7 +256,7 @@ var app = new Vue({
             }
          })
          input.value = string;
-
+         string.copy();
       },
       getDBVersion(id, obj, to=true) {
          if(id === "links") {
@@ -288,6 +305,12 @@ var app = new Vue({
          } catch (e) {
             console.log("json parse failed")
             return {};
+         }
+      },
+      showNotification(text) {
+         if (!this.notification) {
+            this.notification = text;
+            setTimeout(() => this.notification = "", 1000);
          }
       }
    },
