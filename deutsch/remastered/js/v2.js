@@ -33,6 +33,11 @@ var app = new Vue({
    created() {
       this.init()
    },
+   mounted() {
+      window.onresize = () => {
+         this.windowWidth = window.innerWidth
+      }
+   },
    data: {
       ARTIKELS: ["der", "die", "das"],
       randomizeCounter: 0,
@@ -43,21 +48,32 @@ var app = new Vue({
       // ============================================
       debugEnabled: window.location.href.includes("file:"),
 
-      /* DEFAULT VERSION
-      "desktop" or "mobile" */
       version: "desktop",
-
       submitted: false,
       hideInputDiv: false,
       toggleInputButtonText: "",
       wordLimit: "0",
-      textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek",
+      textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek\nhereinlegen    bamboozle",
       words: [],
       modeall: 0,
       showMarked: false,
 
       links: [],
-
+      windowWidth: window.innerWidth,
+   },
+   computed: {
+      wordCol() {
+         if (this.windowWidth < 500) {
+            return 12
+         }
+         if (this.windowWidth < 1000) {
+            return 6
+         }
+         if (this.windowWidth < 1500) {
+            return 4
+         }
+         return 3
+      }
    },
 
    methods: {
@@ -67,24 +83,13 @@ var app = new Vue({
          window.alert = this.showNotification;
       },
       initTextArea() {
-         this.textarea = (this.debugEnabled) ? "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek" : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+         this.textarea = (this.debugEnabled) ? this.textarea : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
       },
       initLinks() {
          const dbLinks = this.getLocalStorage().links;
          if (dbLinks)
             this.links = this.getDBVersion("links", dbLinks, false);
       },
-
-      versionChanged() {
-         console.log("hi!")
-         if (this.version == "desktop") {
-            document.documentElement.style.fontSize = "16px"
-         } else if (this.version == "mobile") {
-            document.documentElement.style.fontSize = "28px"
-         }
-
-      },
-
       submit() {
          this.resetWords()
          this.toggleInputDiv()
@@ -155,21 +160,13 @@ var app = new Vue({
             this.words = this.words.slice(0, limit)
          }
       },
-      wordContainerClass(word) {
-         return {
-            "col-3 desktop": this.version == "desktop",
-            "col-4 mobile": this.version == "mobile",
-         }
-      },
 
       // Add der, die, das to word's classlist
       wordClass(word) {
          return {
-            "desktop": this.version == "desktop",
-            "mobile": this.version == "mobile",
-            der: word.artikel == "der" && word.mode == 1,
-            die: word.artikel == "die" && word.mode == 1,
-            das: word.artikel == "das" && word.mode == 1,
+            der: word.artikel == "der",
+            die: word.artikel == "die",
+            das: word.artikel == "das",
             marked: word.marker
          }
       },
@@ -312,11 +309,6 @@ var app = new Vue({
             this.notification = text;
             setTimeout(() => this.notification = "", 1000);
          }
-      }
-   },
-   watch: {
-      version: function(newVal, oldVal) {
-         this.versionChanged()
       }
    }
 })

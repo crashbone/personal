@@ -10,21 +10,15 @@
 
 <body>
    <div id="main_container">
-      <div v-if="notification" class="notification">{{notification}}</div>
 
-      <!-- FIXED HEADER -->
+      <!-- HEADER -->
       <div class="header">
-
-         <!-- VERSION SELECTION DIV -->
-         <div class="version-selection">
-            <input type="radio" id="version-desktop" value="desktop" v-model="version" v-on:change="versionChanged">
-            <label for="version-desktop">Desktop</label>
-            <input type="radio" id="version-mobile" value="mobile" v-model="version">
-            <label for="version-mobile">Mobile</label><br>
-         </div>
 
          <div v-show="submitted" class="utility-buttons">
             <!-- BUTTON FOR TOGGLING VISIBILITY OF INPUT TEXT AREA -->
+            <a v-if="version === 'desktop'" class="button" @click="version = 'mobile'">Use one tap</a>
+            <a v-else class="button" @click="version = 'desktop'">Use double click</a>
+
             <a class="button" v-on:click="toggleInputDiv">{{toggleInputButtonText}}</a>
 
             <a class="button" v-on:click="randomize">Randomize Again</a>
@@ -35,7 +29,8 @@
          </div>
 
       </div>
-      <div class="wrapper"></div>
+      <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
+      <div v-if="notification" class="notification">{{notification}}</div>
 
       <h3 v-if="debugEnabled">Debug mode is enabled!</h3>
 
@@ -82,17 +77,14 @@
          </div>
       </div>
 
-
-      <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
-
       <!-- WORDS LISTS DIV -->
       <div class="container-fluid">
          <div class="row">
             <div class="col-12">
                <div class="row">
-                  <div class="wordContainer" v-bind:class="wordContainerClass(word)" v-for="(word,index) in words" :key="randomizeCounter">
+                  <div class="wordContainer" :class="`col-${wordCol}`" v-for="(word,index) in words" :key="randomizeCounter">
                      <div class="word" v-on:dblclick="wordDblClick(index)" v-on:click="wordClick(index)" v-bind:class="wordClass(word)">{{word.context}}</div>
-                     <div class="marker" v-bind:class="markerClass(word)" v-on:click="markerClick(index)"></div>
+                     <div class="marker" :class="{active: word.marker}" v-on:click="markerClick(index)"></div>
                   </div>
                </div>
             </div>
