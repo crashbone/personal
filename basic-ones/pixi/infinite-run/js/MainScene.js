@@ -24,7 +24,7 @@ class MainScene {
             spriteHeight: 153,
             sceneData: this.sceneData,
             collusion: true,
-            onCollusion() { this.runSpeed = 0; this.inputSpeed = 0; location.reload(); }
+            onCollusion() { this.container.y += 3; this.runSpeed = 0; this.inputSpeed = 0; location.reload(); }
         });
         window.player = player;
         player.runSpeed = 5;
