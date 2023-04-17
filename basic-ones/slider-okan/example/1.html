@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <link rel="stylesheet" href="../slider-okan.css">
+   <title>Slider Example</title>
+
+</head>
+
+<body>
+
+   <div class="main_container" id="main_container">
+      <div class="settings">
+         <p>When one of the values below gets changed, the only thing is done from user is triggering Vue component sliderOkan's setParams event with new values</p><br>
+         <p>Animation Duration(ms)</p>
+         <input type="text" v-model.number="duration">
+         <p>Page quantity</p>
+         <input type="text" v-model.number="multiPage">
+         <p>Animation Types</p>
+         <input id="opacity-checkbox" type="checkbox" v-model="opacityCheckbox">
+         <label for="opacity-checkbox">Opacity</label><br>
+         <input id="shrink-checkbox" type="checkbox" v-model="shrinkCheckbox">
+         <label for="shrink-checkbox">Shrink</label><br>
+         <input id="move-checkbox" type="checkbox" v-model="moveCheckbox">
+         <label for="move-checkbox">Move</label><br>
+      </div>
+      <div class="slider-container">
+         <slider-okan v-bind:event-bus="eventBus"></slider-okan>
+      </div>
+   </div>
+   <script src="./lib/vue.js"></script>
+   <script src="../slider-okan.js"></script>
+   <!-- 1.js needs to know its child components before getting created -->
+   <script src="./js/1.js"></script>
+</body>
+
+
+
+
+
+</html>
