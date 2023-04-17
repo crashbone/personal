@@ -1,0 +1,277 @@
+body {
+	text-align: center;
+	margin: auto;
+	width: 90%;
+	
+}
+p{ 
+	font-size: 1em;
+	margin:0;
+	color: white;
+}
+a{
+	text-decoration:none;
+}
+#fixedheader{
+	position: fixed;
+	width: 75%;
+	height: 6em;
+	
+	background-color: #071218;
+	background-image: url("../img/header2.jpg");
+	background-position: center; 
+	background-size: auto 100%;
+	
+	padding-left: 15%;
+	padding-right: 10%;
+	
+	display: flex;
+	margin-left: -5%;
+	
+	border-radius: 0px;
+}
+
+#logo{
+	width: 6em;
+	height: 6em;
+	background-image:  url("../img/lineage2.png");
+	background-size: 100% 100%;
+	display: inline-block;
+	
+}
+.link{
+	height: auto;
+	width: 8%;
+	
+	/*border: 1px white solid;*/
+	
+	margin: auto;
+    display: inline-block;
+}
+
+.link > a{
+	font-size: 1.6em;
+	text-decoration: none;
+	color: #b3b3b3;
+}
+.link > a:hover{
+	text-decoration: underline
+}
+
+
+
+#login {
+	display: inline-block;
+	float: right;
+	width: 15%;
+	height: 100%;
+	border: 2px solid white;
+}
+
+
+#bannerouter{
+	display: block;
+	border: 0;
+	margin: auto;
+	width: 98%;
+	height: 14em;
+	margin-bottom: 1%;
+}
+#bannerinner1{
+	border:0;
+	height: 7em;
+	margin-bottom: 0px;
+}
+#bannerinner2{
+	height: 7em;
+	background-image:  url("../img/banner2.jpg");
+	background-size: 100% auto;
+	
+}
+#bannerinner2 > img{
+	height: 7em;
+	
+}
+#container1{
+	width: 100%;
+	height: 38em;
+}
+#centerbarheader{
+	margin-bottom: 3en;
+	padding-left: 15%;
+	padding-right: 22%;
+}
+
+#centerbarheader > p{
+	font-size: 1.6em;
+	font-family: Verdana, sans-serif;
+	font-weight: bold;
+}
+#leftbar{
+	display: inline-block;
+	float:left;
+	width: 10%;
+	height: auto;
+	border: 1px solid #777777;
+	background-color: black;
+}
+
+#bossstatus{
+	width: 100%;
+	height: 3em;
+	
+	background-image: url("../img/boss.jpg");
+	background-size: 100% 100%;
+	margin-bottom: 1em;
+	display: flex;
+}
+
+#twitter{
+	width: 100%;
+	height: 4em;
+	
+	background-image: url("../img/twitter.jpg");
+	background-size: 100% 100%;
+	margin-bottom: 1em;
+	display: flex;
+}
+
+#facebook{
+	width: 100%;
+	height: 3em;
+	
+	background-image: url("../img/facebook.jpg");
+	background-size: 100% 100%;
+	margin-bottom: 1em;
+	display: flex;
+}
+
+#votehopzone{
+	width: 100%;
+	height: 3em;
+	
+	background-image: url("../img/votehopzone.jpg");
+	background-size: 100% 100%;
+	margin-bottom: 1em;
+	display: flex;
+}
+
+.link2 {
+	width: 100%;
+	
+	margin: auto;
+}
+.link2 > p {
+	font-family: cursive;
+}
+
+
+
+#centerbar{
+	display: inline-block;
+	text-align: left;
+	margin-left: 5%;
+	margin-right: 5%;
+	padding-top: 1em;
+	padding-left: 5%;
+	padding-bottom: 1em;
+	width:45%;
+	height: 48em;
+	background-color: #444444;
+	border: 3px solid white;
+	overflow-y: auto;
+}
+.date {
+	font-weight: bold;
+	color: #ff8080;
+	font-size: 1.5em;
+	display: block;
+	margin-top: 1em;
+	margin-left: -2em;
+}
+.section {
+	color: white;
+	font-size: 1.2em;
+	display: block;
+	margin-top: 0.6em;
+	margin-left: -1em;
+}
+
+#rightbar{
+	display: inline-block;
+	float:right;
+	width: 22%;
+	height: auto;
+	overflow: hidden;
+}
+#statusbar{
+	text-align: left;
+	display: inline-block;
+	width: 92%;
+	height: 13em;
+	padding-left: 5%;
+	/*border: 1px solid white;*/
+	background-color: black;
+	
+}
+
+#statusbar > p{
+	display: block;
+	font-size: 1.2em;
+	margin-top: 1em;
+	vertical-align: middle;
+	
+}
+
+#toplist{
+	display: inline-block;
+	width: 104%;
+	height: 16.5em;
+	/*border: 1px solid white;*/
+	margin-top: 2em;
+	background-color: black;
+	overflow-y: auto;
+	white-space: nowrap;
+	
+}
+#toplistnumbers{
+	margin-bottom: 0px;
+	padding-top: 2em;
+	float: left;
+	display: inline-block;
+	width: 10%;
+	height: auto;
+}
+
+#toplist > div > p{
+	font-family: cursive;
+	font-size: 1em;
+}
+
+#lefttoplist{
+	margin-bottom: 0px;
+	display: inline-block;
+	width: 43%;
+	height: 100%;
+	border-right: 1px solid red;
+	border-radius: 0px;
+}
+
+#righttoplist{
+	margin-bottom: 0px;
+	display: inline-block;
+	width: 43%;
+	height: 100%;
+	border-left: 1px solid red;
+	border-radius: 0px;
+}
+
+#lefttoplist > p:first-child, #righttoplist > p:first-child{
+	font-family: Arial, sans-serif;
+	font-size: 1.3em;
+	color: red;
+	padding-top: 0.4em;
+	text-decoration: underline;
+}
+	
+	
