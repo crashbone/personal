@@ -2,4 +2,4 @@
 
 # 
 
-[https://crashbone.github.io/try1/](https://crashbone.github.io/personal/my-first-web-page/)
+[https://crashbone.github.io/my-first-web-page/](https://crashbone.github.io/personal/my-first-web-page/)
