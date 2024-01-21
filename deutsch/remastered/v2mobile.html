@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./lib/bs.css">
+   <link rel="stylesheet" href="./css/stylemobile.css">
+   <title>Deutsch</title>
+</head>
+
+<body>
+   <!-- der | Tisch | Masa -->
+   <div id="main_container">
+      <div class="tabs_container">
+         <div class="tab" v-for="i in 4">TAB (WIP)</div>
+      </div>
+      <div class="words_container">
+         
+      </div>
+      <div class="buttons_container">
+         <div class="button" v-on:click="randomize">Shuffle</div>
+         <div class="button" v-on:click="toggleAll">Toggle All</div>
+         <div class="button">Show Marked (WIP)</div>
+         <div class="button">More (WIP)</div>
+      </div>
+   </div>
+
+
+   <div id="main_container">
+
+      <!-- HEADER -->
+      <div class="header">
+
+         <div v-show="submitted" class="utility-buttons">
+            <a class="button" v-on:click="toggleInputDiv">{{toggleInputButtonText}}</a>
+
+            <a class="button" v-on:click="randomize">Randomize Again</a>
+
+            <a class="button" v-on:click="toggleAll">Toggle All</a>
+
+            <a class="button" v-on:click="showMarkedClick">Selected Words</a>
+         </div>
+
+      </div>
+      <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
+      <div v-if="notification" class="notification">{{notification}}</div>
+
+      <h3 v-if="debugEnabled">Debug mode is enabled!</h3>
+
+
+
+
+      <!-- INPUTS -->
+      <div class="input-div" v-show="!hideInputDiv">
+         <!-- INPUT TEXTAREA -->
+         <textarea class="input" v-model="textarea" autofocus></textarea><br>
+
+
+
+         <!-- WORD LIMIT SLIDER -->
+         <span>Limit the maximum word quantity. Slide to 0 in order to remove limit.</span><br>
+         <input type="range" min="0" max="100" v-model="wordLimit">{{wordLimit}}<br>
+         <p class="word-limit-description"><span v-show="wordLimit=='0'">Slider is 0. No words will be removed, you'll see all of the words you have in the input field.</span></p>
+
+         <!-- BUTTONS -->
+         <button v-on:click="submit">Start!</button><br>
+      </div>
+
+      <!-- LINKS / DRIVE FILES / SAVES -->
+      <div class="container-fluid saves">
+         <div class="row">
+            <template v-for="(link, index) in links">
+               <div class="save_entry_outer_container button save_entry col-4">
+                  <template v-if="!link.editMode">
+                     <div class="save_entry_inner_container flex_row justify_space_around">
+                        <a :href="link.url" target="_blank" class="save_entry button text_cut no_padding">{{index + 1}}: {{link.url}}</a>
+                        <a @click="onLinkEdit(index)" class="save_entry button flex_no_shrink no_padding">edit</a>
+                     </div>
+                  </template>
+                  <template v-else>
+                     <div class="save_entry_inner_container flex_row justify_space_around">
+                        <input type="text" class="save_entry" v-model="link.url">
+                        <a @click="onLinkEdit(index)" class="save_entry button flex_no_shrink">OK</a>
+                        <a @click="onLinkRemove(index)" class="save_entry button flex_no_shrink">X</a>
+                     </div>
+                  </template>
+               </div>
+            </template>
+            <a @click="onNewLink()" class="button new_entry col-4">Add link (browser cache)</a>
+         </div>
+      </div>
+
+      <!-- WORDS LISTS DIV -->
+      <div class="container-fluid">
+         <div class="word" v-for="(word,index) in words"
+               v-on:click="wordClick(index)"
+               @mousedown="touch('start', $event)" @mousemove="touch('move', $event)" @mouseup="touch('end', $event)" @touchstart="touch('start', $event)" @touchmove="touch('move', $event)" @touchend="touch('end')">
+               {{word.context}}
+            <div class="slideable_area">Mark</div>
+         </div>
+
+         <!-- <div class="row">
+            <div class="col-12">
+               <div class="row">
+                  <div class="wordContainer" :class="`col-${wordCol}`" v-for="(word,index) in words" :key="randomizeCounter">
+                     <div class="word" v-on:dblclick="wordDblClick(index)" v-on:click="wordClick(index)" v-bind:class="wordClass(word)">{{word.context}}</div>
+                     <div class="marker" :class="{active: word.marker}" v-on:click="markerClick(index)"></div>
+                  </div>
+               </div>
+            </div>
+         </div> -->
+      </div>
+
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./lib/util.js"></script>
+<script src="./js/v2mobile.js"></script>
+<script>
+
+
+</script>
+
+
+</html>
