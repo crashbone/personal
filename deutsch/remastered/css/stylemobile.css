@@ -1,12 +1,15 @@
 html {
    font-size: calc(14px + 1.8vw);
 }
+
 * {
    margin: 0px;
    padding: 0px;
    box-sizing: border-box;
-   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
-   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+   -webkit-box-sizing: border-box;
+   /* Safari/Chrome, other WebKit */
+   -moz-box-sizing: border-box;
+   /* Firefox, other Gecko */
    /* border: 1px dashed black; */
 }
 
@@ -15,7 +18,8 @@ html {
    padding: 0px !important;
 }
 
-button{
+
+button {
    padding: 0.5rem 1rem;
 }
 
@@ -31,31 +35,37 @@ button{
    border-top: 1px solid black;
 }
 
-.button{
+.button {
    font-size: 0.75rem;
    font-weight: lighter;
    padding: 0.45rem 0.7rem;
    cursor: pointer;
    border: 1px solid gray;
    border-radius: 10px;
+   white-space: nowrap;
 
-   -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none;
+   -webkit-touch-callout: none;
+   /* iOS Safari */
+   -webkit-user-select: none;
+   /* Safari */
+   -khtml-user-select: none;
+   /* Konqueror HTML */
+   -moz-user-select: none;
+   /* Firefox */
+   -ms-user-select: none;
+   /* Internet Explorer/Edge */
+   user-select: none;
 }
 
-.button:hover{
+.button:hover {
    background-color: #eee;
 }
 
-.button:active{
+.button:active {
    background-color: #e0e0e0;
 }
 
-textarea{
+textarea {
    width: 15rem;
    height: 40vh;
 }
@@ -78,38 +88,42 @@ textarea{
    padding-bottom: 2rem;
 }
 
-.word{
+.word {
    display: flex;
    position: relative;
    align-items: center;
    justify-content: center;
    text-align: center;
    width: 85%;
-   height: 12vh;
+   min-height: 12vh;
 
    border: 1px solid #ddd;
    border-radius: 5px;
    font-size: 1rem;
+
+   overflow-x: hidden;
+   overflow-y: visible;
+   overflow-wrap: anywhere;
 }
 
-.word.marked{
+.word.marked {
    border: 2px solid red;
    background-color: rgb(255, 230, 230);
    font-size: 1.1rem;
 }
 
 .der {
-    font-weight: bold;
-    color: blue;
+   font-weight: bold;
+   color: blue;
 }
 
 .die {
-    font-weight: bold;
-    color: rgb(255, 0, 255);
+   font-weight: bold;
+   color: rgb(255, 0, 255);
 }
 
 .das {
-    font-weight: bold;
+   font-weight: bold;
 }
 
 /* .marker {
@@ -122,15 +136,15 @@ textarea{
    background: radial-gradient(circle, rgba(255,0,0,1) 0%, rgba(255,0,0,1) 30%, white 60%);
 } */
 
-.word-limit-description{
+.word-limit-description {
    font-size: 0.8rem;
    font-weight: bold;
-   display:block;
+   display: block;
    height: 1rem;
    color: orange;
 }
 
-#marked{
+#marked {
    position: fixed;
    z-index: 1;
 }
@@ -143,6 +157,7 @@ textarea{
    display: flex;
    flex-direction: row;
 }
+
 .flex_column {
    display: flex;
    flex-direction: column;
@@ -171,7 +186,9 @@ textarea{
    white-space: nowrap;
 }
 
-.no_padding, a.no_padding, .button.no_padding {
+.no_padding,
+a.no_padding,
+.button.no_padding {
    padding: unset;
 }
 
