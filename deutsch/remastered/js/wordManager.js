@@ -66,7 +66,6 @@ window.okanDE.WordManager = class WordManager {
     }
 
     static getModeName(modeID) {
-        console.log('TEST')
         return Object.entries(WordManager.WordModes).find(([modeName, mode]) => {
             if (mode.id === modeID) return modeName;
         })[0];

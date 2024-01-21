@@ -86,7 +86,7 @@ var app = new Vue({
          window.alert = this.showNotification;
       },
       initTextArea() {
-         this.textarea = (this.debugEnabled) ? this.textarea : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/mylistutf.txt')
       },
       initLinks() {
          const dbLinks = this.getLocalStorage().links;
@@ -129,7 +129,7 @@ var app = new Vue({
 
 
          allWordsArray.forEach(line => {
-            var lineArray = util.splitLibrary.splitString(line, this.splitter)
+            var lineArray = window.okanDE.util.splitLibrary.splitString(line, this.splitter)
             if (lineArray.length === 1 && line.length < 3) {
                return;
             }

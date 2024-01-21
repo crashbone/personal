@@ -62,6 +62,7 @@ var app = new Vue({
 
       dragging: false,
       dragStartEvent: undefined,
+      hasTouchedBefore: false,
    },
    computed: {
       wordCol() {
@@ -99,7 +100,6 @@ var app = new Vue({
          this.shuffle()
          this.limitWord()
          this.submitted = true;
-         // console.log(this.words)
       },
 
       shuffle() {
@@ -288,8 +288,20 @@ var app = new Vue({
          }
       },
       touch(action, event, i) {
-         const x = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientX - this.dragStartEvent.clientX;
-         const y = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientY - this.dragStartEvent.clientY;
+         if (event?.touches?.length > 0) {
+            this.hasTouchedBefore = true;
+         }
+         // skip mouse events if touch events have been fired before
+         if (event.type.includes('mouse') && this.hasTouchedBefore) {
+            return;
+         }
+
+         const dragStartEventX = this.dragStartEvent?.clientX ?? this.dragStartEvent?.touches[0].clientX;
+         const dragStartEventY = this.dragStartEvent?.clientY ?? this.dragStartEvent?.touches[0].clientY;
+         const eventX = event.clientX ?? event.touches?.[0]?.clientX ?? this.lastDragMoveEvent?.clientX ?? this.lastDragMoveEvent?.touches?.[0]?.clientX ?? dragStartEventX;
+         const eventY = event.clientY ?? event.touches?.[0]?.clientY ?? this.lastDragMoveEvent?.clientY ?? this.lastDragMoveEvent?.touches?.[0]?.clientY ?? dragStartEventY;
+         const x = (action === 'start' || !this.dragStartEvent) ? 0 : eventX - dragStartEventX;
+         const y = (action === 'start' || !this.dragStartEvent) ? 0 : eventY - dragStartEventY;
          if (action === 'start') {
             this.dragging = true;
             this.dragStartEvent = event;
@@ -298,6 +310,7 @@ var app = new Vue({
          }
          if (action === 'move') {
             if (this.dragging) {
+               this.lastDragMoveEvent = event;
                this.swipe(action, x, y, this.dragStartEvent.target, this.dragStartEvent.customIndex);
             }
          }
@@ -309,11 +322,11 @@ var app = new Vue({
             this.dragging = false;
             this.swipe(action, x, y, this.dragStartEvent.target, this.dragStartEvent.customIndex);
             this.dragStartEvent = undefined;
+            this.lastDragMoveEvent = undefined;
          }
       },
       swipe(action, x, y, target, i) {
          const slideableArea = target.querySelector('.slideable_area')
-         // console.log(action, x, y, target, i);
          if (action === 'start') {
             slideableArea.classList.add('swiping')
          }
@@ -329,13 +342,14 @@ var app = new Vue({
             slideableArea.classList.remove('swiping')
             if (x <= -100) {
                this.swiped(x, target, i);
+            } else if (x >= 100) {
+               // nothing
             } else {
                this.wordClick(i);
             }
          }
       },
       swiped(x, target, i) {
-         console.log('swiped', target, i);
          this.toggleMarker(i);
       }
    }
