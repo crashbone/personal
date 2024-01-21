@@ -1,5 +1,16 @@
 html {
-   font-size: calc(14px + 1.8vw);
+   font-size: 28px;
+}
+
+#main_container {
+   margin: 2px 2px;
+   height: calc(100vh - 6px);
+}
+
+body,
+.buttons_container {
+   max-width: 1200px;
+   margin: auto;
 }
 
 * {
@@ -24,12 +35,18 @@ button {
 }
 
 .buttons_container {
+   border-radius: 10px;
+   border: 1px solid black;
+   border-bottom: unset;
+
    position: fixed;
    display: flex;
    justify-content: center;
    gap: 10px;
    bottom: 0;
-   width: 100%;
+   left: 0;
+   right: 0;
+   margin: auto;
    background: white;
    padding: 0.3rem 0;
    border-top: 1px solid black;
@@ -81,9 +98,10 @@ textarea {
 
 .words_container {
    display: flex;
-   flex-direction: column;
-   align-items: center;
-   gap: 4vh;
+   flex-wrap: wrap;
+   justify-content: space-evenly;
+   align-content: space-evenly;
+   gap: 40px;
    padding-top: 2rem;
    padding-bottom: 2rem;
 }
@@ -92,9 +110,11 @@ textarea {
    display: flex;
    position: relative;
    align-items: center;
-   justify-content: center;
    text-align: center;
-   width: 85%;
+   justify-content: center;
+   align-items: center;
+   width: 85vw;
+   max-width: 560px;
    min-height: 12vh;
 
    border: 1px solid #ddd;

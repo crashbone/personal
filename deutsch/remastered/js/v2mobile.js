@@ -241,6 +241,7 @@ var app = new Vue({
          const y = (action === 'start' || !this.dragStartEvent) ? 0 : eventY - dragStartEventY;
          if (action === 'start') {
             this.dragging = true;
+            event.date = Date.now();
             this.dragStartEvent = event;
             event.customIndex = i;
             this.swipe(action, x, y, this.dragStartEvent.target, i);
@@ -295,7 +296,10 @@ var app = new Vue({
             } else if (x >= 100) {
                // nothing
             } else {
-               this.wordClick(i);
+               // click only if not pressed long
+               if (Date.now() - this.dragStartEvent.date < 500) {
+                  this.wordClick(i);
+               }
             }
          }
       },
