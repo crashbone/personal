@@ -297,7 +297,7 @@ var app = new Vue({
                // nothing
             } else {
                // click only if not pressed long
-               if (Date.now() - this.dragStartEvent.date < 500) {
+               if (Date.now() - this.dragStartEvent.date < 350) {
                   this.wordClick(i);
                }
             }
