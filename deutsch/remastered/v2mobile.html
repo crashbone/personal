@@ -5,14 +5,17 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
    <link rel="stylesheet" href="./lib/bs.css">
+   <link rel="stylesheet" href="./css/anim.css">
    <link rel="stylesheet" href="./css/stylemobile.css">
    <title>Deutsch</title>
 </head>
 
 <body>
    <div id="main_container" @mouseup="touch('end', $event)" @touchend="touch('end', $event)">
-      <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
-      <div v-if="notification" class="notification">{{notification}}</div>
+      <textarea v-show="showMarked" id="marked" class="input"></textarea>
+      <Transition appear name="fade">
+         <div v-if="notification" class="notification">{{notification}}</div>
+      </Transition>
 
       <h3 v-if="debugEnabled" style="position: absolute;">Debug mode is enabled!</h3>
 
@@ -52,6 +55,7 @@
          <div class="button" v-on:click="shuffle">Shuffle</div>
          <div class="button" v-on:click="toggleAll">Toggle All</div>
          <div class="button" v-on:click="copyAll">Copy All</div>
+         <div class="button" v-on:click="copyMarked">Copy Marked</div>
          <!-- WIP -->
          <!-- <div class="button">Show Marked (WIP)</div>
          <div class="button">More (WIP)</div> -->

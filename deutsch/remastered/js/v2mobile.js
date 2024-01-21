@@ -1,5 +1,5 @@
 // https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array
-Array.prototype.remove = function(value) {
+Array.prototype.remove = function (value) {
    const index = array.indexOf(value);
    if (index > -1) {
       array.splice(index, 1);
@@ -7,19 +7,21 @@ Array.prototype.remove = function(value) {
 };
 
 // Array Remove - By John Resig (MIT Licensed)
-Array.prototype.removeIndex = function(from, to) {
-  var rest = this.slice((to || from) + 1 || this.length);
-  this.length = from < 0 ? this.length + from : from;
-  return this.push.apply(this, rest);
+Array.prototype.removeIndex = function (from, to) {
+   var rest = this.slice((to || from) + 1 || this.length);
+   this.length = from < 0 ? this.length + from : from;
+   return this.push.apply(this, rest);
 };
 
-String.prototype.copy = function(message=false) {
+String.prototype.copy = function (message = false) {
    let clipboard = document.getElementById("clipboard");
    if (!clipboard) {
       clipboard = document.createElement('textarea');
       clipboard.id = "clipboard";
       clipboard.style.position = "absolute";
       clipboard.style.opacity = "-1";
+      clipboard.style.zIndex = "-1";
+      clipboard.setAttribute("readonly", "readonly");
       document.body.appendChild(clipboard);
    }
    clipboard.innerHTML = this;
@@ -113,8 +115,8 @@ var app = new Vue({
          this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
          this.hideInputDiv = !this.hideInputDiv
       },
-      limitWord(){
-         if (this.wordLimit != "0"){
+      limitWord() {
+         if (this.wordLimit != "0") {
             var limit = (Number(this.wordLimit) > this.wordsModel.words.length) ? this.wordsModel.words.length : Number(this.wordLimit)
             this.wordsModel.words = this.wordsModel.words.slice(0, limit)
          }
@@ -152,15 +154,15 @@ var app = new Vue({
       toggleMarker(i) {
          this.wordsModel.words[i].marker = !this.wordsModel.words[i].marker
       },
-      showMarkedClick(){
+      showMarkedClick() {
          this.showMarked = !this.showMarked;
-         if(!this.showMarked) return
+         if (!this.showMarked) return
 
          let input = document.querySelector("#marked")
          var string = ""
-         this.wordsModel.words.forEach(function(word, index){
-            if(word.marker){
-               string+= (string == "" ? "" : "\n") + ((word.artikel) ? (word.artikel + "\t") : "") + word.word + "\t" + word.meaning
+         this.wordsModel.words.forEach(function (word, index) {
+            if (word.marker) {
+               string += (string == "" ? "" : "\n") + ((word.artikel) ? (word.artikel + "\t") : "") + word.word + "\t" + word.meaning
             }
          })
          input.value = string;
@@ -169,8 +171,15 @@ var app = new Vue({
       copyAll() {
          this.textarea.copy();
       },
-      getDBVersion(id, obj, to=true) {
-         if(id === "links") {
+      copyMarked() {
+         let markedWordsString = "";
+         this.wordsModel.words.forEach(word => {
+            markedWordsString += (word.marker) ? ((word.artikel) ? (word.artikel + "\t") : "") + word.word + "\t" + word.meaning + "\n" : "";
+         })
+         markedWordsString.copy();
+      },
+      getDBVersion(id, obj, to = true) {
+         if (id === "links") {
             if (to) {
                const dbLinks = [];
                obj.forEach(link => {
@@ -194,7 +203,7 @@ var app = new Vue({
          }
       },
       onNewLink() {
-         this.links.push({editMode: false, url: ""});
+         this.links.push({ editMode: false, url: "" });
          this.storeLocal("links", this.getDBVersion("links", this.links))
       },
       onLinkEdit(index) {
@@ -208,7 +217,7 @@ var app = new Vue({
       storeLocal(key, obj) {
          const deutschv2 = this.getLocalStorage();
          deutschv2[key] = obj;
-         window.localStorage.setItem("deutschv2",  JSON.stringify(deutschv2))
+         window.localStorage.setItem("deutschv2", JSON.stringify(deutschv2))
       },
       getLocalStorage() {
          try {
@@ -233,10 +242,10 @@ var app = new Vue({
             return;
          }
 
-         const dragStartEventX = this.dragStartEvent?.clientX ?? this.dragStartEvent?.touches[0].clientX;
-         const dragStartEventY = this.dragStartEvent?.clientY ?? this.dragStartEvent?.touches[0].clientY;
-         const eventX = event.clientX ?? event.touches?.[0]?.clientX ?? this.lastDragMoveEvent?.clientX ?? this.lastDragMoveEvent?.touches?.[0]?.clientX ?? dragStartEventX;
-         const eventY = event.clientY ?? event.touches?.[0]?.clientY ?? this.lastDragMoveEvent?.clientY ?? this.lastDragMoveEvent?.touches?.[0]?.clientY ?? dragStartEventY;
+         const dragStartEventX = this.dragStartEvent?.screenX ?? this.dragStartEvent?.touches[0].screenX;
+         const dragStartEventY = this.dragStartEvent?.screenY ?? this.dragStartEvent?.touches[0].screenY;
+         const eventX = event.screenX ?? event.touches?.[0]?.screenX ?? this.lastDragMoveEvent?.screenX ?? this.lastDragMoveEvent?.touches?.[0]?.screenX ?? dragStartEventX;
+         const eventY = event.screenY ?? event.touches?.[0]?.screenY ?? this.lastDragMoveEvent?.screenY ?? this.lastDragMoveEvent?.touches?.[0]?.screenY ?? dragStartEventY;
          const x = (action === 'start' || !this.dragStartEvent) ? 0 : eventX - dragStartEventX;
          const y = (action === 'start' || !this.dragStartEvent) ? 0 : eventY - dragStartEventY;
          if (action === 'start') {
@@ -264,7 +273,7 @@ var app = new Vue({
          }
       },
       swipe(action, x, y, target, i) {
-         console.log(x,y)
+         console.log(x, y)
          const slideableArea = target.querySelector('.slideable_area')
          if (action === 'start') {
             slideableArea.classList.add('animating')
@@ -275,7 +284,7 @@ var app = new Vue({
                return;
             }
             // swiping X
-            if (this.isAHorizontalSwipe(x,y)) {
+            if (this.isAHorizontalSwipe(x, y)) {
                slideableArea.classList.add('animating')
                slideableArea.style.width = `${-x}px`;
             }
@@ -289,7 +298,7 @@ var app = new Vue({
             slideableArea.style.width = 0;
             slideableArea.classList.remove('animating')
             if (x <= -100) {
-               if (!this.isAHorizontalSwipe(x,y)) {
+               if (!this.isAHorizontalSwipe(x, y)) {
                   return;
                }
                this.swipedX(x, target, i);
@@ -297,7 +306,8 @@ var app = new Vue({
                // nothing
             } else {
                // click only if not pressed long
-               if (Date.now() - this.dragStartEvent.date < 350) {
+
+               if (this.isAHorizontalSwipe(x, y) && (Date.now() - this.dragStartEvent.date < 350)) {
                   this.wordClick(i);
                }
             }
@@ -306,7 +316,7 @@ var app = new Vue({
       swipedX(x, target, i) {
          this.toggleMarker(i);
       },
-      isAHorizontalSwipe(x,y) {
+      isAHorizontalSwipe(x, y) {
          const limit = 35
          return !(y <= -limit || y >= limit);
       }
