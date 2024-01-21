@@ -273,6 +273,9 @@ var app = new Vue({
          }
       },
       swipe(action, x, y, target, i) {
+         if(!!this.lastDragMoveEvent) {
+            // debugger;
+         }
          console.log(x, y)
          const slideableArea = target.querySelector('.slideable_area')
          if (action === 'start') {
@@ -283,6 +286,11 @@ var app = new Vue({
                console.log('swipe failed');
                return;
             }
+            // todo: only for debugging
+            const e = this.lastDragMoveEvent;
+            const t = e?.touches?.[0];
+            // this.notification = x;
+            this.notification = `layer: (${e.layerX},${e.layerY})<br>page: (${e.pageX},${e.pageY})<br>client: (${e.clientX},${e.clientY})<br>screen: (${e.screenX},${e.screenY})<br>touches: (${t?.pageX},${t?.pageY})<br>touches client: (${t?.clientX},${t?.clientY})<br>touches screen: (${t?.screenX},${t?.screenY})`;
             // swiping X
             if (this.isAHorizontalSwipe(x, y)) {
                slideableArea.classList.add('animating')
