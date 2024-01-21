@@ -14,7 +14,7 @@
    <div id="main_container" @mouseup="touch('end', $event)" @touchend="touch('end', $event)">
       <textarea v-show="showMarked" id="marked" class="input"></textarea>
       <Transition appear name="fade">
-         <div v-if="notification" class="notification" v-html="notification"></div>
+         <div v-if="notification" class="notification">{{notification}}</div>
       </Transition>
 
       <h3 v-if="debugEnabled" style="position: absolute;">Debug mode is enabled!</h3>

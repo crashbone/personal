@@ -242,10 +242,10 @@ var app = new Vue({
             return;
          }
 
-         const dragStartEventX = this.dragStartEvent?.screenX ?? this.dragStartEvent?.touches[0].screenX;
-         const dragStartEventY = this.dragStartEvent?.screenY ?? this.dragStartEvent?.touches[0].screenY;
-         const eventX = event.screenX ?? event.touches?.[0]?.screenX ?? this.lastDragMoveEvent?.screenX ?? this.lastDragMoveEvent?.touches?.[0]?.screenX ?? dragStartEventX;
-         const eventY = event.screenY ?? event.touches?.[0]?.screenY ?? this.lastDragMoveEvent?.screenY ?? this.lastDragMoveEvent?.touches?.[0]?.screenY ?? dragStartEventY;
+         const dragStartEventX = this.dragStartEvent?.clientX ?? this.dragStartEvent?.touches[0].clientX;
+         const dragStartEventY = this.dragStartEvent?.clientY ?? this.dragStartEvent?.touches[0].clientY;
+         const eventX = event.clientX ?? event.touches?.[0]?.clientX ?? this.lastDragMoveEvent?.clientX ?? this.lastDragMoveEvent?.touches?.[0]?.clientX ?? dragStartEventX;
+         const eventY = event.clientY ?? event.touches?.[0]?.clientY ?? this.lastDragMoveEvent?.clientY ?? this.lastDragMoveEvent?.touches?.[0]?.clientY ?? dragStartEventY;
          const x = (action === 'start' || !this.dragStartEvent) ? 0 : eventX - dragStartEventX;
          const y = (action === 'start' || !this.dragStartEvent) ? 0 : eventY - dragStartEventY;
          if (action === 'start') {
@@ -273,9 +273,6 @@ var app = new Vue({
          }
       },
       swipe(action, x, y, target, i) {
-         if(!!this.lastDragMoveEvent) {
-            // debugger;
-         }
          console.log(x, y)
          const slideableArea = target.querySelector('.slideable_area')
          if (action === 'start') {
@@ -286,11 +283,6 @@ var app = new Vue({
                console.log('swipe failed');
                return;
             }
-            // todo: only for debugging
-            const e = this.lastDragMoveEvent;
-            const t = e?.touches?.[0];
-            // this.notification = x;
-            this.notification = `layer: (${e.layerX},${e.layerY})<br>page: (${e.pageX},${e.pageY})<br>client: (${e.clientX},${e.clientY})<br>screen: (${e.screenX},${e.screenY})<br>touches: (${t?.pageX},${t?.pageY})<br>touches client: (${t?.clientX},${t?.clientY})<br>touches screen: (${t?.screenX},${t?.screenY})`;
             // swiping X
             if (this.isAHorizontalSwipe(x, y)) {
                slideableArea.classList.add('animating')
