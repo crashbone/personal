@@ -186,7 +186,10 @@ var app = new Vue({
       },
 
       wordClick(i) {
-         this.toggleWord(i)
+         console.log('test')
+         if (!this.dragging) {
+            this.toggleWord(i)
+         }
       },
       meaning(i) {
          if (this.words[i].meaning) {
@@ -317,6 +320,7 @@ var app = new Vue({
          }
       },
       touch(action, event, i) {
+         console.log(action,event,i);
          const x = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientX - this.dragStartEvent.clientX;
          const y = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientY - this.dragStartEvent.clientY;
          if (action === 'start') {
@@ -337,7 +341,7 @@ var app = new Vue({
       },
       swipe(action, x, y, target, i) {
          const slideableArea = target.querySelector('.slideable_area')
-         console.log(action, x, y, target);
+         // console.log(action, x, y, target, i);
          if (action === 'start') {
             slideableArea.classList.add('swiping')
          }
@@ -353,11 +357,13 @@ var app = new Vue({
             slideableArea.classList.remove('swiping')
             if (x >= 100 || x <= -100) {
                this.swiped(x, target, i);
+            } else {
+               this.wordClick(i);
             }
          }
       },
       swiped(x, target, i) {
-         console.log('swiped', target, i)
+         console.log('swiped', target, i);
          this.toggleMarker(i);
       }
    }
