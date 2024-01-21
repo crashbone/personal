@@ -307,7 +307,7 @@ var app = new Vue({
          this.toggleMarker(i);
       },
       isAHorizontalSwipe(x,y) {
-         const limit = 50
+         const limit = 35
          return !(y <= -limit || y >= limit);
       }
    }
