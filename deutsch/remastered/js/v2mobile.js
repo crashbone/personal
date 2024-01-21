@@ -113,43 +113,6 @@ var app = new Vue({
          this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
          this.hideInputDiv = !this.hideInputDiv
       },
-      // setupWords() {
-      //    //whole textarea input splitted into array using "\n"
-      //    var allWordsArray = this.textarea.split("\n")
-
-
-      //    allWordsArray.forEach(line => {
-      //       var lineArray = util.splitLibrary.splitString(line, this.splitter)
-      //       if (lineArray.length === 1 && line.length < 3) {
-      //          return;
-      //       }
-
-      //       //If first section of the line is artikel
-      //       if (this.ARTIKELS.includes(lineArray[0])) { //first tab is artikel
-      //          var theWord = {
-      //             hasArtikel: true,
-      //             artikel: lineArray[0].toLowerCase(),
-      //             word: lineArray[1],
-      //             meaning: "",
-      //             context: lineArray[1],
-      //             mode: 0,
-      //             marker: false
-      //          }
-      //          if (lineArray[2]) theWord.meaning = lineArray[2]
-      //       } else { //direct word
-      //          var theWord = {
-      //             hasArtikel: false,
-      //             meaning: "",
-      //             word: lineArray[0],
-      //             context: lineArray[0],
-      //             mode: 0,
-      //             marker: false
-      //          }
-      //          if (lineArray[1]) theWord.meaning = lineArray[1]
-      //       }
-      //       this.words.push(theWord)
-      //    });
-      // },
       limitWord(){
          if (this.wordLimit != "0"){
             var limit = (Number(this.wordLimit) > this.wordsModel.words.length) ? this.wordsModel.words.length : Number(this.wordLimit)
@@ -177,32 +140,6 @@ var app = new Vue({
             this.toggleWord(i)
          }
       },
-      // meaning(i) {
-      //    if (this.words[i].meaning) {
-      //       this.words[i].context = this.words[i].meaning
-      //       this.words[i].mode = 2
-      //    } else {
-      //       this.short(i)
-      //    }
-      // },
-      // long(i) {
-      //    if (this.words[i].hasArtikel) {
-      //       this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
-      //       this.words[i].mode = 1
-      //    } else {
-      //       this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
-      //       this.words[i].mode = 1
-      //    }
-      // },
-      // short(i) {
-      //    if (this.words[i].hasArtikel) {
-      //       this.words[i].context = this.words[i].word
-      //       this.words[i].mode = 0;
-      //    } else {
-      //       this.words[i].context = this.words[i].word
-      //       this.words[i].mode = 0;
-      //    }
-      // },
       toggleAll() {
          window.okanDE.WordManager.instance.nextMode();
       },
@@ -326,22 +263,35 @@ var app = new Vue({
          }
       },
       swipe(action, x, y, target, i) {
+         console.log(x,y)
          const slideableArea = target.querySelector('.slideable_area')
          if (action === 'start') {
-            slideableArea.classList.add('swiping')
+            slideableArea.classList.add('animating')
          }
          if (action === 'move') {
             if (!slideableArea) {
                console.log('swipe failed');
                return;
             }
-            slideableArea.style.width = `${-x}px`;
+            // swiping X
+            if (this.isAHorizontalSwipe(x,y)) {
+               slideableArea.classList.add('animating')
+               slideableArea.style.width = `${-x}px`;
+            }
+            // swiping Y
+            else {
+               slideableArea.classList.remove('animating')
+               slideableArea.style.width = 0;
+            }
          }
          if (action === 'end') {
             slideableArea.style.width = 0;
-            slideableArea.classList.remove('swiping')
+            slideableArea.classList.remove('animating')
             if (x <= -100) {
-               this.swiped(x, target, i);
+               if (!this.isAHorizontalSwipe(x,y)) {
+                  return;
+               }
+               this.swipedX(x, target, i);
             } else if (x >= 100) {
                // nothing
             } else {
@@ -349,8 +299,12 @@ var app = new Vue({
             }
          }
       },
-      swiped(x, target, i) {
+      swipedX(x, target, i) {
          this.toggleMarker(i);
+      },
+      isAHorizontalSwipe(x,y) {
+         const limit = 50
+         return !(y <= -limit || y >= limit);
       }
    }
 })
