@@ -85,7 +85,7 @@ var app = new Vue({
          window.alert = this.showNotification;
       },
       initTextArea() {
-         this.textarea = (this.debugEnabled) ? this.textarea : util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/mylistutf.txt')
       },
       initLinks() {
          const dbLinks = this.getLocalStorage().links;
@@ -302,6 +302,10 @@ var app = new Vue({
             }
          }
          if (action === 'end') {
+            if (!this.dragStartEvent) {
+               // already ended
+               return;
+            }
             this.dragging = false;
             this.swipe(action, x, y, this.dragStartEvent.target, this.dragStartEvent.customIndex);
             this.dragStartEvent = undefined;
