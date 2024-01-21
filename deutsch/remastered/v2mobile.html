@@ -33,11 +33,11 @@
       </div>
 
       <div v-if="submitted" class="tabs_container flex_row">
-         <a class="button tab" v-for="i in 4">TAB (WIP)</a>
+         <div class="button tab" v-for="i in 4">TAB (WIP)</div>
       </div>
 
       <!-- WORDS LISTS DIV -->
-      <div class="container-fluid">
+      <div class="container-fluid words_container">
          <div class="word" v-for="(word,index) in words" :key="randomizeCounter" v-bind:class="wordClass(word)"
             @mousedown="touch('start', $event, index)" @mousemove="touch('move', $event, index)" @mouseup="touch('end', $event, index)"
             @touchstart="touch('start', $event, index)" @touchmove="touch('move', $event, index)" @touchend="touch('end', $event, index)">
@@ -47,10 +47,10 @@
       </div>
 
       <div v-if="submitted" class="buttons_container">
-         <a class="button" v-on:click="randomize">Shuffle</a>
-         <a class="button" v-on:click="toggleAll">Toggle All</a>
-         <a class="button">Show Marked (WIP)</a>
-         <a class="button">More (WIP)</a>
+         <div class="button" v-on:click="randomize">Shuffle</div>
+         <div class="button" v-on:click="toggleAll">Toggle All</div>
+         <div class="button">Show Marked (WIP)</div>
+         <div class="button">More (WIP)</div>
       </div>
    </div>
 </body>

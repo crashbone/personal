@@ -16,10 +16,10 @@ button{
    padding: 0.5rem 1rem;
 }
 
-a.button{
+.button{
    font-size: 1.25rem;
    font-weight: lighter;
-   padding: 0px 1rem;
+   padding: 1rem 1rem;
    cursor: pointer;
    border: 1px solid gray;
    border-radius: 10px;
@@ -32,11 +32,11 @@ a.button{
             user-select: none;
 }
 
-a.button:hover{
+.button:hover{
    background-color: #eee;
 }
 
-a.button:active{
+.button:active{
    background-color: #e0e0e0;
 }
 
@@ -63,10 +63,6 @@ textarea{
    border: 1px solid #ddd;
    border-radius: 5px;
    font-size: 1rem;
-}
-
-.word:not(:last-child) {
-   margin-bottom: 10px;
 }
 
 .word.marked{
@@ -176,6 +172,34 @@ textarea{
    transition: all 0.1s ease-in-out;
 }
 
-.slideable_area.swiping {
+.tabs_container {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   padding-bottom: 5px;
+   border-bottom: 1px solid black;
+}
 
+.words_container {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 10px;
+   padding-top: 50px;
+   padding-bottom: 50px;
+}
+
+.buttons_container {
+   position: fixed;
+   display: flex;
+   justify-content: center;
+   gap: 10px;
+   bottom: 0;
+   width: 100%;
+   background: white;
+   padding-top: 5px;
+   border-top: 1px solid black;
 }
