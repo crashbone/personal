@@ -1,9 +1,12 @@
 html {
-   font-size: calc(6px + 0.8vw);
+   font-size: calc(12px + 1.6vw);
 }
 * {
    margin: 0px;
    padding: 0px;
+   box-sizing: border-box;
+   -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+   -moz-box-sizing: border-box;    /* Firefox, other Gecko */
    /* border: 1px dashed black; */
 }
 
@@ -55,6 +58,7 @@ textarea{
 
 .word{
    display: flex;
+   position: relative;
    align-items: center;
    justify-content: center;
    width: 85%;
@@ -164,12 +168,27 @@ textarea{
 }
 
 .slideable_area {
+   position: absolute;
+   top: 0;
+   right: 0;
+   bottom: 0;
    width: 0;
    overflow: hidden;
+   background-color: white;
+   max-width: max-content;
 }
 
 .slideable_area:not(.swiping) {
    transition: all 0.1s ease-in-out;
+}
+
+.slideable_area .content {
+   height: 100%;
+   padding: 0 10px;
+   border: 1px solid black;
+   display: flex;
+   justify-content: flex-end;
+   align-items: center;
 }
 
 .tabs_container {

@@ -40,7 +40,6 @@ var app = new Vue({
       }
    },
    data: {
-      ARTIKELS: ["der", "die", "das"],
       randomizeCounter: 0,
       notification: "",
 
@@ -55,8 +54,7 @@ var app = new Vue({
       toggleInputButtonText: "",
       wordLimit: "0",
       textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek\nhereinlegen    bamboozle",
-      words: [],
-      modeall: 0,
+      wordsModel: window.okanDE.WordManager.instance.model,
       showMarked: false,
 
       links: [],
@@ -64,8 +62,6 @@ var app = new Vue({
 
       dragging: false,
       dragStartEvent: undefined,
-
-      splitter: ["\t", "    "], // ["\t", "::", "//", "--", "__"],
    },
    computed: {
       wordCol() {
@@ -99,74 +95,65 @@ var app = new Vue({
       submit() {
          this.resetWords()
          this.toggleInputDiv()
-         this.setupWords()
-         this.randomize()
+         window.okanDE.WordManager.instance.setupWords(this.textarea)
+         this.shuffle()
          this.limitWord()
          this.submitted = true;
          // console.log(this.words)
       },
 
-      randomize() {
+      shuffle() {
          this.randomizeCounter++
-         var a = this.words
-
-         for (let i = a.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [a[i], a[j]] = [a[j], a[i]];
-         }
-
-         return a;
-
-
+         window.okanDE.WordManager.instance.shuffle();
       },
       resetWords() {
-         this.words = []
+         this.wordsModel.words = []
       },
       toggleInputDiv() {
          this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
          this.hideInputDiv = !this.hideInputDiv
       },
-      setupWords() {
-         //whole textarea input splitted into array using "\n"
-         var allWordsArray = this.textarea.split("\n")
+      // setupWords() {
+      //    //whole textarea input splitted into array using "\n"
+      //    var allWordsArray = this.textarea.split("\n")
 
 
-         allWordsArray.forEach(line => {
-            var lineArray = util.splitLibrary.splitString(line, this.splitter)
-            if (lineArray.length === 1 && line.length < 3) {
-               return;
-            }
+      //    allWordsArray.forEach(line => {
+      //       var lineArray = util.splitLibrary.splitString(line, this.splitter)
+      //       if (lineArray.length === 1 && line.length < 3) {
+      //          return;
+      //       }
 
-            //If first section of the line is artikel
-            if (this.ARTIKELS.includes(lineArray[0])) { //first tab is artikel
-               var theWord = {
-                  hasArtikel: true,
-                  artikel: lineArray[0].toLowerCase(),
-                  word: lineArray[1],
-                  meaning: "",
-                  context: lineArray[1],
-                  mode: 0,
-                  marker: false
-               }
-               if (lineArray[2]) theWord.meaning = lineArray[2]
-            } else { //direct word
-               var theWord = {
-                  hasArtikel: false,
-                  meaning: "",
-                  word: lineArray[0],
-                  context: lineArray[0],
-                  mode: 0,
-                  marker: false
-               }
-               if (lineArray[1]) theWord.meaning = lineArray[1]
-            }
-            this.words.push(theWord)
-         });
-      },
+      //       //If first section of the line is artikel
+      //       if (this.ARTIKELS.includes(lineArray[0])) { //first tab is artikel
+      //          var theWord = {
+      //             hasArtikel: true,
+      //             artikel: lineArray[0].toLowerCase(),
+      //             word: lineArray[1],
+      //             meaning: "",
+      //             context: lineArray[1],
+      //             mode: 0,
+      //             marker: false
+      //          }
+      //          if (lineArray[2]) theWord.meaning = lineArray[2]
+      //       } else { //direct word
+      //          var theWord = {
+      //             hasArtikel: false,
+      //             meaning: "",
+      //             word: lineArray[0],
+      //             context: lineArray[0],
+      //             mode: 0,
+      //             marker: false
+      //          }
+      //          if (lineArray[1]) theWord.meaning = lineArray[1]
+      //       }
+      //       this.words.push(theWord)
+      //    });
+      // },
       limitWord(){
          if (this.wordLimit != "0"){
-            var limit = (Number(this.wordLimit) > this.words.length) ? this.words.length : Number(this.wordLimit)
-            this.words = this.words.slice(0, limit)
+            var limit = (Number(this.wordLimit) > this.wordsModel.words.length) ? this.wordsModel.words.length : Number(this.wordLimit)
+            this.wordsModel.words = this.wordsModel.words.slice(0, limit)
          }
       },
 
@@ -186,69 +173,47 @@ var app = new Vue({
       },
 
       wordClick(i) {
-         console.log('test')
          if (!this.dragging) {
             this.toggleWord(i)
          }
       },
-      meaning(i) {
-         if (this.words[i].meaning) {
-            this.words[i].context = this.words[i].meaning
-            this.words[i].mode = 2
-         } else {
-            this.short(i)
-         }
-      },
-      long(i) {
-         if (this.words[i].hasArtikel) {
-            this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
-            this.words[i].mode = 1
-         } else {
-            this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
-            this.words[i].mode = 1
-         }
-      },
-      short(i) {
-         if (this.words[i].hasArtikel) {
-            this.words[i].context = this.words[i].word
-            this.words[i].mode = 0;
-         } else {
-            this.words[i].context = this.words[i].word
-            this.words[i].mode = 0;
-         }
-      },
+      // meaning(i) {
+      //    if (this.words[i].meaning) {
+      //       this.words[i].context = this.words[i].meaning
+      //       this.words[i].mode = 2
+      //    } else {
+      //       this.short(i)
+      //    }
+      // },
+      // long(i) {
+      //    if (this.words[i].hasArtikel) {
+      //       this.words[i].context = this.words[i].artikel + " " + this.words[i].word + " > " + this.words[i].meaning
+      //       this.words[i].mode = 1
+      //    } else {
+      //       this.words[i].context = this.words[i].word + " > " + this.words[i].meaning
+      //       this.words[i].mode = 1
+      //    }
+      // },
+      // short(i) {
+      //    if (this.words[i].hasArtikel) {
+      //       this.words[i].context = this.words[i].word
+      //       this.words[i].mode = 0;
+      //    } else {
+      //       this.words[i].context = this.words[i].word
+      //       this.words[i].mode = 0;
+      //    }
+      // },
       toggleAll() {
-         if (this.modeall == 0) {
-            for (var i = 0; i < this.words.length; i++) {
-               this.long(i)
-            }
-            this.modeall = 1;
-         } else if (this.modeall == 1) {
-            for (var i = 0; i < this.words.length; i++) {
-               this.meaning(i)
-            }
-            this.modeall = 2;
-         } else if (this.modeall == 2) {
-            for (var i = 0; i < this.words.length; i++) {
-               this.short(i)
-            }
-            this.modeall = 0;
-         }
+         window.okanDE.WordManager.instance.nextMode();
       },
       toggleWord(i) {
-         if (this.words[i].mode == 0) {
-            this.long(i)
-         } else if (this.words[i].mode == 1) {
-            this.meaning(i)
-         } else if (this.words[i].mode == 2) {
-            this.short(i)
-         }
+         window.okanDE.WordManager.instance.nextMode(i)
       },
       markerClick(i) {
          this.toggleMarker(i)
       },
       toggleMarker(i) {
-         this.words[i].marker = !this.words[i].marker
+         this.wordsModel.words[i].marker = !this.wordsModel.words[i].marker
       },
       showMarkedClick(){
          this.showMarked = !this.showMarked;
@@ -256,13 +221,16 @@ var app = new Vue({
 
          let input = document.querySelector("#marked")
          var string = ""
-         this.words.forEach(function(word, index){
+         this.wordsModel.words.forEach(function(word, index){
             if(word.marker){
                string+= (string == "" ? "" : "\n") + ((word.artikel) ? (word.artikel + "\t") : "") + word.word + "\t" + word.meaning
             }
          })
          input.value = string;
          string.copy();
+      },
+      copyAll() {
+         this.textarea.copy();
       },
       getDBVersion(id, obj, to=true) {
          if(id === "links") {
@@ -320,22 +288,22 @@ var app = new Vue({
          }
       },
       touch(action, event, i) {
-         console.log(action,event,i);
          const x = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientX - this.dragStartEvent.clientX;
          const y = (action === 'start' || !this.dragStartEvent) ? 0 : event.clientY - this.dragStartEvent.clientY;
          if (action === 'start') {
             this.dragging = true;
             this.dragStartEvent = event;
+            event.customIndex = i;
             this.swipe(action, x, y, this.dragStartEvent.target, i);
          }
          if (action === 'move') {
             if (this.dragging) {
-               this.swipe(action, x, y, this.dragStartEvent.target, i);
+               this.swipe(action, x, y, this.dragStartEvent.target, this.dragStartEvent.customIndex);
             }
          }
          if (action === 'end') {
             this.dragging = false;
-            this.swipe(action, x, y, this.dragStartEvent.target, i);
+            this.swipe(action, x, y, this.dragStartEvent.target, this.dragStartEvent.customIndex);
             this.dragStartEvent = undefined;
          }
       },
@@ -355,7 +323,7 @@ var app = new Vue({
          if (action === 'end') {
             slideableArea.style.width = 0;
             slideableArea.classList.remove('swiping')
-            if (x >= 100 || x <= -100) {
+            if (x <= -100) {
                this.swiped(x, target, i);
             } else {
                this.wordClick(i);

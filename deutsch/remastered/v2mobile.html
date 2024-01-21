@@ -9,11 +9,11 @@
 </head>
 
 <body>
-   <div id="main_container">
+   <div id="main_container" @mouseup="touch('end', $event)" @touchend="touch('end', $event)">
       <textarea v-show="showMarked" id="marked" class="input"></textarea><br>
       <div v-if="notification" class="notification">{{notification}}</div>
 
-      <h3 v-if="debugEnabled">Debug mode is enabled!</h3>
+      <h3 v-if="debugEnabled" style="position: absolute;">Debug mode is enabled!</h3>
 
       <!-- INPUTS -->
       <div class="input-div" v-show="!hideInputDiv">
@@ -32,31 +32,35 @@
          <button v-on:click="submit">Start!</button><br>
       </div>
 
-      <div v-if="submitted" class="tabs_container flex_row">
+      <!-- WIP -->
+      <!-- <div v-if="submitted" class="tabs_container flex_row">
          <div class="button tab" v-for="i in 4">TAB (WIP)</div>
-      </div>
+      </div> -->
 
       <!-- WORDS LISTS DIV -->
       <div class="container-fluid words_container">
-         <div class="word" v-for="(word,index) in words" :key="randomizeCounter" v-bind:class="wordClass(word)"
+         <div class="word" v-for="(word,index) in wordsModel.words" :key="randomizeCounter" v-bind:class="wordClass(word)"
             @mousedown="touch('start', $event, index)" @mousemove="touch('move', $event, index)" @mouseup="touch('end', $event, index)"
             @touchstart="touch('start', $event, index)" @touchmove="touch('move', $event, index)" @touchend="touch('end', $event, index)">
             {{word.context}}
-            <div class="slideable_area">Mark</div>
+            <div class="slideable_area"><div class="content">Mark</div></div>
          </div>
       </div>
 
       <div v-if="submitted" class="buttons_container">
-         <div class="button" v-on:click="randomize">Shuffle</div>
+         <div class="button" v-on:click="shuffle">Shuffle</div>
          <div class="button" v-on:click="toggleAll">Toggle All</div>
-         <div class="button">Show Marked (WIP)</div>
-         <div class="button">More (WIP)</div>
+         <div class="button" v-on:click="copyAll">Copy All</div>
+         <!-- WIP -->
+         <!-- <div class="button">Show Marked (WIP)</div>
+         <div class="button">More (WIP)</div> -->
       </div>
    </div>
 </body>
 
 <script src="./lib/vue.js"></script>
 <script src="./lib/util.js"></script>
+<script src="./js/wordManager.js"></script>
 <script src="./js/v2mobile.js"></script>
 <script>
 
