@@ -1,0 +1,27 @@
+_der	Montag, Dienstag
+_der	März, Mai, September
+_der	Sommer, Winter, Frühling, Herbst
+_der	Süd, Ost, Nord, West
+_der	Regen, Schnee, Blitz
+_der	BMW, Skoda, Honda
+_der	Wein, Sekt - !!except das Bier!!
+_der	Computer, Drucker, Kalender, Staubsauger
+_der	König, Honig, Teppich
+_der	Zwiling, Liebling
+_der	Tourismus, Kapitalismus, Rassismus
+_der	Weg, Zug, Anfang, Abend, Platz, Teil (No Rule, just popular)
+
+_die	Tasche, Flasche, Lampe, Tasse, Pfanne
+_die	Käserei, Bäckerei, Schneiderei
+_die	Freiheit, Sicherheit, Gesundheit
+_die	Ehrlichkeit, Persönlichkeit, Möglichkeit
+_die	Freundschaft, Wirtschaft
+_die	Station, Situation, Information, Lektion, Aktion
+_die	Nationalität, Universität
+_die	Klinik, Musik, Politik, Kosmetik
+_die	Stadt, Zeit, Arbeit, Hand, Art, Nacht (No Rule, just popular)
+
+_das	Mädchen, Brötchen
+_das	Experiment, Dokument, Moment, Medikament, Monument
+_das	Ergebnis, Tennis
+_das	Haus, Auto, Buch, Problem, Geld, Wasser, Kind, Zimmer, Wort, Herz, Hotel (No Rule, just popular)
