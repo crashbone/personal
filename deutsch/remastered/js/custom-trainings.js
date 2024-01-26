@@ -4,7 +4,7 @@ window.okanDE = window.okanDE ?? {};
 window.okanDE.trainings = [
     {
         filename: 'default',
-        title: 'Test',
+        title: 'Default',
     },
     {
         filename: '1-article',
