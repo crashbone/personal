@@ -1,7 +1,0 @@
-der    Schaffner    Bahn Arbeiter
-Flexi    stadtfahrrad marke
-Abstellen    to park
-aufhören    stop
-die    Verwaltung    administration
-einsam    lonely
-erholen    to relax

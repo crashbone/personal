@@ -86,7 +86,7 @@ var app = new Vue({
          window.alert = this.showNotification;
       },
       initTextArea() {
-         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/remastered/custom-trainings/default.txt')
       },
       initLinks() {
          const dbLinks = this.getLocalStorage().links;

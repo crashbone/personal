@@ -61,6 +61,8 @@ button {
    border-radius: 10px;
    white-space: nowrap;
 
+   text-align: center;;
+
    -webkit-touch-callout: none;
    /* iOS Safari */
    -webkit-user-select: none;
@@ -262,4 +264,28 @@ a.no_padding,
    gap: 10px;
    padding-bottom: 5px;
    border-bottom: 1px solid black;
+}
+
+.gap_5 {
+   gap: 5px;
+}
+
+.gap_10 {
+   gap: 10px;
+}
+
+.min_width_50 {
+   min-width: 50px;
+}
+
+.min_width_60 {
+   min-width: 60px;
+}
+
+.min_width_75 {
+   min-width: 75px;
+}
+
+.min_width_100 {
+   min-width: 100px;
 }

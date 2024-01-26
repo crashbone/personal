@@ -52,7 +52,7 @@ var app = new Vue({
 
       version: "desktop",
       submitted: false,
-      hideInputDiv: false,
+      hideInputDiv: true,
       toggleInputButtonText: "",
       wordLimit: "0",
       textarea: "der	Sachen	Stuff\ndie	Anrede	hitap\nfluchen	küfretmek\nhereinlegen    bamboozle",
@@ -65,6 +65,8 @@ var app = new Vue({
       dragging: false,
       dragStartEvent: undefined,
       hasTouchedBefore: false,
+
+      customTrainings: [],
    },
    computed: {
       wordCol() {
@@ -83,21 +85,34 @@ var app = new Vue({
 
    methods: {
       init() {
+         this.initCustomTrainings();
          this.initTextArea();
          this.initLinks();
          window.alert = this.showNotification;
       },
+      initCustomTrainings() {
+         this.customTrainings = window.okanDE.trainings.map(training => {
+            return {
+               title: training.title,
+               wordsString: (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer(`/personal/deutsch/remastered/custom-trainings/${training.filename}.txt`),
+            }
+         });
+      },
       initTextArea() {
-         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/mylistutf.txt')
+         this.textarea = (this.debugEnabled) ? this.textarea : window.okanDE.util.readFileFromServer('/personal/deutsch/remastered/default.txt')
       },
       initLinks() {
          const dbLinks = this.getLocalStorage().links;
          if (dbLinks)
             this.links = this.getDBVersion("links", dbLinks, false);
       },
+      onCustomTrainingClicked(customTraining) {
+         this.textarea = customTraining.wordsString;
+         this.submit();
+      },
       submit() {
          this.resetWords()
-         this.toggleInputDiv()
+         this.toggleInputDiv(true)
          window.okanDE.WordManager.instance.setupWords(this.textarea)
          this.shuffle()
          this.limitWord()
@@ -111,9 +126,9 @@ var app = new Vue({
       resetWords() {
          this.wordsModel.words = []
       },
-      toggleInputDiv() {
+      toggleInputDiv(hide) {
          this.toggleInputButtonText = (this.hideInputDiv) ? "Hide Input Field" : "Show Input Field"
-         this.hideInputDiv = !this.hideInputDiv
+         this.hideInputDiv = hide ?? !this.hideInputDiv
       },
       limitWord() {
          if (this.wordLimit != "0") {
