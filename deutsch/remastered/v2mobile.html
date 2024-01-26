@@ -21,8 +21,9 @@
 
       <!-- CUSTOM TRAININGS -->
       <div v-if="!submitted && hideInputDiv" class="custom_trainings_container">
-         <div class="custom_trainings_info">
-            Please set your words by using the custom button below. Or just test the app out by using the default training.
+         <div class="custom_trainings_info" style="font-size: 0.6em">
+            - <span style="font-weight: bold">Custom</span> training is recommended<br>
+            - Or click <span style="font-weight: bold">default</span>, to just test the app.
          </div>
          <div class="custom_trainings_flex_container flex_row gap_10">
             <template v-for="customTraining in customTrainings">

@@ -7,6 +7,10 @@ html {
    height: calc(100vh - 6px);
 }
 
+body {
+   padding: 10px;
+}
+
 body,
 .buttons_container {
    max-width: 1200px;
