@@ -24,4 +24,5 @@ _die	Stadt, Zeit, Arbeit, Hand, Art, Nacht (No Rule, just popular)
 _das	Mädchen, Brötchen
 _das	Experiment, Dokument, Moment, Medikament, Monument
 _das	Ergebnis, Tennis
+_das    Meeting, Training, Marketing
 _das	Haus, Auto, Buch, Problem, Geld, Wasser, Kind, Zimmer, Wort, Herz, Hotel (No Rule, just popular)
