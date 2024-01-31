@@ -11,7 +11,7 @@ window.okanDE.trainings = [
         title: 'Articles',
     },
     {
-        filename: '2-verben-mit-praepositionen.txt',
+        filename: '2-verben-mit-praepositionen',
         title: 'Verben mit Präpositionen',
     }
 ]
