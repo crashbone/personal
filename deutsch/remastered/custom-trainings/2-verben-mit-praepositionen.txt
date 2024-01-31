@@ -1,0 +1,284 @@
+als nominativ & akkusativ | als fall
+als ansehen | ansehen prep?
+als anstellen | anstellen prep?
+als beginnen | beginnen prep? (1/2)
+als bezeichnen | bezeichnen prep?
+als kennen | kennen prep?
+als verwenden | verwenden prep?
+
+an ändern | ändern prep?
+an appellieren | appellieren prep?
+an beteiligen | beteiligen prep?
+an denken | denken prep?
+an erinnern | erinnern prep?
+an erkennen | erkennen prep?
+an fehlen | fehlen prep?
+an festhalten | festhalten prep?
+an gewöhnen | gewöhnen prep?
+an glauben | glauben prep?
+an hängen | hängen prep?
+an hindern | hindern prep?
+an klingeln | klingeln prep?
+an klopfen | klopfen prep?
+an leiden | leiden prep? (1/2)
+an liegen | liegen prep?
+an orientieren | orientieren prep?
+an rächen | rächen prep? (1/2)
+an schicken | schicken prep?
+an sterben | sterben prep?
+an teilnehmen | teilnehmen prep?
+an vermieten | vermieten prep?
+an verraten | verraten prep?
+an weitergeben | weitergeben prep?
+an zweifeln | zweifeln prep?
+
+
+auf ankommen | ankommen prep?
+auf antworten | antworten prep?
+auf aufpassen | aufpassen prep?
+auf ausruhen | ausruhen prep? (1/2)
+auf beschränken | beschränken prep?
+auf bestehen | bestehen prep? (2/3)
+auf es bringen | es bringen prep?
+auf einigen | einigen prep? (1/2)
+auf einlassen | einlassen prep?
+auf freuen | freuen prep? (1/2)
+auf hinweisen | hinweisen prep?
+auf hoffen | hoffen prep?
+auf hören | hören prep?
+auf kommen | kommen prep? (1/2)
+auf konzentrieren | konzentrieren prep?
+auf reagieren | reagieren prep?
+auf schalten | schalten prep?
+auf schießen | schießen prep?
+auf trinken | trinken prep?
+auf übertragen | übertragen prep?
+auf überweisen | überweisen prep?
+auf untersuchen | untersuchen prep?
+auf verklagen | verklagen prep?
+auf verlängern | verlängern prep? (1/2)
+auf verlassen | verlassen prep?
+auf verschieben | verschieben prep?
+auf vertrauen | vertrauen prep?
+auf verzichten | verzichten prep?
+auf vorbereiten | vorbereiten prep?
+auf warten | warten prep? (1/2)
+auf zählen | zählen prep?
+
+aus aufwachen | aufwachen prep?
+aus ausscließen | ausscließen prep?
+aus befreien | befreien prep?
+aus bestehen | bestehen prep? (1/3)
+aus entstehen | entstehen prep?
+aus retten | retten prep?
+aus schließen | schließen prep?
+aus übersetzen | übersetzen prep? (1/2)
+aus werden | werden prep? (1/2)
+
+bei abmelden | abmelden prep? (1/2)
+bei anmelden | anmelden prep? (1/2)
+bei anrufen | anrufen prep?
+bei arbeiten | arbeiten prep? (2/2)
+bei bedanken | bedanken prep? (1/2)
+bei beklagen | beklagen prep? (1/2)
+bei beschweren | beschweren prep? (1/2)
+bei bestellen | bestellen prep?
+bei bewerben | bewerben prep? (1/2)
+bei bleiben | bleiben prep?
+bei entschuldigen | entschuldigen prep? (1/2)
+bei erkundigen | erkundigen prep? (1/2)
+bei helfen | helfen prep?
+bei informieren | informieren prep? (1/2)
+bei melden | melden prep?
+bei stören | stören prep?
+bei veröffentlichen | veröffentlichen prep?
+bei zusehen | zusehen prep?
+
+für anmelden | anmelden prep? (2/2)
+für ausgeben | ausgeben prep?
+für aussprechen | aussprechen prep?
+für bedanken | bedanken prep? (2/2)
+für begeistern | begeistern prep?
+für bestrafen | bestrafen prep?
+für beten | beten prep? (1/2)
+für brauchen | brauchen prep?
+für danken | danken prep?
+für eignen | eignen prep? (2/2)
+für einsetzen | einsetzen prep?
+für entschieden | entschieden prep?
+für entschuldigen | entschuldigen prep? (2/2)
+für gelten | gelten prep? (2/2)
+für halten | halten prep?*
+für interessieren | interessieren prep?
+für kämpfen | kämpfen prep? (1/2)
+für leben | leben prep? (1/2)
+für rächen | rächen prep? (2/2)
+für sammeln | sammeln prep?
+für schamen | schamen prep?
+für sorgen | sorgen prep?*
+für sparen | sparen prep? (1/2)
+für stimmen | stimmen prep?
+für streiken | streiken prep?
+für werben | werben prep?
+für zahlen | zahlen prep?
+
+gegen protestieren | protestieren prep?
+gegen schützen | schützen prep? (1/2)
+gegen versichern | versichern prep?
+gegen verteidigen | verteidigen prep?
+gegen wehren | wehren prep?
+
+in bestehen | bestehen prep? (3/3)
+in geraten | geraten prep?
+in irren | irren prep?
+in teilen | teilen prep?
+in überstenzen | überstenzen prep? (2/2)
+in verlieben | verlieben prep?
+
+mit abschließen | abschließen prep?
+mit anfangen | anfangen prep?
+mit aufhören | aufhören prep?
+mit ausfüllen | ausfüllen prep?
+mit auskennen | auskennen prep?
+mit bedecken | bedecken prep?
+mit beeilen | beeilen prep?
+mit beginnen | beginnen prep? (2/2)
+mit begründen | begründen prep?
+mit beraten | beraten prep?
+mit beschäftigen | beschäftigen prep?
+mit betrügen | betrügen prep?
+mit einigen | einigen prep? (2/2)
+mit handeln | handeln prep? (1/2)
+mit rechnen | rechnen prep?
+mit sprechen | sprechen prep? (1/3)
+mit streiten | streiten prep? (1/2)
+mit telefonieren | telefonieren prep?
+mit treffen | treffen prep?
+mit überraschen | überraschen prep?
+mit unterhalten | unterhalten prep? (1/2)
+mit verabreden | verabreden prep?
+mit verbinden | verbinden prep?
+mit verdienen | verdienen prep?
+mit vergleichen | vergleichen prep?
+mit verloben | verloben prep?
+mit versöhnen | versöhnen prep?
+mit verstehen | verstehen prep?
+mit vertragen | vertragen prep?
+mit verwechseln | verwechseln prep?
+mit warten | warten prep? (2/2)
+mit zögern | zögern prep?
+mit zufrieden sein | zufrieden sein prep?
+mit zurechtkommen | zurechtkommen prep?
+mit zusammenhängen | zusammenhängen prep?
+
+nach aussehen | aussehen prep?
+nach erkundigen | erkundigen prep? (2/2)
+nach fragen | fragen prep? (1/2)
+nach riechen | riechen prep?
+nach schmecken | schmecken prep?
+nach sehen | sehen prep?
+nach sehnen | sehnen prep?
+nach stinken | stinken prep?
+nach streben | streben prep?
+nach suchen | suchen prep?
+nach umdrehen | umdrehen prep?
+nach verlangen | verlangen prep?
+
+um ængstigen | ængstigen prep?
+um bewerben | bewerben prep? (2/2)
+um bemühen | bemühen prep?
+um bitten | bitten prep?
+um bringen | bringen prep?*
+um drehen | drehen prep?
+um fragen | fragen prep? (2/2)
+um gehen | gehen prep?
+um kämpfen | kämpfen prep? (2/2)
+um kümmern | kümmern prep?
+um rufen | rufen prep?
+um sorgen | sorgen prep?*
+um spielen | spielen prep?
+um trauern | trauern prep?
+um verlängern | verlängern prep? (2/2)
+um wetten | wetten prep?
+
+unter leiden | leiden prep? (2/2)
+unter vorstellen | vorstellen prep?
+
+über abstimmen | abstimmen prep?
+über amusieren | amusieren prep?
+über ärgern | ärgern prep?
+über aufklären | aufklären prep?
+über aufregen | aufregen prep?
+über beklagen | beklagen prep? (2/2)
+über berichten | berichten prep? (1/2)
+über beschweren | beschweren prep? (2/2)
+über bestimmen | bestimmen prep?
+über diskutieren | diskutieren prep?
+über erschrecken | erschrecken prep?
+über erzählen | erzählen prep? (1/2)
+über freuen | freuen prep? (2/2)
+über herrschen | herrschen prep?
+über informieren | informieren prep? (2/2)
+über klagen | klagen prep?
+über lachen | lachen prep?
+über nachdenken | nachdenken prep?
+über sagen | sagen prep? (1/2)
+über schimpfen | schimpfen prep?
+über siegen | siegen prep?
+über sprechen | sprechen prep? (2/3)
+über staunen | staunen prep?
+über streiten | streiten prep? (2/2)
+
+von abhängen | abhängen prep?
+von abmelden | abmelden prep? (2/2)
+von ausgehen | ausgehen prep?
+von ausruhen | ausruhen prep? (2/2)
+von befreien | befreien prep?*
+von berichten | berichten prep? (2/2)
+von erfahren | erfahren prep?
+von erholen | erholen prep?
+von ernähren | ernähren prep?
+von erwarten | erwarten prep?
+von erzählen | erzählen prep? (2/2)
+von grüßen | grüßen prep?
+von handeln | handeln prep? (2/2)
+von halten | halten prep?
+von leben | leben prep? (2/2)
+von sprechen | sprechen prep? (3/3)
+von scheiden lassen | scheiden lassen prep?
+von träumen | träumen prep?
+von trennen | trennen prep?
+von unterscheiden | unterscheiden prep?
+von überzeugen | überzeugen prep?
+von verabschieden | verabschieden prep?
+von verstehen | verstehen prep?*
+von wissen | wissen prep? (2/2)
+
+vor ekeln | ekeln prep?
+vor erschrecken | erschrecken prep? (2/2)
+vor fliehen | fliehen prep?
+vor fürchten | fürchten prep?
+vor schützen | schützen prep? (2/2)
+vor verheimlichen | verheimlichen prep?
+vor verstecken | verstecken prep?
+vor warnen | warnen prep?
+
+zu anbieten | anbieten prep?
+zu auffordern | auffordern prep?
+zu befördern | befördern prep?
+zu beglückünschen | beglückünschen prep?
+zu bekennen | bekennen prep?
+zu benutzen | benutzen prep?
+zu beten | beten prep? (2/2)
+zu dienen | dienen prep?
+zu einladen | einladen prep?
+zu entschließen | entschließen prep?
+zu führen | führen prep?
+zu gehören | gehören prep?
+zu gratulieren | gratulieren prep?
+zu kommen | kommen prep? (2/2)
+zu meinen | meinen prep?
+zu passen | passen prep?
+zu sagen | sagen prep? (2/2)
+zu schweigen | schweigen prep?
+zu überreden | überreden prep?

@@ -9,5 +9,9 @@ window.okanDE.trainings = [
     {
         filename: '1-article',
         title: 'Articles',
+    },
+    {
+        filename: '2-verben-mit-praepositionen.txt',
+        title: 'Verben mit Präpositionen',
     }
 ]
