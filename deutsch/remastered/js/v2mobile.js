@@ -249,6 +249,11 @@ var app = new Vue({
          }
       },
       touch(action, event, i) {
+         // skip right click
+         if (event.button === 2) {
+            return;
+         }
+
          if (event?.touches?.length > 0) {
             this.hasTouchedBefore = true;
          }
@@ -288,7 +293,6 @@ var app = new Vue({
          }
       },
       swipe(action, x, y, target, i) {
-         console.log(x, y)
          const slideableArea = target.querySelector('.slideable_area')
          if (action === 'start') {
             slideableArea.classList.add('animating')
