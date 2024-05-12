@@ -13,5 +13,9 @@ window.okanDE.trainings = [
     {
         filename: '2-verben-mit-praepositionen',
         title: 'Verben mit Präpositionen',
+    },
+    {
+        filename: '3-unregelmäßige präteritum',
+        title: 'Unregelmäßige Präteritum',
     }
 ]
