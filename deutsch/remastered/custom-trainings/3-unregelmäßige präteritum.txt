@@ -24,7 +24,7 @@ schaffen-geschaffen	schuf
 schlafen-gesclafen	schlief
 schwimmen-geschwommen	schwamm
 sehen-gesehen	sah
-sitzen-gesessen	gaß
+sitzen-gesessen	saß
 sprechen-gesprochen	sprach
 stehen-gestanden	stand
 sterben-gestorben	starb
