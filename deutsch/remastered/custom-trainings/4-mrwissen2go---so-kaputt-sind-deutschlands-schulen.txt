@@ -10,5 +10,5 @@ Sturm | Fırtına
 Gefährdung | Tehlikeye atılma, tehdit
 Beurteilung | Değerlendirme, değerlendirme
 Gefährdungsbeurteilung | Risk değerlendirmesi
-besagt | Söylüyor, ifade ediyor
+besagt | (Kanun vs. referans olarak) Söylüyor, ifade ediyor
 besetzen | İşgal etmek, ele geçirmek
