@@ -1,6 +1,6 @@
 gesamten Schule |  Tüm okul
 vereinzelt |  einige - Tek tük, nadiren
-drumherum |  Etrafında
+drumherum |  (physically) around - Kinder liefen drumherum - Leute drumherum sind nett
 betroffen |  Etkilenen
 Zustände |  Durumlar, koşullar
 erlebe |  Yaşıyorum, deneyimliyorum
@@ -8,10 +8,11 @@ auf zig marode Schulgebäude gestoßen |  Birçok harap okul binasıyla karşıl
 Kreditanstalt |  Kredi kurumu
 Weideraufbau |  Yeniden inşa
 beträgt |  (para/miktar/vb'nin belirli bir seviyeyi) bulmak / erişmek / görmek
-Investitionsrückstau |  Yatırım eksikliği
+Rückstau | Gerilik / eksiklik
+Investitionsrückstau |  Yatırım geriliği / eksikliği
 Kommunen |  Belediyeler
-nannten |  Belirtttiler, adlandırdılar
-gravierend |  Ciddi, ağır
+nannten |  nennen -> nannten - belirtmek -> belirtti
+gravierend |  (yatırımdaki geriliğin) Ciddi, ağır (olması)
 vermeintlich |  Görünürde, sanki
 zuständig |  Sorumlu
 Allerdings |  Fakat, ancak
