@@ -8,7 +8,7 @@ beispielhaft | Örnek teşkil eden, tipik
 stürmt | Fırtına esiyor
 Sturm | Fırtına
 Gefährdung | Tehlikeye atılma, tehdit
-Beurteilung | Değerlendirme, değerlendirme
+Beurteilung | Değerlendirme
 Gefährdungsbeurteilung | Risk değerlendirmesi
 besagt | (Kanun vs. referans olarak) Söylüyor, ifade ediyor
 besetzen | (oturma yerini) İşgal etmek, EN: Occupy
