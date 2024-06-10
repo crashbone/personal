@@ -20,6 +20,10 @@ window.okanDE.trainings = [
     },
     {
         filename: '4-mrwissen2go---so-kaputt-sind-deutschlands-schulen',
-        title: '[TR] MrWissen2Go - So kaputt sind Deutschlands Schulen',
+        title: '[TR] MrWiss... [1] en2Go - So kaputt sind Deutschlands Schulen',
+    },
+    {
+        filename: '5-mrwissen2go---so-kaputt-sind-deutschlands-schulen',
+        title: '[TR] MrWiss... [2] en2Go - So kaputt sind Deutschlands Schulen',
     }
 ]
