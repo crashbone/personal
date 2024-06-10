@@ -1,4 +1,4 @@
-Scheibe | Cam, pencere camı
+Scheibe | Pencere camı (Fenster pencerenin tamamı iken, scheibe sadece cam kısmı) EN: pane
 Glaser | Camcı
 segelt | Süzülmek, havada yavaşça hareket etmek
 Absperrung | Bariyer, engelleme, giriş-çıkışın yasak olduğu alan
