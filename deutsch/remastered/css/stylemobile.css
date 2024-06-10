@@ -17,6 +17,11 @@ body,
    margin: auto;
 }
 
+.custom_trainings_flex_container {
+   flex-wrap: wrap;
+   justify-content: space-around;
+}
+
 * {
    margin: 0px;
    padding: 0px;
@@ -64,6 +69,7 @@ button {
    border: 1px solid gray;
    border-radius: 10px;
    white-space: nowrap;
+   flex-shrink: 0;
 
    text-align: center;;
 
