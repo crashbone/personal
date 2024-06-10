@@ -11,4 +11,4 @@ Gefährdung | Tehlikeye atılma, tehdit
 Beurteilung | Değerlendirme, değerlendirme
 Gefährdungsbeurteilung | Risk değerlendirmesi
 besagt | (Kanun vs. referans olarak) Söylüyor, ifade ediyor
-besetzen | İşgal etmek, ele geçirmek
+besetzen | (oturma yerini) İşgal etmek, EN: Occupy
