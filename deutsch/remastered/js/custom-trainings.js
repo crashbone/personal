@@ -19,7 +19,7 @@ window.okanDE.trainings = [
         title: 'Unregelmäßige Präteritum',
     },
     {
-        filename: '4-mrwissen2go-so-kaputt-sind-deutschlands-schulen',
+        filename: '4-mrwissen2go---so-kaputt-sind-deutschlands-schulen',
         title: 'MrWissen2Go - So kaputt sind Deutschlands Schulen',
     }
 ]
