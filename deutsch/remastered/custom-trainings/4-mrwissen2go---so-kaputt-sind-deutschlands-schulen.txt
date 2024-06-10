@@ -2,7 +2,7 @@ marode | Yıpranmış, harap olmuş, bakımsız halde olan
 Umgebung | Çevre, etraf
 Räumlichkeiten | Mekanlar, odalar
 Moder | Çürüme, küflenme
-unmittelbar | Dolaysız, anında, yakında
+unmittelbar | Çevre için: çok sıklıkla maruz kalınan, EN: immediate
 Umfeld | Çevre, ortam
 beispielhaft | Örnek teşkil eden, tipik
 stürmt | Fırtına esiyor
