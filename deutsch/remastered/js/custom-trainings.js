@@ -34,5 +34,9 @@ window.okanDE.trainings = [
     {
         filename: '6-mrwissen2go---so-kaputt-sind-deutschlands-schulen-2',
         title: '[TR] MrWiss... [3.5] en2Go - So kaputt sind Deutschlands Schulen',
+    },
+    {
+        filename: '7-germany',
+        title: '[TR] Germany',
     }
 ]
