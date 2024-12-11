@@ -1,0 +1,161 @@
+* {
+   margin: 0px;
+   padding: 0px;
+   /* border: 1px dashed black; */
+}
+body {
+   width: 100%;
+   height: 100vh;
+   display: flex;
+   justify-content: center;
+   background-image: url("../img/bg-1.png");
+   background-repeat: no-repeat;
+   background-size: cover;
+   letter-spacing: 1.15px;
+}
+.main-frame {
+   position: relative;
+   width: 810px;
+   height: 1364px;
+   background-image: url("../img/main-frame-4.png");
+}
+.main-item-container {
+
+   display: flex;
+   flex-wrap: wrap;
+   padding-left: 44px;
+   padding-top: 75px;
+}
+.button-container{
+   position: absolute;
+   display: flex;
+   align-items: flex-start;
+   justify-content: space-evenly;
+
+   top: 36px;
+   left: 130px;
+
+   width: calc(100% - 260px);
+   font-size: 16px;
+}
+.button{
+   /* border: 1px dashed black; */
+   cursor: pointer;
+   padding: 8px 10px;
+}
+.button:hover{
+   color: #65FA5A;
+}
+
+.item-container{
+   position: relative;
+}
+
+.item {
+   width: 170px;
+   height: 127px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   position: relative;
+}
+
+.item .text {
+   color: white;
+   position: absolute;
+   top: 0;
+   left: 0;
+   top: 0;
+   bottom: 0;
+   right: 0;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.item img {
+   width: 100%;
+   height: 100%;
+   object-fit: contain;
+}
+
+.item-tooltip-container {
+   pointer-events: none;
+   z-index: 1;
+   position: absolute;
+   top: -26.5px;
+   left: -65px;
+   width: 300px;
+   height: 180px;
+   background-color: rgba(0, 0, 0, 0.6);
+}
+.item-tooltip {
+   z-index: 1;
+   width: 100%;
+   height: 100%;
+   background-image: url("../img/tooltipframe-5.png");
+}
+.item-tooltip-text-container {
+   height: 100%;
+   color: #ddd;
+   font-size: 18px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-evenly;
+   align-items: center
+}
+.item-tooltip-text.description{
+   font-size: 14px;
+   color: grey;
+}
+.item-tooltip-text-territory.rhodok{
+   color: lime;
+}
+.item-tooltip-text-territory.nord{
+   color: rgb(0,255,255);
+}
+.item-tooltip-text-territory.khergit{
+   color: #D39FFE;
+}
+.item-tooltip-text-territory.sarranid{
+   color: #DADA35;
+}
+.item-tooltip-text-territory.swadia{
+   color: #F97D48;
+}
+.item-tooltip-text-territory.vaegir{
+   color: #D1C09D;
+}
+.item-tooltip-text-low {
+   color: gray;
+}
+.item-tooltip-text-high {
+   color: orange;
+   font-weight: bold;
+}
+.options-container {
+   position: absolute;
+   left: 0px;
+   top: 0px;
+   /* background-color: white; */
+   height: 100vh;
+   width: calc(50vw - 405px);
+}
+.options-section {
+   color: white;
+   text-shadow: black 1px 1px 1px;
+   padding: 10px 5px;
+   font-size: 20px;
+}
+
+.options-section a{
+   /* text-decoration: inherit; */
+   /* color: inherit; */
+}
+select {
+   background-color: rgba(255, 255, 255, 0.75);
+   width: 150px;
+   height: 30px;
+   text-align: center;
+}

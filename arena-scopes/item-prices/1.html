@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>MBW Item Prices</title>
+</head>
+
+<body>
+   <div id="main_container">
+      <div class="options-container">
+         <div class="options-section">
+
+            <span>{{translate("Language")}} <span v-show="language!='en'"> (Language)</span></span><br>
+            <select v-model="language">
+               <option value="en">English</option>
+               <option value="tr">Türkçe</option>
+            </select><br><br>
+
+            <span>{{translate("Pair of values to highlight for flat difference")}}</span><br>
+            <input type="range" min="0" max="2000" v-model="flatMin">{{flatMin}}<br>
+            <input type="range" min="0" max="2000" v-model="flatMax">{{flatMax}}<br><br>
+            <span>{{translate("For percentage difference")}}</span><br>
+            <input type="range" min="0" max="500" v-model="percentageMin">{{percentageMin}}<br>
+            <input type="range" min="0" max="500" v-model="percentageMax">{{percentageMax}}<br>
+         </div>
+         <div class="options-section">
+            <h3>{{translate("Some useful links")}}</h3>
+            <a href="https://forums.taleworlds.com/index.php?topic=117531.0">Virus' guide of trade/prices in Warband</a><br>
+            <a href="https://steamcommunity.com/sharedfiles/filedetails/?id=213515522">"Safe" combinations of companions</a>
+         </div>
+      </div>
+      <div class="main-frame">
+         <div class="button-container">
+            <span class="button" v-on:click="sortRequest('flat')">{{translate("Sort by flat difference")}}</span>
+            <span class="button" v-on:click="sortRequest('percentage')">{{translate("Sort by percentage difference")}}</span>
+         </div>
+         <div class="main-item-container">
+            <div class="item-container" v-for="item in items" :key="sortCounter">
+               <div class="item" v-on:mouseover="item.hover=true" v-on:mouseleave="item.hover=false" v-on:click="openInNewTab(imgBigPath(item.imgPath))">
+                  <img class="item-img" v-bind:src="imgSmallPath(item.imgPath)">
+                  <div class="text">{{ item.name }}</div>
+               </div>
+               <div class="item-tooltip-container" v-show="item.hover">
+                  <div class="item-tooltip">
+                     <div class="item-tooltip-text-container">
+                        <p class="item-tooltip-text">{{translate(item.name)}}</p>
+                        <p class="item-tooltip-text">{{translate("Min buy")}}: {{item.lowest}}</p>
+                        <p v-if="item.lowestTerritories.length > 0" class="item-tooltip-text description">{{translate("Buy from")}}: <span v-for="territory in item.lowestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
+                        <p class="item-tooltip-text">{{translate("Max sell")}}: {{item.highest}}</p>
+                        <p v-if="item.highestTerritories.length > 0" class="item-tooltip-text description">{{translate("Sell to")}}: <span v-for="territory in item.highestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
+                        <p class="item-tooltip-text">{{translate("Profit")}}: <span v-bind:class="flatDifTextClass(item.flatDif)">{{item.flatDif}}</span></p>
+                        <p class="item-tooltip-text">{{translate("Percentage Profit")}}: <span v-bind:class="percentageDifTextClass(item.percentageDif)">{{item.percentageDif}}%</span></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
+</html>
