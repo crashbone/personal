@@ -125,8 +125,8 @@ var app = new Vue({
             item.flatDif = item.highest - item.lowest
             item.percentageDif = Math.round(Number(item.flatDif / item.lowest) * 100)
          })
-         this.sortRequest('flat')
-         this.sortRequest('flat')
+         /* this.sortRequest('flat')
+         this.sortRequest('flat') */
       },
       /* itemInit() {
          var items = [
@@ -134,7 +134,7 @@ var app = new Vue({
                name: "Tools",
                lowest: 380,
                highest: 430,
-               imgPath: "tools.png",
+               imgPath: "tools",
             },
             {
                name: "Linen",
@@ -142,19 +142,19 @@ var app = new Vue({
                highest: 270,
                lowestTerritories: ["Sargoth"],
                highestTerritories: ["Bariyye"],
-               imgPath: "linen.png",
+               imgPath: "linen",
             },
             {
                name: "Leatherwork",
                lowest: 190,
                highest: 240,
-               imgPath: "leatherwork.png",
+               imgPath: "leatherwork",
             },
             {
                name: "Hides",
                lowest: 90,
                highest: 130,
-               imgPath: "hides.png",
+               imgPath: "hides",
             },
             {
                name: "Wool Cloth",
@@ -162,7 +162,7 @@ var app = new Vue({
                highest: 270,
                lowestTerritories: ["Ahmerrad"],
                highestTerritories: ["Dhirim"],
-               imgPath: "wool-cloth.png",
+               imgPath: "wool-cloth",
             },
             {
                name: "Pottery",
@@ -170,14 +170,14 @@ var app = new Vue({
                highest: 130,
                lowestTerritories: ["Sarranid"],
                highestTerritories: ["Yalen"],
-               imgPath: "pottery.png",
+               imgPath: "pottery",
             },
             {
                name: "Flax Bundle",
                lowest: 110,
                highest: 200,
                highestTerritories: ["Tihr", "Durquba"],
-               imgPath: "flax-bundle.png",
+               imgPath: "flax-bundle",
             },
             {
                name: "Salt",
@@ -185,7 +185,7 @@ var app = new Vue({
                highest: 260,
                lowestTerritories: ["Wercheg", "Tulga"],
                highestTerritories: ["Jelkala"],
-               imgPath: "salt.png",
+               imgPath: "salt",
             },
             {
                name: "Oil",
@@ -193,7 +193,7 @@ var app = new Vue({
                highest: 470,
                lowestTerritories: ["Suno"],
                highestTerritories: ["Sargoth"],
-               imgPath: "oil.png",
+               imgPath: "oil",
             },
             {
                name: "Iron",
@@ -201,7 +201,7 @@ var app = new Vue({
                highest: 290,
                lowestTerritories: ["Curaw"],
                highestTerritories: ["Rivacheg", "Khudan", "Wercheg"],
-               imgPath: "iron.png",
+               imgPath: "iron",
             },
             {
                name: "Raw Silk",
@@ -209,7 +209,7 @@ var app = new Vue({
                highest: 650,
                lowestTerritories: ["Rivacheg", "Vezin"],
                highestTerritories: ["Jelkala"],
-               imgPath: "raw-silk.png",
+               imgPath: "raw-silk",
             },
             {
                name: "Furs",
@@ -217,7 +217,7 @@ var app = new Vue({
                highest: 400,
                lowestTerritories: ["Rivacheg"],
                highestTerritories: ["Yalen", "Jelkala", "Veluca", "Shariz", "Bariyye"],
-               imgPath: "furs.png",
+               imgPath: "furs",
             },
             {
                name: "Spice",
@@ -225,13 +225,13 @@ var app = new Vue({
                highest: 950,
                lowestTerritories: ["Tulga", "Khergit"],
                highestTerritories: ["Nord", "Rhodok", "Swadia", "Vaegir"],
-               imgPath: "spice.png",
+               imgPath: "spice",
             },
             {
                name: "Dyes",
                lowest: 120,
                highest: 210,
-               imgPath: "dyes.png",
+               imgPath: "dyes",
             },
             {
                name: "Wool",
@@ -239,7 +239,7 @@ var app = new Vue({
                highest: 190,
                lowestTerritories: ["Yalen"],
                highestTerritories: ["Ichamur"],
-               imgPath: "wool.png",
+               imgPath: "wool",
             },
             {
                name: "Date Fruit",
@@ -247,7 +247,7 @@ var app = new Vue({
                highest: 135,
                lowestTerritories: ["Sarranid"],
                highestTerritories: ["Yalen", "Wercheg"],
-               imgPath: "date-fruit.png",
+               imgPath: "date-fruit",
             },
             {
                name: "Wine",
@@ -255,49 +255,58 @@ var app = new Vue({
                highest: 290,
                lowestTerritories: ["Veluca"],
                highestTerritories: ["Bariyye"],
-               imgPath: "wine.png",
+               imgPath: "wine",
             }
          ]
          this.addItems(items)
       }, */
       itemInit() {
          const scopes = [
-            { name: "EKP-8-02 Reflex", imgPath: "1-ekp-8-02-reflex.jpg" },
-            { name: "OKP-7 Reflex", imgPath: "2-okp-7-reflex.jpg" },
-            { name: "EKO-8-18 Reflex", imgPath: "3-eko-8-18-reflex.jpg" },
-            { name: "Classic Red Dot Reflex", imgPath: "4-classic-red-dot-reflex.jpg" },
-            { name: "3.5x AK Scope", imgPath: "5-3.5x-ak-scope.jpg" },
-            { name: "F200 1.6 Optical", imgPath: "6-f200-1.6-optical.jpg" },
-            { name: "Full Vision Triangle Reflex", imgPath: "7-full-vision-triangle-reflex.jpg" },
-            { name: "533 Holographic", imgPath: "8-533-holographic.jpg" },
-            { name: "Compact Reflex", imgPath: "9-compact-reflex.jpg" },
-            { name: "Mosin Dedicated 3.5x", imgPath: "10-mosin-dedicated-3.5x.jpg" },
-            { name: "PK-06 Reflex", imgPath: "11-pk-06-reflex.jpg" },
-            { name: "PSO 4x", imgPath: "12-pso-4x.jpg" },
-            { name: "Triangle Precision", imgPath: "13-triangle-precision.jpg" },
-            { name: "Simple Red Dot", imgPath: "14-simple-red-dot.jpg" },
-            { name: "Classic Holo", imgPath: "15-classic-holo.jpg" },
-            { name: "4x Scope", imgPath: "16-4x-scope.jpg" },
-            { name: "1x-6x Scope 1", imgPath: "17-1x-6x-scope-1.jpg" },
-            { name: "1x-6x Scope 2", imgPath: "17-1x-6x-scope-2.jpg" },
-            { name: "1x-4x Scope 1", imgPath: "18-1x-4x-scope-1.jpg" },
-            { name: "1x-4x Scope 2", imgPath: "18-1x-4x-scope-2.jpg" },
-            { name: "2x-7x Scope 1", imgPath: "19-2x-7x-1.jpg" },
-            { name: "4x-16x Scope 1", imgPath: "20-4x-16x-1.jpg" },
-            { name: "4x-16x Scope 2", imgPath: "20-4x-16x-2.jpg" },
-            { name: "6.5x-20x Scope 1", imgPath: "21-6.5x-20x-1.jpg" },
-            { name: "6.5x-20x Scope 2", imgPath: "21-6.5x-20x-2.jpg" },
-            { name: "2x Tactical", imgPath: "22-2x-tactical.jpg" },
-            { name: "4x Holographic Triangle 1", imgPath: "23-4x-holographic-triangle-1.jpg" },
-            { name: "4x Holographic Triangle 2", imgPath: "23-4x-holographic-triangle-2.jpg" },
-            { name: "3.5x Scope", imgPath: "24-3.5x-scope.jpg" },
-            { name: "3x Holo 1", imgPath: "25-3x-holo-1.jpg" },
-            { name: "3x Holo 2", imgPath: "25-3x-holo-2.jpg" },
-            { name: "3x", imgPath: "26-3x.jpg" },
-            { name: "PS320 1x-6x 1", imgPath: "27-ps320-1x-6x-1.jpg" },
-            { name: "PS320 1x-6x 2", imgPath: "27-ps320-1x-6x-2.jpg" },
-            { name: "PZ3 Thermal 1", imgPath: "28-pz3-thermal-1.jpg" },
-            { name: "PZ3 Thermal 2", imgPath: "28-pz3-thermal-2.jpg" }
+            { name: "1x/4x Scope", imgPath: "1-1x-4x-scope", bigImgCount: 4 },
+            { name: "1x/6x Sight", imgPath: "2-1x-6x-sight", bigImgCount: 4 },
+            { name: "2x Scope", imgPath: "3-2x", bigImgCount: 2 },
+            { name: "30mm + 1x/6x Scope", imgPath: "4-30mm-1x-6x-scope", bigImgCount: 4 },
+            { name: "30mm + 2x/7x Scope", imgPath: "5-30mm-2x-7x-scope", bigImgCount: 4 },
+            { name: "3x Scope", imgPath: "6-3x-scope", bigImgCount: 2 },
+            { name: "3x Holo", imgPath: "7-3x-holo", bigImgCount: 2 },
+            { name: "4x Holographic Triangle", imgPath: "8-4x-holographic-triangle", bigImgCount: 2 },
+            { name: "533 Holographic", imgPath: "9-533-holographic" },
+            { name: "EKP-8-18 Reflex", imgPath: "10-ekp-8-18-reflex" },
+            { name: "Classic Holo", imgPath: "11-classic-holo" },
+            { name: "Compact Universal + 3.5x Scope", imgPath: "12-compact-universal-3.5x-scope", bigImgCount: 2 },
+            { name: "Compact Universal + 4x Scope", imgPath: "13-compact-universal-4x-scope", bigImgCount: 2 },
+            { name: "Compact Sight Bottom Rail + Compact Reflex", imgPath: "14-compact-sight-bottom-rail-compact-reflex", bigImgCount: 2 },
+            { name: "Mini Red Dot Rail + Classic Red Dot Reflex", imgPath: "15-mini-red-dot-rail-classic-red-dot-reflex", bigImgCount: 2 },
+            { name: "PK-06 Reflex", imgPath: "16-pk-06-reflex" },
+            { name: "PZ3 Thermal", imgPath: "17-pz3-thermal", bigImgCount: 2 },
+            { name: "Simple Red Dot", imgPath: "18-simple-red-dot" },
+            { name: "Triangle Precision", imgPath: "19-triangle-precision" },
+            
+            // { name: "EKP-8-02 Reflex", imgPath: "1-ekp-8-02-reflex" },
+            // { name: "OKP-7 Reflex", imgPath: "2-okp-7-reflex" },
+            // { name: "Classic Red Dot Reflex", imgPath: "4-classic-red-dot-reflex" },
+            // { name: "3.5x AK Scope", imgPath: "5-3.5x-ak-scope" },
+            // { name: "F200 1.6 Optical", imgPath: "6-f200-1.6-optical" },
+            // { name: "Full Vision Triangle Reflex", imgPath: "7-full-vision-triangle-reflex" },
+            
+            // { name: "Compact Reflex", imgPath: "9-compact-reflex" },
+            // { name: "Mosin Dedicated 3.5x", imgPath: "10-mosin-dedicated-3.5x" },
+            
+            // { name: "PSO 4x", imgPath: "12-pso-4x" },
+            // { name: "Triangle Precision", imgPath: "13-triangle-precision" },
+            // { name: "Simple Red Dot", imgPath: "14-simple-red-dot" },
+            // { name: "4x Scope", imgPath: "16-4x-scope" },
+            // { name: "1x/6x Scope", imgPath: "17-1x-6x-scope", bigImgCount: 2 },
+            // { name: "1x/4x Scope", imgPath: "18-1x-4x-scope", bigImgCount: 2 },
+            // { name: "2x/7x Scope", imgPath: "19-2x-7x" },
+            // { name: "4x/16x Scope", imgPath: "20-4x-16x", bigImgCount: 2 },
+            // { name: "6.5x-20x Scope", imgPath: "21-6.5x-20x", bigImgCount: 2 },
+            // { name: "2x Tactical", imgPath: "22-2x-tactical" },
+            // { name: "3.5x Scope", imgPath: "24-3.5x-scope" },
+            
+            // { name: "3x", imgPath: "26-3x" },
+            // { name: "PS320 1x-6x", imgPath: "27-ps320-1x-6x", bigImgCount: 2 },
+            
          ];
       
          this.items = scopes.map((scope, index) => ({
@@ -307,14 +316,16 @@ var app = new Vue({
             highest: 1000,
             lowestTerritories: ["Tulga"],
             highestTerritories: ["Ichamur"],
-            imgPath: scope.imgPath
+            imgPath: scope.imgPath,
+            bigImgCount: scope.bigImgCount || 1,
+            hover: -1,
          }));
       },
       imgSmallPath(path) {
-         return "./img/small/" + path;
+         return "./img/small/" + path + ".jpg";
       },
-      imgBigPath(path) {
-         return "./img/big/" + path;
+      imgBigPath(path, n) {
+         return "./img/big/" + path + "-" + n + ".jpg";
       },
       flatDifTextClass(flatDif) {
          var number = Number(flatDif)

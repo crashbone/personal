@@ -10,26 +10,34 @@
 <body>
    <div id="main_container">
       <div class="main-frame">
+         <div class="main-frame-bg"></div>
          <div class="button-container">
          </div>
          <div class="main-item-container">
-            <div class="item-container" v-for="item in items" :key="sortCounter">
-               <div class="item" v-on:mouseover="item.hover=true" v-on:mouseleave="item.hover=false" v-on:click="openInNewTab(imgBigPath(item.imgPath))">
-                  <img class="item-img" v-bind:src="imgSmallPath(item.imgPath)">
+            <div class="item-container" v-for="(item, itemIndex) in items" :key="sortCounter">
+               <div class="item">
                   <div class="text">{{ item.name }}</div>
-               </div>
-               <div class="item-tooltip-container" v-show="item.hover">
-                  <div class="item-tooltip">
-                     <div class="item-tooltip-text-container">
-                        <p class="item-tooltip-text">{{translate(item.name)}}</p>
-                        <p class="item-tooltip-text">{{translate("Min buy")}}: {{item.lowest}}</p>
-                        <p v-if="item.lowestTerritories.length > 0" class="item-tooltip-text description">{{translate("Buy from")}}: <span v-for="territory in item.lowestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
-                        <p class="item-tooltip-text">{{translate("Max sell")}}: {{item.highest}}</p>
-                        <p v-if="item.highestTerritories.length > 0" class="item-tooltip-text description">{{translate("Sell to")}}: <span v-for="territory in item.highestTerritories" class="item-tooltip-text-territory" :class="territoryClass(territory)">{{translate(territory)}} </span></p>
-                        <p class="item-tooltip-text">{{translate("Profit")}}: <span v-bind:class="flatDifTextClass(item.flatDif)">{{item.flatDif}}</span></p>
-                        <p class="item-tooltip-text">{{translate("Percentage Profit")}}: <span v-bind:class="percentageDifTextClass(item.percentageDif)">{{item.percentageDif}}%</span></p>
-                     </div>
-                  </div>
+                  <img class="item-img" v-bind:src="imgSmallPath(item.imgPath)">
+                  <div class="buttons">
+                     <template v-for="i in item.bigImgCount">
+                        <div class="button_container">
+                           <a class="button"
+                           :href="imgBigPath(item.imgPath, i)"
+                           target="_blank"
+                           @mouseover="item.hover = i"
+                           @mouseleave="item.hover = -1">
+                           {{ i }}
+                        </a>
+                        <div class="item-tooltip-container" v-show="item.hover === i">
+                           <div class="item-tooltip">
+                              <img class="scope_preview" v-bind:src="imgBigPath(item.imgPath, i)">
+                           </div>
+                        </div>
+                        </div>
+                        
+                     </template>
+                     
+                 </div>
                </div>
             </div>
 
