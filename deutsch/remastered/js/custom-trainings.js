@@ -40,7 +40,7 @@ window.okanDE.trainings = [
         title: '[TR] Germany',
     },
     {
-        filename: '8-Handwerk-rustet-digital-auf.txt',
+        filename: '8-Handwerk-rustet-digital-auf',
         title: '[TR] Deutschlands Handwerk rüstet digital auf',
     }
 ]
