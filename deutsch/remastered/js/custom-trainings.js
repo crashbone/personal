@@ -42,5 +42,9 @@ window.okanDE.trainings = [
     {
         filename: '8-Handwerk-rustet-digital-auf',
         title: '[TR] Deutschlands Handwerk rüstet digital auf',
+    },
+    {
+        filename: '9-wie-ein-kleiner-hund-studierenden-hilft',
+        title: '[TR] Wie ein kleiner Hund Studierenden hilft',
     }
 ]
