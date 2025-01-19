@@ -46,5 +46,9 @@ window.okanDE.trainings = [
     {
         filename: '9-wie-ein-kleiner-hund-studierenden-hilft',
         title: '[TR] Wie ein kleiner Hund Studierenden hilft',
+    },
+    {
+        filename: '10-mit-burgernahe-in-den-spd-wahlkampf',
+        title: '[TR] Mit Bürgernähe in den SPD-Wahlkampf',
     }
 ]
