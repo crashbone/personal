@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+   <meta charset="utf-8">
+   <link rel="stylesheet" href="./css/style.css">
+   <title>BF6 Scopes</title>
+</head>
+
+<body>
+   <div id="main_container">
+      <div class="main-frame">
+         <div class="main-frame-bg"></div>
+         <div class="button-container">
+            <input class="search" type="text" v-model="search" @input="filterItems" autofocus placeholder="🔍" ref="searchEl">
+         </div>
+         <div class="main-item-container">
+            <div class="item-container" v-for="(item, itemIndex) in items2" :key="sortCounter">
+               <div class="item">
+                  <div class="text">{{ item.name }}</div>
+                  <img class="item-img" v-bind:src="imgSmallPath(item.imgPath)">
+                  <div class="buttons">
+                     <template v-for="i in item.bigImgCount">
+                        <div class="button_container">
+                           <a class="button"
+                           :href="imgBigPath(item.imgPath, i)"
+                           target="_blank"
+                           @mouseover="item.hover = i"
+                           @mouseleave="item.hover = -1">
+                           {{ i }}
+                        </a>
+                        <div class="item-tooltip-container" v-show="item.hover === i">
+                           <div class="item-tooltip">
+                              <img class="scope_preview" v-bind:src="imgBigPath(item.imgPath, i)">
+                           </div>
+                        </div>
+                        </div>
+                        
+                     </template>
+                     
+                 </div>
+               </div>
+            </div>
+
+         </div>
+      </div>
+   </div>
+</body>
+
+<script src="./lib/vue.js"></script>
+<script src="./js/1.js"></script>
+
+
+
+</html>
