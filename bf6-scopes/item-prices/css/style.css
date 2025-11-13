@@ -17,7 +17,7 @@ body {
 .main-frame {
    position: relative;
    width: 810px;
-   height: 854px;
+   height: 1101px;
 }
 
 .main-frame-bg {
@@ -45,7 +45,7 @@ body {
    padding-left: 44px;
    padding-top: 75px;
    height: 710px;
-   overflow: scroll;
+   /* overflow: scroll; */
 }
 
 .item-container{
